@@ -12,7 +12,55 @@
     <title>Project Details</title>
 </head>
 <body>
-    <form id="projectDetails" action="/add_new_project" method="post">
+    <!-- <section class="btns">
+        <button class="btn" type="button">View Company Projects</button>
+        <button class="btn" type="button">Capture New Client</button>
+        <button class="btn" type="button">View Progress</button>
+        <button class="btn" type="button">View Invoices</button>
+        <button class="btn" type="button">View Available Teams</button>
+    </section> -->
+
+
+
+    <form id="add_new_project_form" action="/add_new_project" method="post">
+        
+        <!-- client Details Form -->
+        <div id="clientDetailsForm">
+            <label for="ClentTitle">Title:</label>
+            <select class="formItem" name="ClentTitle" id="ClientTitle">
+                <option value="MR">MR</option>
+                <option value="MRS">MRS</option>
+                <option value="MS">MS</option>
+                <option value="MR">DR</option>
+                <option value="MRS">PROF</option>
+                <option value="MS">REV</option>
+            </select>
+            <br>
+            <label class="formItem" for="fname">First Name:</label>
+            <input class="formItem" type="text" id="fname" name="fname"><br>
+    
+            <label class="formItem" for="lname">Last Name:</label>
+            <input class="formItem" type="text" id="lname" name="lname" ><br>
+    
+            <input class="formItem" type="radio" name="gender" id="male">
+            <label for="male">Male</label>
+            <input class="formItem" type="radio" name="gender" id="female">
+            <label for="female">Female</label><br>
+    
+            <label for="PhoneNumber">Phone Number:</label>
+            <input class="formItem" type="text" id="PhoneNumber" name="PhoneNumber"><br>
+    
+            <label for="Email">Email Addres:</label>
+            <input class="formItem" type="text" id="Email" name="Email"><br>
+    
+            <label for="address">Physical Address:</label><br>
+            <textarea class="formItem" rows="4" cols="30" name="address" id="address"></textarea><br>
+    
+            <button class="formItem" type="submit">Next</button>
+            </div>
+
+        <!--project Details Form  -->
+        <div id="projectDetailsForm">
         <label for="TeamID">Select team:</label>
         <select class="formItem" name="TeamID" id="TeamID">
         <option value="avengers">avengers</option>
@@ -37,6 +85,7 @@
         <br/>
     
         <button class="formItem" type="submit">Add New Project</button>             
-    </form>
+        </div>
+      </form> 
 </body>
 </html>
