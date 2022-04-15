@@ -15,5 +15,44 @@
         <button class="btn" type="button">View Invoices</button>
         <button class="btn" type="button">View Available Teams</button>
     </section>
+
+
+    <h1>CAPTURE CLIENT'S DETAILS</h1>
+
+    <form action="/action_page.php">
+        <label for="ClentTitle">Title:</label>
+        <select name="ClentTitle" id="ClientTitle">
+            <option value="MR">MR</option>
+            <option value="MRS">MRS</option>
+            <option value="MS">MS</option>
+            <option value="MR">DR</option>
+            <option value="MRS">PROF</option>
+            <option value="MS">REV</option>
+        </select>
+        <br>
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname"><br>
+
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lname" ><br>
+
+        <input type="radio" name="gender" id="male">
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="female">
+        <label for="female">Female</label><br>
+
+        <label for="PhoneNumber">Phone Number:</label>
+        <input type="text" id="PhoneNumber" name="PhoneNumber"><br>
+
+        <label for="Email">Email Addres:</label>
+        <input type="text" id="Email" name="Email"><br>
+
+        <label for="address">Physical Address:</label><br>
+        <textarea rows="4" cols="30" name="address" id="address"></textarea><br>
+
+        
+        <input type="submit" value="Next">
+      </form> 
+      
 </body>
 </html>
