@@ -22,6 +22,35 @@ body{
 
 .formItem{
     height: 2rem;
+    margin: 0rem 0.5rem;
     /* border: solid 0.3rem black; */
 
+}
+
+/* modal */
+.modal-overlay{
+    display: grid;
+    place-items: center;
+    background-color: rgba(0, 0, 0, 0.712);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}
+
+.modal{
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    width: 50vw;
+    /* height: 30vh; */
+}
+
+#close-modal-btn{
+    background-color: rgb(189, 189, 189);
+    color: black;
+    position: absolute;
+    right: 0px;
+}
+
+.hide{
+    display: none;
 }

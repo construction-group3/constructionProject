@@ -9,83 +9,89 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <script src="./scripts.js" defer></script>
     <title>Project Details</title>
 </head>
 <body>
-    <!-- <section class="btns">
+    <section class="btns">
         <button class="btn" type="button">View Company Projects</button>
-        <button class="btn" type="button">Capture New Client</button>
+        <button id="captureNewProjectBtn" class="modal-btn btn" type="button">Capture New Client</button>
         <button class="btn" type="button">View Progress</button>
         <button class="btn" type="button">View Invoices</button>
         <button class="btn" type="button">View Available Teams</button>
-    </section> -->
+    </section>
 
-
-
-    <form id="add_new_project_form" action="/add_new_project" method="post">
+    <section id="CaptureNewProject" class="modal-overlay hide">
+        <div class="modal">
+            <button id="close-modal-btn" class="modal-btn">close</button>
+            <form id="add_new_project_form" action="/add_new_project" method="post">
         
-        <!-- client Details Form -->
-        <div id="clientDetailsForm">
-            <label for="ClentTitle">Title:</label>
-            <select class="formItem" name="ClentTitle" id="ClientTitle">
-                <option value="MR">MR</option>
-                <option value="MRS">MRS</option>
-                <option value="MS">MS</option>
-                <option value="MR">DR</option>
-                <option value="MRS">PROF</option>
-                <option value="MS">REV</option>
-            </select>
-            <br>
-            <label class="formItem" for="fname">First Name:</label>
-            <input class="formItem" type="text" id="fname" name="fname"><br>
-    
-            <label class="formItem" for="lname">Last Name:</label>
-            <input class="formItem" type="text" id="lname" name="lname" ><br>
-    
-            <input class="formItem" type="radio" name="gender" id="male">
-            <label for="male">Male</label>
-            <input class="formItem" type="radio" name="gender" id="female">
-            <label for="female">Female</label><br>
-    
-            <label for="PhoneNumber">Phone Number:</label>
-            <input class="formItem" type="text" id="PhoneNumber" name="PhoneNumber"><br>
-    
-            <label for="Email">Email Addres:</label>
-            <input class="formItem" type="text" id="Email" name="Email"><br>
-    
-            <label for="address">Physical Address:</label><br>
-            <textarea class="formItem" rows="4" cols="30" name="address" id="address"></textarea><br>
-    
-            <button class="formItem" type="submit">Next</button>
-            </div>
-
-        <!--project Details Form  -->
-        <div id="projectDetailsForm">
-        <label for="TeamID">Select team:</label>
-        <select class="formItem" name="TeamID" id="TeamID">
-        <option value="avengers">avengers</option>
-        <option value="titans">titans</option>
-        <option value="Justice league">Mercedes</option>
-        </select>
-        <br>
-    
-        <label for="houses">select house:</label>
-        <select class="formItem" name="houses" id="houses">
-        <option value="1room">1room</option>
-        <option value="2room">2room</option>
-        <option value="3room">3room</option>
-        <option value="4room">4room</option>
-        </select>           
-        </br>
-    
-        <input class="formItem" type="text"  required name="ProjectLocation" placeholder="ProjectLocation">
-        <br/>
-    
-        <input class="formItem" type="number"  required name="AmountPaidInZAR" placeholder="AmountPaidInZAR">
-        <br/>
-    
-        <button class="formItem" type="submit">Add New Project</button>             
+                <!-- client Details Form -->
+                <div id="clientDetailsForm">
+                    <label for="ClentTitle">Title:</label>
+                    <select class="formItem" name="ClentTitle" id="ClientTitle">
+                        <option value="MR">MR</option>
+                        <option value="MRS">MRS</option>
+                        <option value="MS">MS</option>
+                        <option value="MR">DR</option>
+                        <option value="MRS">PROF</option>
+                        <option value="MS">REV</option>
+                    </select>
+                    <br>
+                    <label class="formItem" for="fname">First Name:</label>
+                    <input class="formItem" type="text" id="fname" name="fname"><br>
+            
+                    <label class="formItem" for="lname">Last Name:</label>
+                    <input class="formItem" type="text" id="lname" name="lname" ><br>
+            
+                    <input class="formItem" type="radio" name="gender" id="male">
+                    <label for="male">Male</label>
+                    <input class="formItem" type="radio" name="gender" id="female">
+                    <label for="female">Female</label><br>
+            
+                    <label for="PhoneNumber">Phone Number:</label>
+                    <input class="formItem" type="text" id="PhoneNumber" name="PhoneNumber"><br>
+            
+                    <label for="Email">Email Addres:</label>
+                    <input class="formItem" type="text" id="Email" name="Email"><br>
+            
+                    <label for="address">Physical Address:</label><br>
+                    <textarea class="formItem" rows="4" cols="30" name="address" id="address"></textarea><br>
+            
+                    <button class="formItem" type="submit">Next</button>
+                    </div>
+        
+                <!--project Details Form  -->
+                <div id="projectDetailsForm">
+                <label for="TeamID">Select team:</label>
+                <select class="formItem" name="TeamID" id="TeamID">
+                <option value="avengers">avengers</option>
+                <option value="titans">titans</option>
+                <option value="Justice league">Justice league</option>
+                </select>
+                <br>
+            
+                <label for="houses">select house:</label>
+                <select class="formItem" name="houses" id="houses">
+                <option value="1room">1room</option>
+                <option value="2room">2room</option>
+                <option value="3room">3room</option>
+                <option value="4room">4room</option>
+                </select>           
+                </br>
+            
+                <input class="formItem" type="text"  required name="ProjectLocation" placeholder="ProjectLocation">
+                <br/>
+            
+                <input class="formItem" type="number"  required name="AmountPaidInZAR" placeholder="AmountPaidInZAR">
+                <br/>
+            
+                <button class="formItem" type="submit">Add New Project</button>             
+                </div>
+              </form> 
         </div>
-      </form> 
+    </section>
+
+   
 </body>
 </html>
