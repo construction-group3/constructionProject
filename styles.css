@@ -5,12 +5,27 @@
     font-family: 'Roboto', sans-serif;
 }
 
+ .homeButtons{
+    width: 100%;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+
 body{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
+}
+
+#home{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 50vw;
 }
 
 #projectDetailsForm, #clientDetailsForm {

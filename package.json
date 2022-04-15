@@ -1,0 +1,22 @@
+{
+  "name": "constructionproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/construction-group3/constructionProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/construction-group3/constructionProject/issues"
+  },
+  "homepage": "https://github.com/construction-group3/constructionProject#readme",
+  "dependencies": {
+    "jasmine": "^4.1.0"
+  }
+}
