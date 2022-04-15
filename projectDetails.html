@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="projectDetails" action="/add_new_project" method="post">
+        <label for="TeamID">Select team:</label>
+        <select name="TeamID" id="TeamID">
+        <option value="avengers">avengers</option>
+        <option value="titans">titans</option>
+        <option value="Justice league">Mercedes</option>
+        </select>
+        <br>
+    
+        <label for="houses">select house:</label>
+        <select name="houses" id="houses">
+        <option value="1room">1room</option>
+        <option value="2room">2room</option>
+        <option value="3room">3room</option>
+        <option value="4room">4room</option>
+        </select>           
+        </br>
+    
+        <input type="text"  required name="ProjectLocation" placeholder="ProjectLocation">
+        <br/>
+    
+        <input type="number"  required name="AmountPaidInZAR" placeholder="AmountPaidInZAR">
+        <br/>
+    
+        <button type="submit">Add New Project</button>             
+    </form>
+</body>
+</html>
