@@ -10,7 +10,7 @@
 <body>
     <form id="projectDetails" action="/add_new_project" method="post">
         <label for="TeamID">Select team:</label>
-        <select name="TeamID" id="TeamID">
+        <select class="formItem" name="TeamID" id="TeamID">
         <option value="avengers">avengers</option>
         <option value="titans">titans</option>
         <option value="Justice league">Mercedes</option>
@@ -18,7 +18,7 @@
         <br>
     
         <label for="houses">select house:</label>
-        <select name="houses" id="houses">
+        <select class="formItem" name="houses" id="houses">
         <option value="1room">1room</option>
         <option value="2room">2room</option>
         <option value="3room">3room</option>
@@ -26,13 +26,13 @@
         </select>           
         </br>
     
-        <input type="text"  required name="ProjectLocation" placeholder="ProjectLocation">
+        <input class="formItem" type="text"  required name="ProjectLocation" placeholder="ProjectLocation">
         <br/>
     
-        <input type="number"  required name="AmountPaidInZAR" placeholder="AmountPaidInZAR">
+        <input class="formItem" type="number"  required name="AmountPaidInZAR" placeholder="AmountPaidInZAR">
         <br/>
     
-        <button type="submit">Add New Project</button>             
+        <button class="formItem" type="submit">Add New Project</button>             
     </form>
 </body>
 </html>

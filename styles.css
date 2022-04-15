@@ -15,4 +15,11 @@ body{
 #projectDetails {
     display: flex;
     flex-direction: column;
+    border: solid 0.3rem grey;
+}
+
+.formItem{
+    height: 2rem;
+    border: solid 0.3rem grey;
+
 }
