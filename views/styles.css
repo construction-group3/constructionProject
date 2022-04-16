@@ -87,3 +87,12 @@ body{
     display: none;
 }
 
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 600px) {
+
+    .modal{
+        width: 90vw;
+    }
+}

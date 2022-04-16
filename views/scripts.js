@@ -20,7 +20,9 @@ const projectDetailsForm = document.getElementById("projectDetailsForm");
 projectDetailsBtn.addEventListener("click", () => {
   
   // validate client input
-  const clientFormInput = document.getElementsByClassName("clientFormInput");
+  const clientFormInput = Array.from(
+    document.getElementsByClassName("clientFormInput")
+  );
   const isValid = clientFormInput.some((input) => input.checkValidity());
   if (isValid) {
     clientDetailsForm.classList.toggle("hide");
