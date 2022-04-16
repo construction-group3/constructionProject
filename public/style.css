@@ -96,3 +96,9 @@ body{
         width: 90vw;
     }
 }
+
+@media screen and (max-width: 320px){ 
+    .modal{
+    font-size: 10px;
+    }
+  }
