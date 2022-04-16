@@ -1,18 +1,98 @@
-body {
-    background-color: rgb(141, 140, 140);
+*{
+    box-sizing: border-box;
+    padding: 0rem;
+    margin: 0rem;
+    font-family: 'Roboto', sans-serif;
 }
 
-.btns{
-    width: 50%;
-    margin: 10rem;
-    padding: 10rem;
-}
 
-.btn{
+body{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Home */
+
+#home{
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin: 0.5rem;
-    padding: 0.25rem;
-    border: 0.1rem solid black;
+    width: 50vw;
+}
+
+.homeButtons{
+    width: 100%;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+
+/* Capture New Project */
+
+.forms{
+    display: flex;
+    flex-direction: column;
+    /* width: 50%; */
+    /* border: solid 0.3rem black; */
+}
+
+.formItem{
+    height: 2rem;
+    margin: 0rem 0.5rem;
+    /* border: solid 0.3rem black; */
+
+}
+
+.formBtn{
+    margin: 0.5rem 0rem;
+}
+
+/* Modal */
+.modal-overlay{
+    display: grid;
+    place-items: center;
+    background-color: rgba(0, 0, 0, 0.712);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 2;
+}
+
+.modal{
+    z-index: 100;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    width: 50vw;
+    padding: 0rem 0.5rem;
+
+    /* height: 30vh; */
+}
+
+
+#close-modal-btn{
+    cursor: pointer;
+    font-size: 3rem;
+    border: none;
+    background-color: rgb(189, 189, 189);
+    position:absolute; 
+    right:0rem;
+    top: -3.5rem;
+}
+
+.hide{
+    display: none;
+}
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 600px) {
+
+    .modal{
+        width: 90vw;
+    }
 }
