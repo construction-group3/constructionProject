@@ -17,13 +17,22 @@ for (const btn of toggleModal) {
 const projectDetailsBtn = document.getElementById("projectDetailsBtn");
 const clientDetailsForm = document.getElementById("clientDetailsForm");
 const projectDetailsForm = document.getElementById("projectDetailsForm");
-projectDetailsBtn.addEventListener("click", () => {
+projectDetailsBtn.addEventListener("click", (e) => {
+  e.preventDefault()
   
   // validate client input
   const clientFormInput = Array.from(
     document.getElementsByClassName("clientFormInput")
   );
-  const isValid = clientFormInput.some((input) => input.checkValidity());
+  const isValid = clientFormInput.every((input) => {
+    
+    if (!input.checkValidity()) {
+      input.reportValidity()
+    }
+    return input.checkValidity()
+  });
+  
+
   if (isValid) {
     clientDetailsForm.classList.toggle("hide");
     projectDetailsForm.classList.toggle("hide");
