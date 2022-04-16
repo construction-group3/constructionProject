@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="./scripts.js" defer></script>
     <title>Project Details</title>
 </head>
@@ -21,13 +21,14 @@
         <button class="homeButtons btn" type="button">View Available Teams</button>
     </section>
 
-    <section id="CaptureNewProject" class="modal-overlay hide">
+    <section id="CaptureNewProject" class="modal-overlay  hide">
         <div class="modal">
-            <button id="close-modal-btn" class="modal-btn">close</button>
-            <form id="add_new_project_form" action="/add_new_project" method="post">
+            <!-- <button id="close-modal-btn" class="modal-btn">close</button> -->
+            <span id="close-modal-btn" class="material-icons modal-btn">close</span>
+            <form id="addNewProjectForm" action="/add_new_project" method="post">
         
                 <!-- client Details Form -->
-                <div id="clientDetailsForm">
+                <div id="clientDetailsForm" class="forms hide">
                     <label for="ClentTitle">Title:</label>
                     <select class="formItem" name="ClentTitle" id="ClientTitle">
                         <option value="MR">MR</option>
@@ -58,35 +59,38 @@
                     <label for="address">Physical Address:</label><br>
                     <textarea class="formItem" rows="4" cols="30" name="address" id="address"></textarea><br>
             
-                    <button class="formItem" type="submit">Next</button>
+                    <button id="projectDetailsBtn" class="formItem formBtn" type="submit">Next</button>
                     </div>
         
                 <!--project Details Form  -->
-                <div id="projectDetailsForm">
-                <label for="TeamID">Select team:</label>
-                <select class="formItem" name="TeamID" id="TeamID">
-                <option value="avengers">avengers</option>
-                <option value="titans">titans</option>
-                <option value="Justice league">Justice league</option>
-                </select>
-                <br>
-            
-                <label for="houses">select house:</label>
-                <select class="formItem" name="houses" id="houses">
-                <option value="1room">1room</option>
-                <option value="2room">2room</option>
-                <option value="3room">3room</option>
-                <option value="4room">4room</option>
-                </select>           
-                </br>
-            
-                <input class="formItem" type="text"  required name="ProjectLocation" placeholder="ProjectLocation">
-                <br/>
-            
-                <input class="formItem" type="number"  required name="AmountPaidInZAR" placeholder="AmountPaidInZAR">
-                <br/>
-            
-                <button class="formItem" type="submit">Add New Project</button>             
+                <div id="projectDetailsForm" class="forms">
+                    <label for="TeamID">Select team:</label>
+                    <select class="formItem" name="TeamID" id="TeamID">
+                    <option value="avengers">avengers</option>
+                    <option value="titans">titans</option>
+                    <option value="Justice league">Justice league</option>
+                    </select>
+                    <br>
+                
+                    <label for="houses">select house:</label>
+                    <select class="formItem" name="houses" id="houses">
+                    <option value="1room">1room</option>
+                    <option value="2room">2room</option>
+                    <option value="3room">3room</option>
+                    <option value="4room">4room</option>
+                    </select>           
+                    </br>
+                    
+                    <label for="ProjectLocation">Project Location:</label>
+                    <input class="formItem" type="text"  required name="ProjectLocation" placeholder="ProjectLocation">
+                    <br/>
+
+                    <label for="AmountPaidInZAR">Amount Paid (ZAR):</label>
+                    <input class="formItem" type="number"  required name="AmountPaidInZAR" placeholder="AmountPaidInZAR">
+                    <br/>
+                
+                    <button id="backToClientFormBtn" class="formItem formBtn" type="button">back</button>             
+                    <button  id="submitForm" class="formItem formBtn" type="submit">submit</button>             
                 </div>
               </form> 
         </div>
