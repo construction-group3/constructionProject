@@ -79,8 +79,8 @@ body{
     border: none;
     background-color: rgb(189, 189, 189);
     position:absolute; 
-    right:0%;
-    top: -10%;
+    right:0rem;
+    top: -3.5rem;
 }
 
 .hide{

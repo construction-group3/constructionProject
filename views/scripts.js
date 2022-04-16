@@ -18,8 +18,14 @@ const projectDetailsBtn = document.getElementById("projectDetailsBtn");
 const clientDetailsForm = document.getElementById("clientDetailsForm");
 const projectDetailsForm = document.getElementById("projectDetailsForm");
 projectDetailsBtn.addEventListener("click", () => {
-  clientDetailsForm.classList.toggle("hide");
-  projectDetailsForm.classList.toggle("hide");
+  
+  // validate client input
+  const clientFormInput = document.getElementsByClassName("clientFormInput");
+  const isValid = clientFormInput.some((input) => input.checkValidity());
+  if (isValid) {
+    clientDetailsForm.classList.toggle("hide");
+    projectDetailsForm.classList.toggle("hide");
+  }
 });
 
 // get the previous form on modal
