@@ -10,10 +10,27 @@
 <body>
     <section id="home" class="homeButtons">
         <button class="homeButtons btn " type="button">View Company Projects</button>
-        <button id="captureNewProjectBtn" class="homeButtons modal-btn btn" type="button">Capture New Client</button>
-        <button class="homeButtons btn" type="button">View Progress</button>
+        <button id="captureNewProjectBtn" class="homeButtons modal-btn btn" type="button">Capture New Project</button>
+        <button class="homeButtons btn" type="button">View Project Progress</button>
         <button class="homeButtons btn" type="button">View Invoices</button>
         <button class="homeButtons btn" type="button">View Available Teams</button>
+    </section>
+
+    <!-- Invoice form -->
+    <section id="InvoiceSec" >
+        <div class="modal" class="forms hide">
+            <span id="close-modal-btn" class="material-icons modal-btn">close</span>
+
+            <form id="GetInvoice" action="/add_new_project" method="POST">
+                <label for="fname">Enter Project ID:</label><br>
+                <input type="text" id="InvoiceProjectID" name="InvoiceProjectID"><br>
+                <input type="submit" value="Get Invoice">
+              </form> 
+
+        </div>
+
+        
+
     </section>
 
     <section id="CaptureNewProject" class="modal-overlay  hide">
@@ -29,9 +46,9 @@
                         <option value="MR">MR</option>
                         <option value="MRS">MRS</option>
                         <option value="MS">MS</option>
-                        <option value="MR">DR</option>
-                        <option value="MRS">PROF</option>
-                        <option value="MS">REV</option>
+                        <option value="DR">DR</option>
+                        <option value="PROF">PROF</option>
+                        <option value="REV">REV</option>
                     </select>
                     <br>
                     <label class="formItem" for="firstName">First Name:</label>

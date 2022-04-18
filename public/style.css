@@ -5,6 +5,33 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.topnav {
+   
+    
+    overflow: hidden;
+    padding: 10px;
+  width: 100%;
+  }
+  
+  .topnav a {
+    float: right;
+    color: black;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #f2cc0c;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #f2cc0c;
+    color: white;
+  }
+
+
 
 body{
     display: flex;
@@ -12,6 +39,9 @@ body{
     align-items: center;
     width: 100vw;
     height: 100vh;
+    background-image: url(img2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
 }
 
 /* Home */
@@ -25,11 +55,16 @@ body{
 }
 
 .homeButtons{
-    width: 100%;
+    
+    font-weight: bold;
+
+    width: 50%;
     margin: 1rem;
     padding: 1rem;
 }
-
+.homeButtons.btn:hover {
+    background-color: #f2cc0c
+    }
 
 /* Capture New Project */
 
@@ -88,6 +123,7 @@ body{
 }
 
 
+
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 600px) {
@@ -102,3 +138,4 @@ body{
     font-size: 10px;
     }
   }
+
