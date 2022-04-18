@@ -182,9 +182,58 @@ body{
 
 /* MEDIA QUERIES */
 
+@media screen and (max-width: 900px) {
+    .modal {
+      width: 90vw;
+    }
+  
+    .table-row {
+      min-width: 400px;
+      margin: 10px 5px;
+  
+    }
+
+  
+    #table {
+      overflow-x: scroll;
+    }
+  
+    th {
+      min-width: 8rem;
+  
+      margin: 0px 5px;
+    }
+  }
+
 @media screen and (max-width: 600px) {
   .modal {
     width: 90vw;
+  }
+
+  .table-row {
+    min-width: 400px;
+    margin: 10px 5px;
+
+  }
+  #formDiv {
+    width: 80%;
+  }
+  .table-container {
+    width: 100vw;
+    overflow: hidden;
+    overflow-x: scroll;
+    display: flex;
+    justify-content: start;
+  }
+
+  #table {
+    overflow-x: scroll;
+  }
+
+  th {
+    min-width: 8rem;
+
+    margin: 0px 5px;
   }
 }
 

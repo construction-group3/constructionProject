@@ -100,3 +100,57 @@ function fillTable(data) {
     addTableRow(user);
   }
 }
+
+const data = [
+  {
+    ProjectID: 1,
+    FirstName: "Minnie",
+    LastName: "Ncube",
+    HouseType: "3 BEDROOOM",
+    EstimatedDurationInMonths: 4,
+    teamName: "Titans",
+    ProjectLocation: "Msunduzi",
+    AmountPaidInZAR: 50123,
+    BalanceInZAR: 749877,
+    StatusType: "COMPLETE",
+  },
+  {
+    ProjectID: 2,
+    FirstName: "Minenhle",
+    LastName: "Mncube",
+    HouseType: "4 BEDROOOM",
+    EstimatedDurationInMonths: 5,
+    teamName: "Avengers",
+    ProjectLocation: "Mhlabuyalingana",
+    AmountPaidInZAR: 10000,
+    BalanceInZAR: 840000,
+    StatusType: "IN PROGRESS",
+  },
+  {
+    ProjectID: 3,
+    FirstName: "Mlamuli",
+    LastName: "Ndlovu",
+    HouseType: "1 BEDROOOM",
+    EstimatedDurationInMonths: 2,
+    teamName: "Justice League",
+    ProjectLocation: "Dubane",
+    AmountPaidInZAR: 100000,
+    BalanceInZAR: 550000,
+    StatusType: "IN PROGRESS",
+  },
+  {
+    ProjectID: 4,
+    FirstName: "me",
+    LastName: "sirname",
+    HouseType: "5 BEDROOOM",
+    EstimatedDurationInMonths: 6,
+    teamName: "Titans",
+    ProjectLocation: "my home",
+    AmountPaidInZAR: 50000,
+    BalanceInZAR: 950000,
+    StatusType: "IN PROGRESS",
+  },
+];
+
+fillTable(data)
+
