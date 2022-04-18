@@ -12,6 +12,44 @@ body {
   width: 100vw;
   height: 100vh;
 }
+/* .topnav {
+   
+    
+    overflow: hidden;
+    padding: 10px;
+  width: 100%;
+  }
+  
+  .topnav a {
+    float: right;
+    color: black;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #f2cc0c;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #f2cc0c;
+    color: white;
+  }
+ */
+
+/* 
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(img2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+} */
 
 /* Home */
 
@@ -28,6 +66,17 @@ body {
   margin: 1rem;
   padding: 1rem;
 }
+/* .homeButtons{
+    
+    font-weight: bold;
+
+    width: 50%;
+    margin: 1rem;
+    padding: 1rem;
+}
+.homeButtons.btn:hover {
+    background-color: #f2cc0c
+    } */
 
 /* Capture New Project */
 
@@ -72,7 +121,7 @@ body {
 #close-modal-btn {
   cursor: pointer;
   font-size: 2rem;
-  border: .1rem solid white;
+  border: 0.1rem solid white;
   color: white;
   border-radius: 50%;
   position: absolute;
@@ -80,11 +129,10 @@ body {
   top: -3.5rem;
 }
 
-#close-modal-btn:hover{
-    border: .1rem solid red;
-    color: red;
-
-  }
+#close-modal-btn:hover {
+  border: 0.1rem solid red;
+  color: red;
+}
 
 .hide {
   display: none;
@@ -97,3 +145,9 @@ body {
     width: 90vw;
   }
 }
+
+/* @media screen and (max-width: 320px){ 
+    .modal{
+    font-size: 10px;
+    }
+  } */
