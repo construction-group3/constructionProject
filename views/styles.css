@@ -11,6 +11,9 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
+  background-image: url(img2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 /* .topnav {
    
@@ -73,10 +76,10 @@ body{
     width: 50%;
     margin: 1rem;
     padding: 1rem;
-}
+}*/
 .homeButtons.btn:hover {
-    background-color: #f2cc0c
-    } */
+  background-color: #f2cc0c;
+}
 
 /* Capture New Project */
 
@@ -94,22 +97,18 @@ body{
 }
 
 .form-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    padding: 20px;
-    /*background-color:  #f2cc0c;*/
-    font-weight: 500;
-    
-  }
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 20px;
+  /*background-color:  #f2cc0c;*/
+  font-weight: 500;
+}
 
-  
-
-.formItem{
-    height: 2rem;
-    margin: 0rem 0.5rem;
-    /* border: solid 0.3rem black; */
-
+.formItem {
+  height: 2rem;
+  margin: 0rem 0.5rem;
+  /* border: solid 0.3rem black; */
 }
 
 .formBtn {
@@ -131,7 +130,7 @@ body{
   z-index: 100;
   position: relative;
   background-color: rgb(255, 255, 255);
-  width: 50vw;
+  min-width: 50vw;
   padding: 0rem 0.5rem;
 
   /* height: 30vh; */
@@ -156,6 +155,34 @@ body{
 .hide {
   display: none;
 }
+
+/* TABLE */
+
+#table {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+  }
+  
+  .table-row {
+    min-width: 400px;
+    margin: 10px 5px;
+  }
+  
+  .table-row:hover {
+    background-color: var(--blue);
+    color: var(--white);
+  }
+  
+  th {
+    width: 200px;
+  }
+  
+  #table-header {
+    /* display: none; */
+  }
+  
 
 /* MEDIA QUERIES */
 
