@@ -14,18 +14,20 @@
 </head>
 <body>
     <section id="home" class="homeButtons">
-        <button class="homeButtons btn " type="button">View Company Projects</button>
+        
         <button id="captureNewProjectBtn" class="homeButtons capture-modal-btn btn" type="button">Capture New Client</button>
-        <button class="homeButtons btn" type="button">View Progress</button>
+        <button class="homeButtons btn CompanyProject-modal-btn" type="button">View Company Projects</button>
+        <button class="homeButtons btn ProjectProgress-modal-btn" type="button">View Project Progress</button>
         <button class="homeButtons btn invoice-modal-btn"  type="button">View Invoices</button>
-        <button class="homeButtons btn" type="button">View Available Teams</button>
+        <button class="homeButtons btn AvailableTeam-modal-btn" type="button">View Available Teams</button>
     </section>
+
 
     <section id="CaptureNewProject" class="capture-modal-overlay modal-overlay hide">
         <div id="captureModal" class="modal">
             <!-- <button id="close-modal-btn" class="modal-btn">close</button> -->
             <span id="close-modal-btn" class="material-icons capture-modal-btn">close</span>
-            <form id="addNewProjectForm" action="/add_new_project" method="post">
+            <form id="addNewProjectForm" action="/add_new_project" method="post" class="form-container">
         
                 <!-- client Details Form -->
                 <div id="clientDetailsForm" class="forms hide">
@@ -101,9 +103,9 @@
     <div id="invoiceModal" class="modal" class="forms hide">
 
         <span id="close-modal-btn" class="material-icons modal-btn invoice-modal-btn">close</span>
-        <form id="GetInvoice" action="/add_new_project" method="POST">
+        <form id="GetInvoice" action="/add_new_project" method="POST" class="form-container">
 
-            <label for="fname">Enter Project ID:</label><br>
+            <label for="InvoiceName">Enter Project ID:</label><br>
 
             <input class="formItem" type="text" id="InvoiceProjectID" name="InvoiceProjectID"><br>
 
@@ -111,7 +113,52 @@
         </form>
 
     </div>
-</section>
+    </section>
+
+     <!-- view progress form -->
+     <section id="ProjectProgressSection" class="ProjectProgress modal-overlay hide" >
+        <div id="ProjectProgressModal" class="modal" class="forms hide">
+    
+            <span id="close-modal-btn" class="material-icons modal-btn ProjectProgress-modal-btn">close</span>
+            <form id="GetProjectProgress" action="/add_new_project" method="POST" class="form-container">
+    
+                <label for="ProjectProgressName">Enter Project ID:</label><br>
+    
+                <input class="formItem" type="text" id="ProjectProgressID" name="ProjectProgressID"><br>
+    
+                <input class="formItem" type="submit" value="Check Progress">
+            </form>
+    
+        </div>
+        </section>
+
+
+        
+     <!-- view Company projects form -->
+     <section id="CompanyProjectSection" class="CompanyProject modal-overlay hide" >
+        <div id="CompanyProjectModal" class="modal" class="forms hide">
+    
+            <span id="close-modal-btn" class="material-icons modal-btn CompanyProject-modal-btn">close</span>
+            <form id="GetCompanyProject" action="/add_new_project" method="POST" class="form-container">
+    
+                <h1>Company's projects</h1>
+            </form>
+    
+        </div>
+        </section>
+       
+        <!-- view Available teams form -->
+     <section id="AvailableTeamSection" class="AvailableTeam modal-overlay hide" >
+        <div id="AvailableTeamModal" class="modal" class="forms hide">
+    
+            <span id="close-modal-btn" class="material-icons modal-btn AvailableTeam-modal-btn">close</span>
+            <form id="GetAvailableTeam" action="/add_new_project" method="POST" class="form-container">
+    
+                <h1>Available Teams</h1>
+            </form>
+    
+        </div>
+        </section>
 
    
 </body>
