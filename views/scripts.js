@@ -6,6 +6,8 @@ const toggleModal = document.getElementsByClassName("capture-modal-btn");
 const toggleInvoiceModal = document.getElementsByClassName("invoice-modal-btn");
 const invoiceSection = document.getElementById("invoiceSection");
 
+const viewCompanyProjectsBtn = document.getElementById("viewCompanyProjectsBtn")
+
 const toggleProjectProgressModal = document.getElementsByClassName(
   "ProjectProgress-modal-btn"
 );
@@ -79,6 +81,14 @@ backToClientFormBtn.addEventListener("click", () => {
   projectDetailsForm.classList.toggle("hide");
 });
 
+
+
+// call view projects api and populate table
+  fetch("http://localhost:3000/view-projects")
+  .then((res) => res.json())
+  .then((data) => fillTable(data));
+
+
 function addTableRow(user) {
   let values = Object.values(user);
   let row = document.createElement("tr");
@@ -87,7 +97,6 @@ function addTableRow(user) {
   for (let value of values) {
     let head = document.createElement("th");
     const newContent = document.createTextNode(`${value}`);
-    // head.classList.add(`${fieldArr[index]}`);
 
     head.appendChild(newContent);
     row.appendChild(head);
@@ -100,57 +109,3 @@ function fillTable(data) {
     addTableRow(user);
   }
 }
-
-const data = [
-  {
-    ProjectID: 1,
-    FirstName: "Minnie",
-    LastName: "Ncube",
-    HouseType: "3 BEDROOOM",
-    EstimatedDurationInMonths: 4,
-    teamName: "Titans",
-    ProjectLocation: "Msunduzi",
-    AmountPaidInZAR: 50123,
-    BalanceInZAR: 749877,
-    StatusType: "COMPLETE",
-  },
-  {
-    ProjectID: 2,
-    FirstName: "Minenhle",
-    LastName: "Mncube",
-    HouseType: "4 BEDROOOM",
-    EstimatedDurationInMonths: 5,
-    teamName: "Avengers",
-    ProjectLocation: "Mhlabuyalingana",
-    AmountPaidInZAR: 10000,
-    BalanceInZAR: 840000,
-    StatusType: "IN PROGRESS",
-  },
-  {
-    ProjectID: 3,
-    FirstName: "Mlamuli",
-    LastName: "Ndlovu",
-    HouseType: "1 BEDROOOM",
-    EstimatedDurationInMonths: 2,
-    teamName: "Justice League",
-    ProjectLocation: "Dubane",
-    AmountPaidInZAR: 100000,
-    BalanceInZAR: 550000,
-    StatusType: "IN PROGRESS",
-  },
-  {
-    ProjectID: 4,
-    FirstName: "me",
-    LastName: "sirname",
-    HouseType: "5 BEDROOOM",
-    EstimatedDurationInMonths: 6,
-    teamName: "Titans",
-    ProjectLocation: "my home",
-    AmountPaidInZAR: 50000,
-    BalanceInZAR: 950000,
-    StatusType: "IN PROGRESS",
-  },
-];
-
-fillTable(data)
-
