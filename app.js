@@ -34,6 +34,8 @@ const app = express();
 const path = require("path");
 const port = process.env.DB_PORT;
 
+const { getAllProjects} = require("./src/connectDB")
+
 app.use(express.static("./views"));
 app.use(express.urlencoded({ extended: true }));
 
@@ -43,8 +45,9 @@ app.get("/", (req, res) => {
 });
 
 app.get("/view-projects",(req, res) => {
-    
-    res.send(`visitor with ID# ${ID} deleted`);
+    getAllProjects().then((data)=>{
+        res.send(data)
+    })
   });
 
 app.listen(port, () => {

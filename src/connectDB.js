@@ -36,7 +36,7 @@ const checkProgress = async (ID) => {
   }
 };
 
-checkProgress(1)
+// checkProgress(1)
 
 // -- CHECKING THE COMPLETED TEAMS
 const getCompletedProjects = async (statusID) => {
@@ -81,7 +81,7 @@ const getAllProjects = async () => {
       `SELECT ProjectID,FirstName,LastName,HouseType,EstimatedDurationInMonths,teamName, ProjectLocation,AmountPaidInZAR,BalanceInZAR,StatusType FROM vw_AllProjects
         `
     );
-    console.log(result1.recordset);
+    return result1.recordset;
   } catch (err) {
     throw err;
   }
@@ -139,3 +139,5 @@ const addNewProject = async (params, procedure) => {
     throw err;
   }
 };
+
+module.exports = {getAllProjects}
