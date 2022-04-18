@@ -42,6 +42,11 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "./views/index.html"));
 });
 
+app.get("/view-projects",(req, res) => {
+    
+    res.send(`visitor with ID# ${ID} deleted`);
+  });
+
 app.listen(port, () => {
   console.log(`app listening on port: ${port}`);
 });
