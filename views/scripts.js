@@ -1,6 +1,9 @@
 const modal = document.getElementsByClassName("modal")[0];
-const modalOverlay = document.getElementsByClassName("modal-overlay")[0];
-const toggleModal = document.getElementsByClassName("modal-btn");
+const captureModalOverlay = document.getElementsByClassName("capture-modal-overlay")[0];
+const toggleModal = document.getElementsByClassName("capture-modal-btn");
+const toggleInvoiceModal = document.getElementsByClassName("invoice-modal-btn");
+const invoiceSection = document.getElementById("invoiceSection")
+
 
 for (const btn of toggleModal) {
   btn.addEventListener("click", () => {
@@ -9,29 +12,37 @@ for (const btn of toggleModal) {
     }
 
     clientDetailsForm.classList.remove("hide");
-    modalOverlay.classList.toggle("hide");
+    captureModalOverlay.classList.toggle("hide");
   });
 }
+
+const addPopupModal = (toggleModal, section) => {
+  for (const btn of toggleModal) {
+    btn.addEventListener("click", () => {
+      section.classList.toggle("hide");
+    });
+  }
+};
+
+addPopupModal(toggleInvoiceModal,invoiceSection)
 
 // get the next form on modal
 const projectDetailsBtn = document.getElementById("projectDetailsBtn");
 const clientDetailsForm = document.getElementById("clientDetailsForm");
 const projectDetailsForm = document.getElementById("projectDetailsForm");
 projectDetailsBtn.addEventListener("click", (e) => {
-  e.preventDefault()
-  
+  e.preventDefault();
+
   // validate client input
   const clientFormInput = Array.from(
     document.getElementsByClassName("clientFormInput")
   );
   const isValid = clientFormInput.every((input) => {
-    
     if (!input.checkValidity()) {
-      input.reportValidity()
+      input.reportValidity();
     }
-    return input.checkValidity()
+    return input.checkValidity();
   });
-  
 
   if (isValid) {
     clientDetailsForm.classList.toggle("hide");
