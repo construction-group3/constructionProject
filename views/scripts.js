@@ -1,17 +1,31 @@
 const modal = document.getElementsByClassName("modal")[0];
-const captureModalOverlay = document.getElementsByClassName("capture-modal-overlay")[0];
+const captureModalOverlay = document.getElementsByClassName(
+  "capture-modal-overlay"
+)[0];
 const toggleModal = document.getElementsByClassName("capture-modal-btn");
 const toggleInvoiceModal = document.getElementsByClassName("invoice-modal-btn");
-const invoiceSection = document.getElementById("invoiceSection")
+const invoiceSection = document.getElementById("invoiceSection");
 
-const toggleProjectProgressModal = document.getElementsByClassName("ProjectProgress-modal-btn");
-const ProjectProgressSection = document.getElementById("ProjectProgressSection")
+const toggleProjectProgressModal = document.getElementsByClassName(
+  "ProjectProgress-modal-btn"
+);
+const ProjectProgressSection = document.getElementById(
+  "ProjectProgressSection"
+);
 
-const toggleCompanyProjectModal = document.getElementsByClassName("CompanyProject-modal-btn");
-const CompanyProjectSection = document.getElementById("CompanyProjectSection")
+const toggleCompanyProjectModal = document.getElementsByClassName(
+  "CompanyProject-modal-btn"
+);
+const CompanyProjectSection = document.getElementById("CompanyProjectSection");
 
-const toggleAvailableTeamModal = document.getElementsByClassName("AvailableTeam-modal-btn");
-const AvailableTeamSection = document.getElementById("AvailableTeamSection")
+const toggleAvailableTeamModal = document.getElementsByClassName(
+  "AvailableTeam-modal-btn"
+);
+const AvailableTeamSection = document.getElementById("AvailableTeamSection");
+
+const toggleLoginModal = document.getElementsByClassName("Login-modal-btn");
+console.log(toggleLoginModal);
+const LoginSection = document.getElementById("LoginSection");
 
 for (const btn of toggleModal) {
   btn.addEventListener("click", () => {
@@ -28,14 +42,16 @@ const addPopupModal = (toggleModal, section) => {
   for (const btn of toggleModal) {
     btn.addEventListener("click", () => {
       section.classList.toggle("hide");
+      console.log(LoginSection);
     });
   }
 };
 
-addPopupModal(toggleInvoiceModal,invoiceSection)
-addPopupModal(toggleProjectProgressModal,ProjectProgressSection)
-addPopupModal(toggleCompanyProjectModal,CompanyProjectSection)
-addPopupModal(toggleAvailableTeamModal,AvailableTeamSection)
+addPopupModal(toggleInvoiceModal, invoiceSection);
+addPopupModal(toggleProjectProgressModal, ProjectProgressSection);
+addPopupModal(toggleCompanyProjectModal, CompanyProjectSection);
+addPopupModal(toggleAvailableTeamModal, AvailableTeamSection);
+addPopupModal(toggleLoginModal, LoginSection);
 
 // get the next form on modal
 const projectDetailsBtn = document.getElementById("projectDetailsBtn");

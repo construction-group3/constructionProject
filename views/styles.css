@@ -1,152 +1,153 @@
-*{
-    box-sizing: border-box;
-    padding: 0rem;
-    margin: 0rem;
-    font-family: 'Roboto', sans-serif;
+* {
+  box-sizing: border-box;
+  padding: 0rem;
+  margin: 0rem;
+  font-family: "Roboto", sans-serif;
 }
 
 .topnav {
-   
-    
-    overflow: hidden;
-    padding: 10px;
+  overflow: hidden;
+  padding: 10px;
   width: 100%;
-  }
-  
-  .topnav a {
-    float: right;
-    color: black;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  .topnav a:hover {
-    background-color: #f2cc0c;
-    color: black;
-  }
-  
-  .topnav a.active {
-    background-color: #f2cc0c;
-    color: white;
-  }
+}
 
+.topnav a {
+  float: right;
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
 
+.topnav a:hover {
+  background-color: #ffbc01;
+  color: black;
+}
 
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background-image: url(img2.jpg);
-    background-repeat: no-repeat;
-    background-size: cover; 
+.topnav a.active {
+  background-color: #ffbc01;
+  color: white;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(img2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Home */
 
-#home{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 50vw;
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50vw;
 }
 
-.homeButtons{
-    
-    font-weight: bold;
+.homeButtons {
+  font-weight: bold;
 
-    width: 50%;
-    margin: 1rem;
-    padding: 1rem;
+  width: 50%;
+  margin: 1rem;
+  padding: 1rem;
 }
 .homeButtons.btn:hover {
-    background-color: #f2cc0c
-    }
+  background-color: #ffbc01;
+}
 
 /* Capture New Project */
 
-.forms{
-    display: flex;
-    flex-direction: column;
-    /* width: 50%; */
-    /* border: solid 0.3rem black; */
+.forms {
+  display: flex;
+  flex-direction: column;
+  /* width: 50%; */
+  /* border: solid 0.3rem black; */
 }
 
 .form-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    padding: 20px;
-    /*background-color:  #f2cc0c;*/
-    font-weight: 500;
-    
-  }
-
-  
-
-.formItem{
-    height: 2rem;
-    margin: 0rem 0.5rem;
-    /* border: solid 0.3rem black; */
-
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 20px;
+  background-image: url(img2.jpg);
 }
 
-.formBtn{
-    margin: 0.5rem 0rem;
+.formItem {
+  height: 2rem;
+  margin: 0.5rem 0.5rem;
+  /* border: solid 0.3rem black; */
+}
+
+.formBtn {
+  margin: 0.5rem 0rem;
 }
 
 /* Modal */
-.modal-overlay{
-    display: grid;
-    place-items: center;
-    background-color: rgba(0, 0, 0, 0.712);
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    z-index: 2;
+.modal-overlay {
+  display: grid;
+  place-items: center;
+  background-color: rgba(0, 0, 0, 0.712);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 2;
 }
 
-.modal{
-    z-index: 100;
-    position: relative;
-    background-color: rgb(255, 255, 255);
-    width: 50vw;
-    padding: 0rem 0.5rem;
+.modal {
+  z-index: 100;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  width: 50vw;
+  padding: 0rem 0.5rem;
 
-    /* height: 30vh; */
+  /* height: 30vh; */
 }
 
-
-#close-modal-btn{
-    cursor: pointer;
-    font-size: 3rem;
-    border: none;
-    background-color: rgb(189, 189, 189);
-    position:absolute; 
-    right:0rem;
-    top: -3.5rem;
+/* Center the image and position the close button */
+#imgcontainer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 24px 0 12px 0;
+  /* position: relative; */
+  align-items: center;
 }
 
-.hide{
-    display: none;
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
 }
 
+#close-modal-btn {
+  cursor: pointer;
+  font-size: 3rem;
+  border: none;
+  background-color: rgb(189, 189, 189);
+  position: absolute;
+  right: 0rem;
+  top: -3.5rem;
+}
 
+.hide {
+  display: none;
+}
 
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 600px) {
-
-    .modal{
-        width: 90vw;
-    }
+  .modal {
+    width: 90vw;
+  }
 }
 
-@media screen and (max-width: 320px){ 
-    .modal{
+@media screen and (max-width: 320px) {
+  .modal {
     font-size: 10px;
-    }
   }
+}
