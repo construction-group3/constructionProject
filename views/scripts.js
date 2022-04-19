@@ -6,6 +6,7 @@ const toggleModal = document.getElementsByClassName("capture-modal-btn");
 const toggleInvoiceModal = document.getElementsByClassName("invoice-modal-btn");
 const invoiceSection = document.getElementById("invoiceSection");
 
+
 const viewCompanyProjectsBtn = document.getElementById(
   "viewCompanyProjectsBtn"
 );
@@ -22,10 +23,16 @@ const toggleCompanyProjectModal = document.getElementsByClassName(
 );
 const CompanyProjectSection = document.getElementById("CompanyProjectSection");
 
+
+
 const toggleAvailableTeamModal = document.getElementsByClassName(
   "AvailableTeam-modal-btn"
 );
 const AvailableTeamSection = document.getElementById("AvailableTeamSection");
+
+const toggleLoginModal = document.getElementsByClassName("Login-modal-btn");
+console.log(toggleLoginModal);
+const LoginSection = document.getElementById("LoginSection");
 
 for (const btn of toggleModal) {
   btn.addEventListener("click", () => {
@@ -42,6 +49,7 @@ const addPopupModal = (toggleModal, section) => {
   for (const btn of toggleModal) {
     btn.addEventListener("click", () => {
       section.classList.toggle("hide");
+      console.log(LoginSection);
     });
   }
 };
@@ -50,6 +58,7 @@ addPopupModal(toggleInvoiceModal, invoiceSection);
 addPopupModal(toggleProjectProgressModal, ProjectProgressSection);
 addPopupModal(toggleCompanyProjectModal, CompanyProjectSection);
 addPopupModal(toggleAvailableTeamModal, AvailableTeamSection);
+addPopupModal(toggleLoginModal, LoginSection);
 
 // get the next form on modal
 const projectDetailsBtn = document.getElementById("projectDetailsBtn");

@@ -5,6 +5,30 @@
   font-family: "Roboto", sans-serif;
 }
 
+.topnav {
+  overflow: hidden;
+  padding: 10px;
+  width: 100%;
+}
+
+.topnav a {
+  float: right;
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ffbc01;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #ffbc01;
+  color: white;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -15,44 +39,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-/* .topnav {
-   
-    
-    overflow: hidden;
-    padding: 10px;
-  width: 100%;
-  }
-  
-  .topnav a {
-    float: right;
-    color: black;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  .topnav a:hover {
-    background-color: #f2cc0c;
-    color: black;
-  }
-  
-  .topnav a.active {
-    background-color: #f2cc0c;
-    color: white;
-  }
- */
-
-/* 
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background-image: url(img2.jpg);
-    background-repeat: no-repeat;
-    background-size: cover; 
-} */
 
 /* Home */
 
@@ -65,7 +51,7 @@ body{
 }
 
 .homeButtons {
-  width: 50%;
+  width: 100%;
   margin: 1rem;
   padding: 1rem;
   font-weight: bold;
@@ -104,7 +90,13 @@ body{
   padding: 20px;
   background-color:  #f2cc0c;
   font-weight: 500;
+  background-image: url(img2.jpg);
+
+
+  background-color:  #f2cc0c;
+  font-weight: 500;
 } */
+
 
 .formItem {
   height: 2rem;
@@ -142,6 +134,38 @@ body{
 
   /* height: 30vh; */
 }
+
+
+/* Center the image and position the close button */
+#imgcontainer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 24px 0 12px 0;
+  /* position: relative; */
+  align-items: center;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+#close-modal-btn {
+  cursor: pointer;
+  font-size: 3rem;
+  border: none;
+  background-color: rgb(189, 189, 189);
+  position: absolute;
+  right: 0rem;
+  top: -3.5rem;
+}
+
+.hide {
+  display: none;
+}
+
+/* MEDIA QUERIES */
 
 #close-modal-btn {
   cursor: pointer;
@@ -188,7 +212,8 @@ th {
 
 /* MEDIA QUERIES */
 
-@media screen and (max-width: 900px) {
+
+@media screen and (max-width: 600px) {
   .modal {
     width: 90vw;
   }
