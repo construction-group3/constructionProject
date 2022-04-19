@@ -4,6 +4,7 @@
   "description": "",
   "main": "scripts.js",
   "scripts": {
+    "devStart":"nodemon app.js",
     "test": "jasmine"
   },
   "repository": {

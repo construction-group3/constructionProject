@@ -6,6 +6,7 @@ const toggleModal = document.getElementsByClassName("capture-modal-btn");
 const toggleInvoiceModal = document.getElementsByClassName("invoice-modal-btn");
 const invoiceSection = document.getElementById("invoiceSection");
 
+<<<<<<< HEAD
 const toggleProjectProgressModal = document.getElementsByClassName(
   "ProjectProgress-modal-btn"
 );
@@ -18,14 +19,33 @@ const toggleCompanyProjectModal = document.getElementsByClassName(
 );
 const CompanyProjectSection = document.getElementById("CompanyProjectSection");
 
+=======
+const viewCompanyProjectsBtn = document.getElementById("viewCompanyProjectsBtn")
+
+const toggleProjectProgressModal = document.getElementsByClassName(
+  "ProjectProgress-modal-btn"
+);
+const ProjectProgressSection = document.getElementById(
+  "ProjectProgressSection"
+);
+
+const toggleCompanyProjectModal = document.getElementsByClassName(
+  "CompanyProject-modal-btn"
+);
+const CompanyProjectSection = document.getElementById("CompanyProjectSection");
+
+>>>>>>> 7220faef6d59d11a0e420f3e9073f4333fb41098
 const toggleAvailableTeamModal = document.getElementsByClassName(
   "AvailableTeam-modal-btn"
 );
 const AvailableTeamSection = document.getElementById("AvailableTeamSection");
+<<<<<<< HEAD
 
 const toggleLoginModal = document.getElementsByClassName("Login-modal-btn");
 console.log(toggleLoginModal);
 const LoginSection = document.getElementById("LoginSection");
+=======
+>>>>>>> 7220faef6d59d11a0e420f3e9073f4333fb41098
 
 for (const btn of toggleModal) {
   btn.addEventListener("click", () => {
@@ -51,7 +71,10 @@ addPopupModal(toggleInvoiceModal, invoiceSection);
 addPopupModal(toggleProjectProgressModal, ProjectProgressSection);
 addPopupModal(toggleCompanyProjectModal, CompanyProjectSection);
 addPopupModal(toggleAvailableTeamModal, AvailableTeamSection);
+<<<<<<< HEAD
 addPopupModal(toggleLoginModal, LoginSection);
+=======
+>>>>>>> 7220faef6d59d11a0e420f3e9073f4333fb41098
 
 // get the next form on modal
 const projectDetailsBtn = document.getElementById("projectDetailsBtn");
@@ -84,3 +107,32 @@ backToClientFormBtn.addEventListener("click", () => {
   clientDetailsForm.classList.toggle("hide");
   projectDetailsForm.classList.toggle("hide");
 });
+
+
+
+// call view projects api and populate table
+  fetch("http://localhost:3000/view-projects")
+  .then((res) => res.json())
+  .then((data) => fillTable(data));
+
+
+function addTableRow(user) {
+  let values = Object.values(user);
+  let row = document.createElement("tr");
+  row.classList.add("table-row");
+
+  for (let value of values) {
+    let head = document.createElement("th");
+    const newContent = document.createTextNode(`${value}`);
+
+    head.appendChild(newContent);
+    row.appendChild(head);
+  }
+  table.insertAdjacentElement("beforeend", row);
+}
+
+function fillTable(data) {
+  for (let user of data) {
+    addTableRow(user);
+  }
+}
