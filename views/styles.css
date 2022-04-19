@@ -31,8 +31,9 @@
 
 body {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
   background-image: url(img2.jpg);
@@ -40,6 +41,12 @@ body {
   background-size: cover;
 }
 
+.navigation{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
 /* Home */
 
 #home {
@@ -47,11 +54,17 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 50vw;
+
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  min-width: 50vw;
+  padding: 0rem 0.5rem;
 }
 
 .homeButtons {
   width: 100%;
+  text-align: center;
+  height: 5rem;
   margin: 1rem;
   padding: 1rem;
   font-weight: bold;
@@ -68,6 +81,16 @@ body {
   background-color: #f2cc0c;
 }
 
+
+/* section */
+
+.section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /* height: 100vh; */
+}
 /* Capture New Project */
 
 .forms {
@@ -249,7 +272,20 @@ th {
   #formDiv {
     width: 80%;
   }
-  .table-container {
+
+  #home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow-x: scroll;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    padding: 0rem 0.5rem;
+  }
+
+
+  .CompanyProjectModal {
     width: 100vw;
     overflow: hidden;
     overflow-x: scroll;

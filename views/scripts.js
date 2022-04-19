@@ -95,7 +95,9 @@ backToClientFormBtn.addEventListener("click", () => {
 // call view projects api and populate table
 fetch("http://localhost:3000/view-projects")
   .then((res) => res.json())
-  .then((data) => fillTable(data));
+  .then((data) => {
+    console.log(data);
+    fillTable(data)});
 
 function addTableRow(user) {
   let values = Object.values(user);
@@ -134,7 +136,6 @@ addNewProjectForm.addEventListener("submit", (e) => {
   const formData =  getFormData(addNewProjectForm) 
 
 
-  console.log(formData);
   fetch("http://localhost:3000/add-new-project-form", {
     method: "post",
     headers: {

@@ -14,24 +14,49 @@
 </head>
 <body>
 
-    <section id="home" class="homeButtons">
-        
-        <button id="captureNewProjectBtn" class="homeButtons capture-modal-btn btn" type="button">Capture New Client</button>
-        <button id="viewCompanyProjectsBtn" class="homeButtons btn CompanyProject-modal-btn" type="button">View Company Projects</button>
-        <button class="homeButtons btn ProjectProgress-modal-btn" type="button">View Project Progress</button>
-        <button class="homeButtons btn invoice-modal-btn"  type="button">View Invoices</button>
-        <button class="homeButtons btn AvailableTeam-modal-btn" type="button">View Available Teams</button>
+    <header>
+        <nav class="navigation">
+            <h1 id="logo">logo</h1>
+            <ul class="navigationList">
+                <li id="captureNewProject" class="navItem"><a href="">Capture New Client</a></li>
+                <li id="projects" class="navItem"><a href="">View Company Projects</a></li>
+                <li id="Progress" class="navItem"><a href="">View Project Progress</a></li>
+                <li id="invoice" class="navItem"><a href="">View Invoices</a></li>
+                <li id="teams" class="navItem"><a href="">View Available Teams</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="CompanyProjectSection" class="section" >
+        <h1>Company projects</h1>
+        <article id="CompanyProjectModal" >
+
+            <table id="table">              
+                <tr class="table-row" id="table-header">
+                    <th>ProjectID</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>HouseType</th>
+                    <th>time(Months)</th>
+                    <th>teamName</th>
+                    <th>ProjectLocation</th>
+                    <th>AmountPaidInZAR</th>
+                    <th>BalanceInZAR</th>
+                    <th>StatusType</th>
+                </tr>
+            </table>
+    
+        </article>
     </section>
 
 
-    <section id="CaptureNewProject" class="capture-modal-overlay modal-overlay hide">
+    <!-- <section id="CaptureNewProject" class="capture-modal-overlay modal-overlay hide">
         <div id="captureModal" class="modal">
-            <!-- <button id="close-modal-btn" class="modal-btn">close</button> -->
             <span id="close-modal-btn" class="material-icons capture-modal-btn">close</span>
-            <form id="addNewProjectForm"  class="form-container">
+            <form id="addNewProjectForm"  class="form-container"> -->
         
                 <!-- client Details Form -->
-                <div id="clientDetailsForm" class="forms hide">
+                <!-- <div id="clientDetailsForm" class="forms hide">
                     <label for="ClentTitle">Title:</label>
                     <select class="formItem" name="TitleID" id="ClientTitle">
                         <option value="1">MR</option>
@@ -58,10 +83,10 @@
                     <textarea class="formItem clientFormInput" rows="4" cols="30" name="PhyicalAddress" id="PhyicalAddress" required></textarea><br>
             
                     <button id="projectDetailsBtn" class="formItem formBtn" type="submit">Next</button>
-                    </div>
+                    </div> -->
         
                 <!--project Details Form  -->
-                <div id="projectDetailsForm" class="forms">
+                <!-- <div id="projectDetailsForm" class="forms">
                     <label for="TeamID">Select team:</label>
                     <select class="formItem" name="TeamID" id="TeamID">
                     <option value="avengers">avengers</option>
@@ -92,10 +117,10 @@
                 </div>
               </form> 
         </div>
-    </section>
+    </section> -->
 
     <!-- Invoice form -->
-    <section id="invoiceSection" class="invoice modal-overlay hide" >
+    <!-- <section id="invoiceSection" class="invoice modal-overlay hide" >
     <div id="invoiceModal" class="modal" class="forms hide">
 
         <span id="close-modal-btn" class="material-icons modal-btn invoice-modal-btn">close</span>
@@ -109,10 +134,10 @@
         </form>
 
     </div>
-    </section>
+    </section> -->
 
      <!-- view progress form -->
-     <section id="ProjectProgressSection" class="ProjectProgress modal-overlay hide" >
+     <!-- <section id="ProjectProgressSection" class="ProjectProgress modal-overlay hide" >
         <div id="ProjectProgressModal" class="modal" class="forms hide">
     
             <span id="close-modal-btn" class="material-icons modal-btn ProjectProgress-modal-btn">close</span>
@@ -126,37 +151,15 @@
             </form>
     
         </div>
-        </section>
+        </section> -->
 
 
         
      <!-- view Company projects form -->
-     <section id="CompanyProjectSection" class="CompanyProject modal-overlay hide" >
-        <div id="CompanyProjectModal" class="modal" class="forms hide">
-    
-            <span id="close-modal-btn" class="material-icons modal-btn CompanyProject-modal-btn">close</span>   
-            <h1>Company projects</h1>
-            <table id="table">
-                
-                <tr class="table-row" id="table-header">
-                    <th>ProjectID</th>
-                    <th>FirstName</th>
-                    <th>LastName</th>
-                    <th>HouseType</th>
-                    <th>time(Months)</th>
-                    <th>teamName</th>
-                    <th>ProjectLocation</th>
-                    <th>AmountPaidInZAR</th>
-                    <th>BalanceInZAR</th>
-                    <th>StatusType</th>
-                </tr>
-            </table>
-    
-        </div>
-    </section>
+     
        
         <!-- view Available teams form -->
-     <section id="AvailableTeamSection" class="AvailableTeam modal-overlay hide" >
+     <!-- <section id="AvailableTeamSection" class="AvailableTeam modal-overlay hide" >
         <div id="AvailableTeamModal" class="modal" class="forms hide">
     
             <span id="close-modal-btn" class="material-icons modal-btn AvailableTeam-modal-btn">close</span>
@@ -167,7 +170,7 @@
             </form>
     
         </div>
-        </section>
+        </section> -->
 
    
 </body>
