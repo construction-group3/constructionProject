@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="./scripts.js" defer></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <div class="topnav">
+        <button class="homeButtons btn Login-modal-btn" type="button" >
+          Sign in
+        </button>
+        <button class="homeButtons btn AvailableTeam-modal-btn" type="button">
+          News
+        </button>
+      </div>
+    </section>
+
+    <section id="LoginSection" class="Login modal-overlay hide">
+      <div id="LoginModal" class="modal" class="forms hide">
+        <span id="close-modal-btn" class="material-icons modal-btn Login-modal-btn" >close</span>
+
+        <form class="form-container ">
+          <div id="imgcontainer"> 
+            <img src="avatar.jpg" alt="Avatar" class="avatar" />
+          </div>
+          
+
+            <label for="uname"><b>Username</b></label>
+            <input class="formItem"
+              type="text"
+              placeholder="Enter Username"
+              name="uname"
+              required
+            />
+
+            <label for="psw"><b>Password</b></label>
+            <input class="formItem"
+              type="password"
+              placeholder="Enter Password"
+              name="psw"
+              required
+            />
+
+            <button class="formItem" type="submit">Login</button>
+            <button type="button" class="formItem">Cancel</button>
+            <span class="formItem">Forgot <a href="#">password?</a></span>
+          </div>
+          "body-parser": "^1.20.0",
+          "dotenv": "^16.0.0",
+          "express": "^4.17.3",
+          "mssql": "^8.1.0",
+          "nodemon": "^2.0.15"
+          
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
