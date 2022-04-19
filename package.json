@@ -224,6 +224,7 @@
     "yallist": "^4.0.0"
   },
   "scripts": {
+    "devStart": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
