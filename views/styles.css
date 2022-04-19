@@ -65,9 +65,10 @@ body{
 }
 
 .homeButtons {
-  width: 100%;
+  width: 50%;
   margin: 1rem;
   padding: 1rem;
+  font-weight: bold;
 }
 /* .homeButtons{
     
@@ -96,14 +97,14 @@ body{
   /* border: solid 0.3rem black; */
 }
 
-.form-container {
+/* .form-container {
   display: flex;
   flex-direction: column;
   max-width: 100%;
   padding: 20px;
-  /*background-color:  #f2cc0c;*/
+  background-color:  #f2cc0c;
   font-weight: 500;
-}
+} */
 
 .formItem {
   height: 2rem;
@@ -113,6 +114,12 @@ body{
 
 .formBtn {
   margin: 0.5rem 0rem;
+}
+
+.tittleInput{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 /* Modal */
@@ -159,53 +166,29 @@ body{
 /* TABLE */
 
 #table {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: flex-start;
-  }
-  
-  .table-row {
-    min-width: 400px;
-    margin: 10px 5px;
-  }
-  
-  .table-row:hover {
-    background-color: var(--blue);
-    color: var(--white);
-  }
-  
-  th {
-    width: 200px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+}
+
+.table-row {
+  min-width: 400px;
+  margin: 10px 5px;
+}
+
+.table-row:hover {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+th {
+  width: 200px;
+}
 
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 900px) {
-    .modal {
-      width: 90vw;
-    }
-  
-    .table-row {
-      min-width: 400px;
-      margin: 10px 5px;
-  
-    }
-
-  
-    #table {
-      overflow-x: scroll;
-    }
-  
-    th {
-      min-width: 8rem;
-  
-      margin: 0px 5px;
-    }
-  }
-
-@media screen and (max-width: 600px) {
   .modal {
     width: 90vw;
   }
@@ -213,7 +196,30 @@ body{
   .table-row {
     min-width: 400px;
     margin: 10px 5px;
+  }
 
+  #table {
+    overflow-x: scroll;
+  }
+
+  th {
+    min-width: 8rem;
+
+    margin: 0px 5px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .homeButtons {
+    width: 100%;
+  }
+  .modal {
+    width: 90vw;
+  }
+
+  .table-row {
+    min-width: 400px;
+    margin: 10px 5px;
   }
   #formDiv {
     width: 80%;

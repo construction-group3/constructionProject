@@ -109,22 +109,7 @@ const getInvoice = async (clientID) => {
 // getInvoice(1)
 
 // ADD NEW PROJECT
-const para = [
-  { name: "TitleID", type: sql.Int, value: 1 },
-  { name: "FirstName", type: sql.NVarChar(250), value: "me" },
-  { name: "LastName", type: sql.NVarChar(250), value: "sirname" },
-  { name: "PhyicalAddress", type: sql.NVarChar(500), value: "home" },
-  {
-    name: "EmailAddress",
-    type: sql.NVarChar(250),
-    value: "mecomputer.com",
-  },
-  { name: "PhoneNumber", type: sql.VarChar(10), value: "1234567890" },
-  { name: "TeamID", type: sql.Int, value: "1" },
-  { name: "HouseID", type: sql.Int, value: "1" },
-  { name: "ProjectLocation", type: sql.NVarChar(500), value: "my home" },
-  { name: "Deposit", type: sql.Money, value: 50000 },
-];
+
 const addNewProject = async (params, procedure) => {
   try {
     let pool = await sql.connect(sqlConfig);
@@ -140,4 +125,4 @@ const addNewProject = async (params, procedure) => {
   }
 };
 
-module.exports = {getAllProjects}
+module.exports = {getAllProjects,addNewProject}

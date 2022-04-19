@@ -6,7 +6,9 @@ const toggleModal = document.getElementsByClassName("capture-modal-btn");
 const toggleInvoiceModal = document.getElementsByClassName("invoice-modal-btn");
 const invoiceSection = document.getElementById("invoiceSection");
 
-const viewCompanyProjectsBtn = document.getElementById("viewCompanyProjectsBtn")
+const viewCompanyProjectsBtn = document.getElementById(
+  "viewCompanyProjectsBtn"
+);
 
 const toggleProjectProgressModal = document.getElementsByClassName(
   "ProjectProgress-modal-btn"
@@ -81,13 +83,10 @@ backToClientFormBtn.addEventListener("click", () => {
   projectDetailsForm.classList.toggle("hide");
 });
 
-
-
 // call view projects api and populate table
-  fetch("http://localhost:3000/view-projects")
+fetch("http://localhost:3000/view-projects")
   .then((res) => res.json())
   .then((data) => fillTable(data));
-
 
 function addTableRow(user) {
   let values = Object.values(user);
@@ -109,3 +108,32 @@ function fillTable(data) {
     addTableRow(user);
   }
 }
+function getFormData(form) {
+  const FD = new FormData(form);
+  const newFD = {};
+  for (let key of FD.entries()) {
+    newFD[key[0]] = key[1];
+  }
+  return newFD;
+}
+//
+const addNewProjectForm = document.getElementById("addNewProjectForm");
+
+addNewProjectForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const formData =  getFormData(addNewProjectForm) 
+
+
+  console.log(formData);
+  fetch("http://localhost:3000/add-new-project-form", {
+    method: "post",
+    headers: {
+      "Accept": "application/json",
+      "Content-type": "application/json"
+    },
+    body: JSON.stringify(formData),
+  })
+    .then((res) => res.text())
+    .then((data) => console.log(data));
+});

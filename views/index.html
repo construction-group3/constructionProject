@@ -27,7 +27,7 @@
         <div id="captureModal" class="modal">
             <!-- <button id="close-modal-btn" class="modal-btn">close</button> -->
             <span id="close-modal-btn" class="material-icons capture-modal-btn">close</span>
-            <form id="addNewProjectForm" action="/add_new_project" method="post" class="form-container">
+            <form id="addNewProjectForm"  class="form-container">
         
                 <!-- client Details Form -->
                 <div id="clientDetailsForm" class="forms hide">
@@ -46,11 +46,19 @@
             
                     <label class="formItem" for="lastName">Last Name:</label>
                     <input class="formItem clientFormInput" type="text" id="lastName" name="lastName" required><br>
-            
-                    <input class="formItem clientFormInput" type="radio" name="gender" id="male" required>
-                    <label for="male">Male</label>
-                    <input class="formItem clientFormInput" type="radio" name="gender" id="female" required>
-                    <label for="female">Female</label><br>
+                    
+                    <div class="tittleInput">
+                    <input class="formItem clientFormInput" type="radio" name="gender" required>
+                    <label for="1">MR</label>
+                    <input class="formItem clientFormInput" type="radio" name="gender"  required>
+                    <label for="2">Mrs</label><br>
+                    <input class="formItem clientFormInput" type="radio" name="gender"  required>
+                    <label for="3">Miss</label><br>
+                    <input class="formItem clientFormInput" type="radio" name="gender"  required>
+                    <label for="4">Dr</label><br>
+                    <input class="formItem clientFormInput" type="radio" name="gender"  required>
+                    <label for="4">Rev</label><br>
+                    </div>
             
                     <label for="PhoneNumber">Phone Number:</label>
                     <input class="formItem clientFormInput" type="text" id="PhoneNumber" name="PhoneNumber" required><br>
