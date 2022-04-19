@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+        <!-- client Details Form -->
+        <form id="addNewProjectForm" class="form-container" id="clientDetailsForm">
+            <label for="ClentTitle">Title:</label>
+            <select class="formItem" name="TitleID" id="ClientTitle">
+                <option value="1">MR</option>
+                <option value="2">MRS</option>
+                <option value="3">MS</option>
+                <option value="4">DR</option>
+                <option value="5">PROF</option>
+                <option value="6">REV</option>
+            </select>
+            <br>
+            <label class="formItem" for="firstName">First Name:</label>
+            <input class="formItem clientFormInput" type="text" id="firstName" name="firstName" required><br>
+
+            <label class="formItem" for="lastName">Last Name:</label>
+            <input class="formItem clientFormInput" type="text" id="lastName" name="lastName" required><br>
+
+            <label for="PhoneNumber">Phone Number:</label>
+            <input class="formItem clientFormInput" type="text" id="PhoneNumber" name="PhoneNumber" required><br>
+
+            <label for="Email">Email Addres:</label>
+            <input class="formItem clientFormInput" type="text" id="EmailAddress" name="EmailAddress" required><br>
+
+            <label for="address">Physical Address:</label><br>
+            <textarea class="formItem clientFormInput" rows="4" cols="30" name="PhyicalAddress" id="PhyicalAddress"
+                required></textarea><br>
+
+            <!-- Project Details -->
+            <label for="TeamID">Select eam:</label>
+            <select class="formItem" name="TeamID" id="TeamID">
+                <option value="avengers">avengers</option>
+                <option value="titans">titans</option>
+                <option value="Justice league">Justice league</option>
+            </select>
+            <br>
+
+            <label for="houses">Select House:</label>
+            <select class="formItem" name="houses" id="houses">
+                <option value="1">1room</option>
+                <option value="2">2room</option>
+                <option value="3">3room</option>
+                <option value="4">4room</option>
+            </select>
+            </br>
+
+            <label for="ProjectLocation">Project Location:</label>
+            <input class="formItem" type="text" required name="ProjectLocation" placeholder="ProjectLocation">
+            <br />
+
+            <label for="AmountPaidInZAR">Amount Paid (ZAR):</label>
+            <input class="formItem" type="number" required name="AmountPaidInZAR" placeholder="AmountPaidInZAR">
+            <br />
+
+            <button id="backToClientFormBtn" class="formItem formBtn" type="button">back</button>
+            <button id="submitForm" class="formItem formBtn" type="submit">submit</button>
+        </form>
+</body>
+
+</html>
