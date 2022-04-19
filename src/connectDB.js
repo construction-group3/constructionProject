@@ -110,7 +110,7 @@ const getInvoice = async (clientID) => {
 
 // ADD NEW PROJECT
 
-const addNewProject = async (params, procedure) => {
+const addNewProject = async (params) => {
   try {
     let pool = await sql.connect(sqlConfig);
 
@@ -119,10 +119,10 @@ const addNewProject = async (params, procedure) => {
       result1.input(param.name, param.type, param.value);
       console.log(result1);
     });
-    return await result1.execute(procedure);
+    return await result1.execute();
   } catch (err) {
     throw err;
   }
 };
 
-module.exports = {getAllProjects,addNewProject}
+module.exports = {getAllProjects,addNewProject,sql}

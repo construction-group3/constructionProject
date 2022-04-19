@@ -32,13 +32,13 @@
                 <!-- client Details Form -->
                 <div id="clientDetailsForm" class="forms hide">
                     <label for="ClentTitle">Title:</label>
-                    <select class="formItem" name="ClentTitle" id="ClientTitle">
-                        <option value="MR">MR</option>
-                        <option value="MRS">MRS</option>
-                        <option value="MS">MS</option>
-                        <option value="MR">DR</option>
-                        <option value="MRS">PROF</option>
-                        <option value="MS">REV</option>
+                    <select class="formItem" name="TitleID" id="ClientTitle">
+                        <option value="1">MR</option>
+                        <option value="2">MRS</option>
+                        <option value="3">MS</option>
+                        <option value="4">DR</option>
+                        <option value="5">PROF</option>
+                        <option value="6">REV</option>
                     </select>
                     <br>
                     <label class="formItem" for="firstName">First Name:</label>
@@ -46,28 +46,15 @@
             
                     <label class="formItem" for="lastName">Last Name:</label>
                     <input class="formItem clientFormInput" type="text" id="lastName" name="lastName" required><br>
-                    
-                    <div class="tittleInput">
-                    <input class="formItem clientFormInput" type="radio" name="gender" required>
-                    <label for="1">MR</label>
-                    <input class="formItem clientFormInput" type="radio" name="gender"  required>
-                    <label for="2">Mrs</label><br>
-                    <input class="formItem clientFormInput" type="radio" name="gender"  required>
-                    <label for="3">Miss</label><br>
-                    <input class="formItem clientFormInput" type="radio" name="gender"  required>
-                    <label for="4">Dr</label><br>
-                    <input class="formItem clientFormInput" type="radio" name="gender"  required>
-                    <label for="4">Rev</label><br>
-                    </div>
             
                     <label for="PhoneNumber">Phone Number:</label>
                     <input class="formItem clientFormInput" type="text" id="PhoneNumber" name="PhoneNumber" required><br>
             
                     <label for="Email">Email Addres:</label>
-                    <input class="formItem clientFormInput" type="text" id="Email" name="Email" required><br>
+                    <input class="formItem clientFormInput" type="text" id="EmailAddress" name="EmailAddress" required><br>
             
                     <label for="address">Physical Address:</label><br>
-                    <textarea class="formItem clientFormInput" rows="4" cols="30" name="address" id="address" required></textarea><br>
+                    <textarea class="formItem clientFormInput" rows="4" cols="30" name="PhyicalAddress" id="PhyicalAddress" required></textarea><br>
             
                     <button id="projectDetailsBtn" class="formItem formBtn" type="submit">Next</button>
                     </div>
@@ -84,10 +71,10 @@
                 
                     <label for="houses">select house:</label>
                     <select class="formItem" name="houses" id="houses">
-                    <option value="1room">1room</option>
-                    <option value="2room">2room</option>
-                    <option value="3room">3room</option>
-                    <option value="4room">4room</option>
+                    <option value="1">1room</option>
+                    <option value="2">2room</option>
+                    <option value="3">3room</option>
+                    <option value="4">4room</option>
                     </select>           
                     </br>
                     
