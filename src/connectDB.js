@@ -125,4 +125,5 @@ const addNewProject = async (params) => {
   }
 };
 
+
 module.exports = {getAllProjects,addNewProject,sql}
