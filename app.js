@@ -30,13 +30,17 @@ app.get("/view-projects", (req, res) => {
   });
 });
 
-app.post("/view-invoices", (req, res) => {
-  getAllProjects().then((data) => {
+app.get("/view-invoices/:id", (req, res) => {
+  const ID = req.params.id;
+  console.log(`this is the id ${ID}`);
+  getInvoice(ID).then((data) => {
     res.send(data);
   });
 });
+
+
 app.get("/view-available-teams", (req, res) => {
-  getAllProjects().then((data) => {
+  getAvailableTeams().then((data) => {
     res.send(data);
   });
 });

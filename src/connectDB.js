@@ -65,7 +65,7 @@ const getAvailableTeams = async () => {
     let result1 = await pool
       .request()
       .query(`SELECT TeamID,TeamName FROM AvalableTeams`);
-    console.log(result1.recordset);
+    return result1.recordset;
   } catch (err) {
     throw err;
   }
@@ -101,12 +101,11 @@ const getInvoice = async (clientID) => {
         `SELECT Title,FirstName,LastName,HouseType,AmountPaidInZAR,BalanceInZAR,StatusDescr FROM udf_Invoices(@input_parameter)
         `
       );
-    console.log(result1.recordset);
+    return result1.recordset;
   } catch (err) {
     throw err;
   }
 };
-// getInvoice(1)
 
 // ADD NEW PROJECT
 
