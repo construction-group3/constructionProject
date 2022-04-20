@@ -6,7 +6,6 @@ const toggleModal = document.getElementsByClassName("capture-modal-btn");
 const toggleInvoiceModal = document.getElementsByClassName("invoice-modal-btn");
 const invoiceSection = document.getElementById("invoiceSection");
 
-
 const viewCompanyProjectsBtn = document.getElementById(
   "viewCompanyProjectsBtn"
 );
@@ -22,8 +21,6 @@ const toggleCompanyProjectModal = document.getElementsByClassName(
   "CompanyProject-modal-btn"
 );
 const CompanyProjectSection = document.getElementById("CompanyProjectSection");
-
-
 
 const toggleAvailableTeamModal = document.getElementsByClassName(
   "AvailableTeam-modal-btn"
@@ -67,7 +64,7 @@ const LoginSection = document.getElementById("LoginSection");
 // projectDetailsBtn.addEventListener("click", (e) => {
 //   e.preventDefault();
 
-  // validate client input
+// validate client input
 //   const clientFormInput = Array.from(
 //     document.getElementsByClassName("clientFormInput")
 //   );
@@ -84,15 +81,56 @@ const LoginSection = document.getElementById("LoginSection");
 //   }
 // });
 
-
-
 // call view projects api and populate table
 fetch("http://localhost:3000/view-projects")
   .then((res) => res.json())
   .then((data) => {
+    // console.log(data);
+    // console.log("data");
+    fillTable(data);
+  });
+
+
+// remember to change
+let clientID = 1
+
+// get invoice by client id
+fetch(`http://localhost:3000/view-invoices/${clientID}`)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log("invoice data");
+    // console.log(data);
+    // fillTable(data);
+  });
+
+// check progress by id
+let projectID = 2
+fetch(`http://localhost:3000/check-progress/${projectID}`)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log("project data");
     console.log(data);
-    console.log("data");
-    fillTable(data)});
+    // fillTable(data);
+  });
+
+// get-project-by-status
+let statusID = 2
+fetch(`http://localhost:3000/get-project-by-status/${statusID}`)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log("status data");
+    console.log(data);
+    // fillTable(data);
+  });
+
+// available teams
+fetch(`http://localhost:3000/view-available-teams`)
+  .then((res) => res.json())
+  .then((data) => {
+    // console.log("invoice data");
+    console.log("teams",data);
+    // fillTable(data);
+  });
 
 function addTableRow(user) {
   let values = Object.values(user);
@@ -128,14 +166,13 @@ const addNewProjectForm = document.getElementById("addNewProjectForm");
 addNewProjectForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const formData =  getFormData(addNewProjectForm) 
-
+  const formData = getFormData(addNewProjectForm);
 
   fetch("http://localhost:3000/add-new-project-form", {
     method: "post",
     headers: {
-      "Accept": "application/json",
-      "Content-type": "application/json"
+      Accept: "application/json",
+      "Content-type": "application/json",
     },
     body: JSON.stringify(formData),
   })
