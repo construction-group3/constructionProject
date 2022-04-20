@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="Navigation.css">
-    <link rel="icon" href="logo.png" type="image/x-icon" />
-
-    <title>Invoices</title>
+    <title>View Progress</title>
 </head>
-
 <body>
+
     <header>
         <h1 id="logo">
           <a href="./Landing.html">
@@ -45,48 +42,34 @@
         <button id="signout-btn"><a href="./Landing.html">Sign out</a></button>
       </header>
 
-      <section id="invoiceSection" class="invoice modal-overlay hide" >
-            <form id="GetInvoice" action="/add_new_project" method="POST" class="form-container">
+    <!-- view progress form -->
+    <section id="ProjectProgressSection" class="ProjectProgress modal-overlay hide" >
+            <form id="GetProjectProgress" action="/add_new_project" method="POST" class="form-container">
     
-                <label for="InvoiceName">Enter Project ID:</label><br>
+                <label for="ProjectProgressName">Enter Project ID:</label><br>
     
-                <input class="formItem" type="text" id="InvoiceProjectID" name="InvoiceProjectID"><br>
+                <input class="formItem" type="text" id="ProjectProgressID" name="ProjectProgressID"><br>
     
-                <input class="formItem" type="submit" value="Get Invoice">
+                <input class="formItem" type="submit" value="Check Progress">
             </form>
         </section>
 
-    <main id="mainContent">
-
-        <section id="projectsSection" class="section">
-
-            <h1 id="projectsHeader">Invoices</h1>
-
-            <table id="table">
-
-                <tr class="table-row" id="table-header">
-
-                    <th>TeamID</th>
-
-                    <th>FirstName</th>
-
-                    <th>LastName</th>
-
-                    <th>HouseType</th>
-
-                    <th>AmountPaidInZAR</th>
-
-                    <th>BalanceInZAR</th>
-
-                    <th>StatusDescr</th>
-
-                </tr>
-
-            </table>
-
-        </section>
-
+        <main id="mainContent">
+      <section id="projectsSection" class="section">
+        <h1 id="projectsHeader">Company projects</h1>
+        <table id="table">
+          <tr class="table-row" id="table-header">
+            <th>ProjectID</th>
+            <th>ClientID</th>
+            <th>TeamID</th>
+            <th>HouseID</th>
+            <th>ProjectLocation</th>
+            <th>AmountPaidInZAR</th>
+            <th>BalanceInZAR</th>
+            <th>StatusType</th>
+          </tr>
+        </table>
+      </section>
     </main>
 </body>
-
 </html>

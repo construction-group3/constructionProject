@@ -1,6 +1,6 @@
 :root {
   --black: #111;
-  --yello: #f2cc0c;
+  --yello: #ff9f00;
   --white: #fff;
 }
 
@@ -23,41 +23,6 @@ body {
   background-size: cover;
 }
 
-/* Navigation */
-/* header {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  align-items: center;
-}
-
-li {
-  list-style: none;
-}
-
-.navItem {
-  margin: 0rem 0.5rem;
-  padding: 0.4rem;
-  font-size: 1.1rem;
-}
-
-.navItem:hover {
-  background-color: var(--yello);
-}
-
-a {
-  color: var(--black);
-  text-decoration: none;
-}
-
-nav .navigationList {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: row;
-} */
-
-/* contant */
 main {
   display: flex;
   justify-content: center;
@@ -74,6 +39,33 @@ main {
   position: relative;
 }
 
+/* Capture New Project */
+
+.forms {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+  font-weight: 500;
+  background-image: url(img2.jpg);
+}
+
+.formItem {
+  display: flex;
+  height: 2rem;
+  padding: 0.5rem;
+  margin: 0rem 0.5rem;
+  width: 100%;
+}
+
+.formBtn {
+  margin: 0.5rem 0rem;
+}
+
 /* company projects */
 #projectsSection {
   display: block;
@@ -83,6 +75,21 @@ main {
   background-image: url(img2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* Center the image and position the close button */
+#imgcontainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 24px 0 12px 0;
+  width: 22rem;
+  align-items: center;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
 }
 
 #projectsHeader {
@@ -100,7 +107,6 @@ main {
 
 .table-row {
   min-width: 400px;
-  /* margin: 10px 5px; */
 }
 
 .table-row:hover {
