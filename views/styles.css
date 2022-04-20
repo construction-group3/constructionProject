@@ -24,13 +24,11 @@ body {
 }
 
 /* Navigation */
-header {
-  /* width: 100vw; */
+/* header {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
   align-items: center;
-  /* margin: 1rem 0rem; */
 }
 
 li {
@@ -57,7 +55,7 @@ nav .navigationList {
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
-}
+} */
 
 /* contant */
 main {
@@ -87,7 +85,7 @@ main {
   background-size: cover;
 }
 
-#projectsHeader{
+#projectsHeader {
   align-self: center;
 }
 
@@ -96,7 +94,7 @@ main {
   flex-direction: column;
   justify-content: start;
   align-items: flex-start;
-  margin: 1rem ;
+  margin: 1rem;
   overflow-x: scroll;
 }
 
@@ -124,8 +122,6 @@ th {
     min-width: 8rem;
     margin: 0px 5px;
   }
-
-
 }
 
 @media screen and (max-width: 900px) {

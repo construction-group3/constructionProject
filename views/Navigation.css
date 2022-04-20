@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  padding: 0rem;
+  margin: 0rem;
+  font-family: "Roboto", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+header {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  background-color: #333;
+  overflow: hidden;
+  /* margin: 1rem 0rem; */
+}
+
+nav .navigationList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+li a {
+  display: flex;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* Add a black background color to the top navigation */
+/* .topnav {
+  background-color: #333;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+} */
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  border-bottom: 0.5rem solid #ff9f00;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  border-bottom: 0.5rem solid #ff9f00;
+  color: white;
+}
+
+#signout-btn {
+  background-color: #333;
+  color: white;
+  border: none;
+}
+
+#signout-btn a:visited {
+  color: white;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(img2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

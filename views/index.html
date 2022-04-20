@@ -15,6 +15,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./Navigation.css" />
     <script src="./scripts.js" defer></script>
     <title>Project Details</title>
   </head>
@@ -22,7 +23,9 @@
   <body>
     <header>
       <h1 id="logo">
-        <img src="logo.png" alt="logo" width="80px" height="80px" />
+        <a href="./Landing.html">
+          <img src="logo.png" alt="logo" width="60px" height="60px" />
+        </a>
       </h1>
       <nav class="navigation">
         <ul class="navigationList">
@@ -47,6 +50,7 @@
           </li>
         </ul>
       </nav>
+      <button id="signout-btn"><a href="./Landing.html">Sign out</a></button>
     </header>
 
     <main id="mainContent">
@@ -68,124 +72,5 @@
         </table>
       </section>
     </main>
-
-    <!-- <section id="CaptureNewProject" class="capture-modal-overlay modal-overlay hide">
-        <div id="captureModal" class="modal">
-            <span id="close-modal-btn" class="material-icons capture-modal-btn">close</span>
-            <form id="addNewProjectForm"  class="form-container"> -->
-
-    <!-- client Details Form -->
-    <!-- <div id="clientDetailsForm" class="forms hide">
-                    <label for="ClentTitle">Title:</label>
-                    <select class="formItem" name="TitleID" id="ClientTitle">
-                        <option value="1">MR</option>
-                        <option value="2">MRS</option>
-                        <option value="3">MS</option>
-                        <option value="4">DR</option>
-                        <option value="5">PROF</option>
-                        <option value="6">REV</option>
-                    </select>
-                    <br>
-                    <label class="formItem" for="firstName">First Name:</label>
-                    <input class="formItem clientFormInput" type="text" id="firstName" name="firstName" required><br>
-            
-                    <label class="formItem" for="lastName">Last Name:</label>
-                    <input class="formItem clientFormInput" type="text" id="lastName" name="lastName" required><br>
-            
-                    <label for="PhoneNumber">Phone Number:</label>
-                    <input class="formItem clientFormInput" type="text" id="PhoneNumber" name="PhoneNumber" required><br>
-            
-                    <label for="Email">Email Addres:</label>
-                    <input class="formItem clientFormInput" type="text" id="EmailAddress" name="EmailAddress" required><br>
-            
-                    <label for="address">Physical Address:</label><br>
-                    <textarea class="formItem clientFormInput" rows="4" cols="30" name="PhyicalAddress" id="PhyicalAddress" required></textarea><br>
-            
-                    <button id="projectDetailsBtn" class="formItem formBtn" type="submit">Next</button>
-                    </div> -->
-
-    <!--project Details Form  -->
-    <!-- <div id="projectDetailsForm" class="forms">
-                    <label for="TeamID">Select team:</label>
-                    <select class="formItem" name="TeamID" id="TeamID">
-                    <option value="avengers">avengers</option>
-                    <option value="titans">titans</option>
-                    <option value="Justice league">Justice league</option>
-                    </select>
-                    <br>
-                
-                    <label for="houses">select house:</label>
-                    <select class="formItem" name="houses" id="houses">
-                    <option value="1">1room</option>
-                    <option value="2">2room</option>
-                    <option value="3">3room</option>
-                    <option value="4">4room</option>
-                    </select>           
-                    </br>
-                    
-                    <label for="ProjectLocation">Project Location:</label>
-                    <input class="formItem" type="text"  required name="ProjectLocation" placeholder="ProjectLocation">
-                    <br/>
-
-                    <label for="AmountPaidInZAR">Amount Paid (ZAR):</label>
-                    <input class="formItem" type="number"  required name="AmountPaidInZAR" placeholder="AmountPaidInZAR">
-                    <br/>
-                
-                    <button id="backToClientFormBtn" class="formItem formBtn" type="button">back</button>             
-                    <button  id="submitForm" class="formItem formBtn" type="submit">submit</button>             
-                </div>
-              </form> 
-        </div>
-    </section> -->
-
-    <!-- Invoice form -->
-    <!-- <section id="invoiceSection" class="invoice modal-overlay hide" >
-    <div id="invoiceModal" class="modal" class="forms hide">
-
-        <span id="close-modal-btn" class="material-icons modal-btn invoice-modal-btn">close</span>
-        <form id="GetInvoice" action="/add_new_project" method="POST" class="form-container">
-
-            <label for="InvoiceName">Enter Project ID:</label><br>
-
-            <input class="formItem" type="text" id="InvoiceProjectID" name="InvoiceProjectID"><br>
-
-            <input class="formItem" type="submit" value="Get Invoice">
-        </form>
-
-    </div>
-    </section> -->
-
-    <!-- view progress form -->
-    <!-- <section id="ProjectProgressSection" class="ProjectProgress modal-overlay hide" >
-        <div id="ProjectProgressModal" class="modal" class="forms hide">
-    
-            <span id="close-modal-btn" class="material-icons modal-btn ProjectProgress-modal-btn">close</span>
-            <form id="GetProjectProgress" action="/add_new_project" method="POST" class="form-container">
-    
-                <label for="ProjectProgressName">Enter Project ID:</label><br>
-    
-                <input class="formItem" type="text" id="ProjectProgressID" name="ProjectProgressID"><br>
-    
-                <input class="formItem" type="submit" value="Check Progress">
-            </form>
-    
-        </div>
-        </section> -->
-
-    <!-- view Company projects form -->
-
-    <!-- view Available teams form -->
-    <!-- <section id="AvailableTeamSection" class="AvailableTeam modal-overlay hide" >
-        <div id="AvailableTeamModal" class="modal" class="forms hide">
-    
-            <span id="close-modal-btn" class="material-icons modal-btn AvailableTeam-modal-btn">close</span>
-            <form id="GetAvailableTeam" action="/add_new_project" method="POST" class="form-container">
-    
-                <h1>Available Teams</h1>
-                
-            </form>
-    
-        </div>
-        </section> -->
   </body>
 </html>
