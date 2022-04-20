@@ -23,6 +23,42 @@ body {
   background-size: cover;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  /* border: solid 0.3rem black; */
+}
+
+.formItem {
+  height: 2rem;
+  margin: 0rem 0.5rem;
+  /* border: solid 0.3rem black; */
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 20px;
+  background-color:  #f2cc0c;
+  font-weight: 500;
+  background-image: url(img2.jpg);
+  background-color:  #f2cc0c;
+  font-weight: 500;
+}
+
+
+.formItem {
+  height: 2rem;
+  margin: 0rem 0.5rem;
+  /* border: solid 0.3rem black; */
+}
+
+.formBtn {
+  margin: 0.5rem 0rem;
+}
+
 /* Navigation */
 header {
   /* width: 100vw; */
