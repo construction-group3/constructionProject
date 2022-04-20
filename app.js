@@ -3,12 +3,19 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const port = process.env.DB_PORT;
-const sql = require("./src/connectDB")
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
-const { getAllProjects, addNewProject } = require("./src/connectDB");
+const {
+  getAllProjects,
+  addNewProject,
+  getInvoice,
+  getAvailableTeams,
+  getProject,
+  checkProgress,
+  getCompletedProjects,
+} = require("./src/connectDB");
 
 app.use(express.static("./views"));
 app.use(express.urlencoded({ extended: true }));
@@ -18,9 +25,20 @@ app.get("/", (req, res) => {
 });
 
 app.get("/view-projects", (req, res) => {
-  getAllProjects().then((data)=>{
-      res.send(data)
-  })
+  getAllProjects().then((data) => {
+    res.send(data);
+  });
+});
+
+app.post("/view-invoices", (req, res) => {
+  getAllProjects().then((data) => {
+    res.send(data);
+  });
+});
+app.get("/view-available-teams", (req, res) => {
+  getAllProjects().then((data) => {
+    res.send(data);
+  });
 });
 
 app.post("/add-new-project-form", (req, res) => {
@@ -36,24 +54,20 @@ app.post("/add-new-project-form", (req, res) => {
     ProjectLocation,
     Deposit,
   } = req.body;
-  const para = [
-      { name: TitleID, type: sql.Int, value: 1 },
-      { name: FirstName, type: sql.NVarChar(250), value: "me" },
-      { name: LastName, type: sql.NVarChar(250), value: "sirname" },
-      { name: PhyicalAddress, type: sql.NVarChar(500), value: "home" },
-      {
-        name: EmailAddress,
-        type: sql.NVarChar(250),
-        value: "mecomputer.com",
-      },
-      { name: PhoneNumber, type: sql.VarChar(10), value: "1234567890" },
-      { name: TeamID, type: sql.Int, value: "1" },
-      { name: HouseID, type: sql.Int, value: "1" },
-      { name: ProjectLocation, type: sql.NVarChar(500), value: "my home" },
-      { name: Deposit, type: sql.Money, value: 50000 },
-    ];
-  addNewProject(para)
-  console.log(formData);
+
+  addNewProject(
+    TitleID,
+    FirstName,
+    LastName,
+    PhoneNumber,
+    EmailAddress,
+    PhyicalAddress,
+    TeamID,
+    HouseID,
+    ProjectLocation,
+    Deposit
+  );
+  // console.log(formData);
 });
 
 app.listen(port, () => {

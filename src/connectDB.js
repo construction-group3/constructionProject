@@ -110,19 +110,56 @@ const getInvoice = async (clientID) => {
 
 // ADD NEW PROJECT
 
-const addNewProject = async (params) => {
-  try {
-    let pool = await sql.connect(sqlConfig);
+const addNewProject = async (
+  TitleID,
+  FirstName,
+  LastName,
+  PhoneNumber,
+  EmailAddress,
+  PhyicalAddress,
+  TeamID,
+  HouseID,
+  ProjectLocation,
+  Deposit
+) => {
+  const para = [
+    { name: "TitleID", type: sql.Int, value: TitleID },
+    { name: "FirstName", type: sql.NVarChar(250), value: FirstName },
+    { name: "LastName", type: sql.NVarChar(250), value: LastName },
+    { name: "PhyicalAddress", type: sql.NVarChar(500), value: PhyicalAddress },
+    {
+      name: "EmailAddress",
+      type: sql.NVarChar(250),
+      value: EmailAddress,
+    },
+    { name: "PhoneNumber", type: sql.VarChar(10), value: PhoneNumber },
+    { name: "TeamID", type: sql.Int, value: TeamID },
+    { name: "HouseID", type: sql.Int, value: HouseID },
+    {
+      name: "ProjectLocation",
+      type: sql.NVarChar(500),
+      value: ProjectLocation,
+    },
+    { name: "Deposit", type: sql.Money, value: Deposit },
+  ];
 
-    const result1 = await pool.request();
-    params.forEach(function (param) {
-      result1.input(param.name, param.type, param.value);
-      console.log(result1);
-    });
-    return await result1.execute();
-  } catch (err) {
-    throw err;
-  }
+  let pool = await sql.connect(sqlConfig);
+
+  const result1 = await pool.request();
+  params.forEach(function (param) {
+    result1.input(param.name, param.type, param.value);
+    console.log(result1);
+  });
+  return await result1.execute();
 };
 
-module.exports = {getAllProjects,addNewProject,sql}
+module.exports = {
+  getAllProjects,
+  addNewProject,
+  getInvoice,
+  getAvailableTeams,
+  getProject,
+  checkProgress,
+  getCompletedProjects
+
+};
