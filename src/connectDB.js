@@ -3,21 +3,21 @@ const sql = require("mssql");
 const { sqlConfig } = require("./sqlConfig");
 
 // CHECKING A PARTICULAR PROJECT USING A PROJECT ID
-const getProject = async (ID) => {
-  try {
-    const pool = await sql.connect(sqlConfig);
+// const getProject = async (ID) => {
+//   try {
+//     const pool = await sql.connect(sqlConfig);
 
-    let result1 = await pool
-      .request()
-      .input("input_parameter", sql.Int, ID)
-      .query(
-        `SELECT ProjectID,ClientID,TeamID,HouseID, ProjectLocation,AmountPaidInZAR,BalanceInZAR,StatusType FROM IDFilter(@input_parameter) `
-      );
-    console.log(result1.recordset);
-  } catch (err) {
-    throw err;
-  }
-};
+//     let result1 = await pool
+//       .request()
+//       .input("input_parameter", sql.Int, ID)
+//       .query(
+//         `SELECT ProjectID,ClientID,TeamID,HouseID, ProjectLocation,AmountPaidInZAR,BalanceInZAR,StatusType FROM IDFilter(@input_parameter) `
+//       );
+//     console.log(result1.recordset);
+//   } catch (err) {
+//     throw err;
+//   }
+// };
 
 // CHECK PROGRESS USING PROJECT ID
 const checkProgress = async (ID) => {
@@ -30,7 +30,7 @@ const checkProgress = async (ID) => {
       .query(
         `SELECT ProjectID,ClientID,TeamID,HouseID, ProjectLocation,AmountPaidInZAR,BalanceInZAR,StatusType FROM IDFilter(@input_parameter) `
       );
-    console.log(result1.recordset);
+    return result1.recordset;
   } catch (err) {
     throw err;
   }
@@ -39,7 +39,7 @@ const checkProgress = async (ID) => {
 // checkProgress(1)
 
 // -- CHECKING THE COMPLETED TEAMS
-const getCompletedProjects = async (statusID) => {
+const getProjectsByStatus = async (statusID) => {
   try {
     const pool = await sql.connect(sqlConfig);
 
@@ -50,12 +50,12 @@ const getCompletedProjects = async (statusID) => {
         `SELECT ProjectID,FirstName,LastName,HouseType,EstimatedDurationInMonths,teamName, ProjectLocation,AmountPaidInZAR,BalanceInZAR,StatusType FROM StatusFilter(@input_parameter)
         `
       );
-    console.log(result1.recordset);
+    return result1.recordset;
   } catch (err) {
     throw err;
   }
 };
-// getCompletedProjects()
+// getProjectsByStatus()
 
 // SHOW AVAILABLE TEAMS
 const getAvailableTeams = async () => {
@@ -157,8 +157,8 @@ module.exports = {
   addNewProject,
   getInvoice,
   getAvailableTeams,
-  getProject,
+  // getProject,
   checkProgress,
-  getCompletedProjects
+  getProjectsByStatus
 
 };

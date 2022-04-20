@@ -86,7 +86,7 @@ fetch("http://localhost:3000/view-projects")
   .then((res) => res.json())
   .then((data) => {
     // console.log(data);
-    console.log("data");
+    // console.log("data");
     fillTable(data);
   });
 
@@ -94,22 +94,42 @@ fetch("http://localhost:3000/view-projects")
 // remember to change
 let clientID = 1
 
-
+// get invoice by client id
 fetch(`http://localhost:3000/view-invoices/${clientID}`)
   .then((res) => res.json())
   .then((data) => {
     console.log("invoice data");
     // console.log(data);
-    fillTable(data);
+    // fillTable(data);
   });
 
+// check progress by id
+let projectID = 2
+fetch(`http://localhost:3000/check-progress/${projectID}`)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log("project data");
+    console.log(data);
+    // fillTable(data);
+  });
 
+// get-project-by-status
+let statusID = 2
+fetch(`http://localhost:3000/get-project-by-status/${statusID}`)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log("status data");
+    console.log(data);
+    // fillTable(data);
+  });
+
+// available teams
 fetch(`http://localhost:3000/view-available-teams`)
   .then((res) => res.json())
   .then((data) => {
-    console.log("invoice data");
+    // console.log("invoice data");
     console.log("teams",data);
-    fillTable(data);
+    // fillTable(data);
   });
 
 function addTableRow(user) {

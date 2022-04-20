@@ -11,10 +11,10 @@ const {
   getAllProjects,
   addNewProject,
   getInvoice,
-  getAvailableTeams,
-  getProject,
+  getProjectsByStatus,
+  // getProject,
   checkProgress,
-  getCompletedProjects,
+  getAvailableTeams,
 } = require("./src/connectDB");
 
 app.use(express.static("./views"));
@@ -32,8 +32,14 @@ app.get("/view-projects", (req, res) => {
 
 app.get("/view-invoices/:id", (req, res) => {
   const ID = req.params.id;
-  console.log(`this is the id ${ID}`);
   getInvoice(ID).then((data) => {
+    res.send(data);
+  });
+});
+
+app.get("/get-project-by-status/:id", (req, res) => {
+  const ID = req.params.id;
+  getProjectsByStatus(ID).then((data) => {
     res.send(data);
   });
 });
@@ -41,6 +47,14 @@ app.get("/view-invoices/:id", (req, res) => {
 
 app.get("/view-available-teams", (req, res) => {
   getAvailableTeams().then((data) => {
+    res.send(data);
+  });
+});
+
+app.get("/check-progress/:id", (req, res) => {
+  const ID = req.params.id;
+
+  checkProgress(ID).then((data) => {
     res.send(data);
   });
 });
