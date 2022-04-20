@@ -161,7 +161,6 @@ function getFormData(form) {
 }
 //
 const addNewProjectForm = document.getElementById("addNewProjectForm");
-console.log(addNewProjectForm);
 
 addNewProjectForm.addEventListener("submit", () => {
   // e.preventDefault();

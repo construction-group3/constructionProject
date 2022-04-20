@@ -91,3 +91,23 @@ app.post("/add-new-project-form", (req, res) => {
 app.listen(port, () => {
   console.log(`app listening on port: ${port}`);
 });
+//   const para = [
+//     { name: "TitleID", type: sql.Int, value: TitleID },
+//     { name: "FirstName", type: sql.NVarChar(250), value: FirstName },
+//     { name: "LastName", type: sql.NVarChar(250), value: LastName },
+//     { name: "PhyicalAddress", type: sql.NVarChar(500), value: PhyicalAddress },
+//     {
+//       name: "EmailAddress",
+//       type: sql.NVarChar(250),
+//       value: EmailAddress,
+//     },
+//     { name: "PhoneNumber", type: sql.VarChar(10), value: PhoneNumber },
+//     { name: "TeamID", type: sql.Int, value: TeamID },
+//     { name: "HouseID", type: sql.Int, value: HouseID },
+//     {
+//       name: "ProjectLocation",
+//       type: sql.NVarChar(500),
+//       value: ProjectLocation,
+//     },
+//     { name: "Deposit", type: sql.Money, value: Deposit },
+//   ];

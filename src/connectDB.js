@@ -110,83 +110,105 @@ const getInvoice = async (clientID) => {
 
 // ADD NEW PROJECT
 
+// const addNewProject = async (
+//   TitleID,
+//   FirstName,
+//   LastName,
+//   PhoneNumber,
+//   EmailAddress,
+//   PhyicalAddress,
+//   TeamID,
+//   HouseID,
+//   ProjectLocation,
+//   Deposit
+// ) => {
+//   const para = [
+//     { name: "TitleID", type: sql.Int, value: 1 },
+//     { name: "FirstName", type: sql.NVarChar(250), value: "me12" },
+//     { name: "LastName", type: sql.NVarChar(250), value: "sirname" },
+//     { name: "PhyicalAddress", type: sql.NVarChar(500), value: "home" },
+//     {
+//       name: "EmailAddress",
+//       type: sql.NVarChar(250),
+//       value: "meggggg@om.com",
+//     },
+//     { name: "PhoneNumber", type: sql.VarChar(10), value: "56666666" },
+//     { name: "TeamID", type: sql.Int, value: 1 },
+//     { name: "HouseID", type: sql.Int, value: 1 },
+//     { name: "ProjectLocation", type: sql.NVarChar(500), value: "my home" },
+//     { name: "Deposit", type: sql.Money, value: 50000 },
+//   ];
+
+//   try {
+//     let pool = await sql.connect(sqlConfig);
+
+//     const result1 = await pool.request();
+//     para.forEach(function (param) {
+//       result1.input(param.name, param.type, param.value);
+//       // console.log(result1);
+//     });
+//     return await result1.execute("sp_InsertProject");
+//   } catch (err) {
+//     throw err;
+//   }
+// };
+
 const addNewProject = async (
-  // TitleID,
-  // FirstName,
-  // LastName,
-  // PhoneNumber,
-  // EmailAddress,
-  // PhyicalAddress,
-  // TeamID,
-  // HouseID,
-  // ProjectLocation,
-  // Deposit
+  TitleID,
+  FirstName,
+  LastName,
+  PhoneNumber,
+  EmailAddress,
+  PhyicalAddress,
+  TeamID,
+  HouseID,
+  ProjectLocation,
+  Deposit
 ) => {
-
-
-  const params = [
-    { name: "TitleID", type: sql.Int, value: 1 },
-    { name: "FirstName", type: sql.NVarChar(250), value: "FirstName" },
-    { name: "LastName", type: sql.NVarChar(250), value: "LastName" },
-    {
-      name: "PhyicalAddress",
-      type: sql.NVarChar(500),
-      value: "PhyicalAddress",
-    },
+  const para = [
+    { name: "TitleID", type: sql.Int, value: TitleID },
+    { name: "FirstName", type: sql.NVarChar(250), value: FirstName },
+    { name: "LastName", type: sql.NVarChar(250), value: LastName },
+    { name: "PhyicalAddress", type: sql.NVarChar(500), value: PhyicalAddress },
     {
       name: "EmailAddress",
       type: sql.NVarChar(250),
-      value: "EmailAddress",
+      value: EmailAddress,
     },
-    { name: "PhoneNumber", type: sql.VarChar(10), value: "012345689" },
-    { name: "TeamID", type: sql.Int, value: 22 },
-    { name: "HouseID", type: sql.Int, value: 22 },
+    { name: "PhoneNumber", type: sql.VarChar(10), value: PhoneNumber },
+    { name: "TeamID", type: sql.Int, value: TeamID },
+    { name: "HouseID", type: sql.Int, value: HouseID },
     {
       name: "ProjectLocation",
       type: sql.NVarChar(500),
-      value: "ProjectLocation",
+      value: ProjectLocation,
     },
-    { name: "Deposit", type: sql.Money, value: 22 },
+    { name: "Deposit", type: sql.Money, value: Deposit },
   ];
+  console.log("ran");
+  console.log(
+    TitleID,
+    FirstName,
+    LastName,
+    PhoneNumber,
+    EmailAddress,
+    PhyicalAddress,
+    TeamID,
+    HouseID,
+    ProjectLocation,
+    Deposit
+  );
+  let pool = await sql.connect(sqlConfig);
 
-  let pool2 = await sql.connect(sqlConfig);
-
-  // const result1 = await pool.request(),
-  // params.forEach(function (param) {
-  //   result1.input(param.name, param.type, param.value)
-  //   // console.log(result1);
-  // }).result1.execute("sp_InsertProject");
-  // return "done";
-  // let pool = await sql.connect(sqlConfig);
-
-  // const result1 = await pool.request();
-  // params.forEach(function (param) {
-  //   result1.input(param.name, param.type, param.value);
-  //   // console.log(result1);
-  // });
-  // return await result1.execute("sp_InsertProject");
-
-
-  // const result1 = await pool.request();
-  // params.forEach(function (param) {
-  //   result1.input(param.name, param.type, param.value);
-  // });
-  // return await result1.execute("sp_InsertProject");
-
-  return await pool2.then((pool) => {
-    const req = pool.request();
-    params.forEach(function(param) {
-        req.input(param.name, param.type, param.value);
-    });
-    req.execute("sp_InsertProject", (err, recordset) => {
-        // ... error checks
-        res.json(recordset[0]);
-    });
-});
+  const result1 = await pool.request();
+  para.forEach(function (param) {
+    result1.input(param.name, param.type, param.value);
+  });
+  return await result1.execute("sp_InsertProject");
 };
 
-addNewProject()
-getAllProjects()
+addNewProject();
+getAllProjects();
 module.exports = {
   getAllProjects,
   addNewProject,
