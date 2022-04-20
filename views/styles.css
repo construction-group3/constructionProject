@@ -1,3 +1,9 @@
+:root {
+  --black: #111;
+  --yello: #f2cc0c;
+  --white: #fff;
+}
+
 * {
   box-sizing: border-box;
   padding: 0rem;
@@ -5,35 +11,11 @@
   font-family: "Roboto", sans-serif;
 }
 
-.topnav {
-  overflow: hidden;
-  padding: 10px;
-  width: 100%;
-}
-
-.topnav a {
-  float: right;
-  color: black;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ffbc01;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #ffbc01;
-  color: white;
-}
-
 body {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  flex-direction: column;
   width: 100vw;
   height: 100vh;
   background-image: url(img2.jpg);
@@ -41,256 +23,126 @@ body {
   background-size: cover;
 }
 
-.navigation{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
-/* Home */
-
-#home {
+/* Navigation */
+header {
+  /* width: 100vw; */
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
+  flex-direction: row;
   align-items: center;
-
-  position: relative;
-  background-color: rgb(255, 255, 255);
-  min-width: 50vw;
-  padding: 0rem 0.5rem;
+  /* margin: 1rem 0rem; */
 }
 
-.homeButtons {
-  width: 100%;
-  text-align: center;
-  height: 5rem;
-  margin: 1rem;
-  padding: 1rem;
-  font-weight: bold;
-}
-/* .homeButtons{
-    
-    font-weight: bold;
-
-    width: 50%;
-    margin: 1rem;
-    padding: 1rem;
-}*/
-.homeButtons.btn:hover {
-  background-color: #f2cc0c;
+li {
+  list-style: none;
 }
 
-
-/* section */
-
-.section{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    /* height: 100vh; */
-}
-/* Capture New Project */
-
-.forms {
-  display: flex;
-  flex-direction: column;
-  /* width: 50%; */
-  /* border: solid 0.3rem black; */
-}
-
-.formItem {
-  height: 2rem;
+.navItem {
   margin: 0rem 0.5rem;
-  /* border: solid 0.3rem black; */
+  padding: 0.4rem;
+  font-size: 1.1rem;
 }
 
-/* .form-container {
+.navItem:hover {
+  background-color: var(--yello);
+}
+
+a {
+  color: var(--black);
+  text-decoration: none;
+}
+
+nav .navigationList {
   display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  padding: 20px;
-  background-color:  #f2cc0c;
-  font-weight: 500;
-  background-image: url(img2.jpg);
-
-
-  background-color:  #f2cc0c;
-  font-weight: 500;
-} */
-
-
-.formItem {
-  height: 2rem;
-  margin: 0rem 0.5rem;
-  /* border: solid 0.3rem black; */
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
 }
 
-.formBtn {
-  margin: 0.5rem 0rem;
-}
-
-.tittleInput{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-/* Modal */
-.modal-overlay {
-  display: grid;
-  place-items: center;
-  background-color: rgba(0, 0, 0, 0.712);
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  z-index: 2;
-}
-
-.modal {
-  z-index: 100;
-  position: relative;
-  background-color: rgb(255, 255, 255);
-  min-width: 50vw;
-  padding: 0rem 0.5rem;
-
-  /* height: 30vh; */
-}
-
-
-/* Center the image and position the close button */
-#imgcontainer {
+/* contant */
+main {
   display: flex;
   justify-content: center;
-  text-align: center;
-  margin: 24px 0 12px 0;
-  /* position: relative; */
   align-items: center;
 }
 
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 3rem 0rem;
+  background-color: var(--white);
+  position: relative;
 }
 
-#close-modal-btn {
-  cursor: pointer;
-  font-size: 3rem;
-  border: none;
-  background-color: rgb(189, 189, 189);
-  position: absolute;
-  right: 0rem;
-  top: -3.5rem;
+/* company projects */
+#projectsSection {
+  display: block;
+  text-align: center;
+  min-width: 50vw;
+  padding: 0rem 0.5rem;
+  background-image: url(img2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.hide {
-  display: none;
+#projectsHeader{
+  align-self: center;
 }
-
-/* MEDIA QUERIES */
-
-#close-modal-btn {
-  cursor: pointer;
-  font-size: 2rem;
-  border: 0.1rem solid white;
-  color: white;
-  border-radius: 50%;
-  position: absolute;
-  right: 50%;
-  top: -3.5rem;
-}
-
-#close-modal-btn:hover {
-  border: 0.1rem solid red;
-  color: red;
-}
-
-.hide {
-  display: none;
-}
-
-/* TABLE */
 
 #table {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: flex-start;
+  margin: 1rem ;
+  overflow-x: scroll;
 }
 
 .table-row {
   min-width: 400px;
-  margin: 10px 5px;
+  /* margin: 10px 5px; */
 }
 
 .table-row:hover {
-  background-color: var(--blue);
-  color: var(--white);
+  background-color: var(--yello);
 }
 
 th {
-  width: 200px;
+  width: 40rem;
+  min-width: 8rem;
+  margin: 0px 5px;
 }
 
-/* MEDIA QUERIES */
-
-
-@media screen and (max-width: 600px) {
-  .modal {
-    width: 90vw;
+/* Media queries */
+@media screen and (max-width: 1200px) {
+  .section {
+    width: 95vw;
   }
-
-  .table-row {
-    min-width: 400px;
-    margin: 10px 5px;
-  }
-
-  #table {
-    overflow-x: scroll;
-  }
-
   th {
     min-width: 8rem;
-
     margin: 0px 5px;
   }
+
+
 }
 
-@media screen and (max-width: 600px) {
-  .homeButtons {
-    width: 100%;
-  }
-  .modal {
-    width: 90vw;
+@media screen and (max-width: 900px) {
+  .section {
+    width: 95vw;
   }
 
-  .table-row {
-    min-width: 400px;
-    margin: 10px 5px;
-  }
-  #formDiv {
-    width: 80%;
-  }
-
-  #home {
-    display: flex;
+  header {
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    overflow-x: scroll;
-    position: relative;
-    background-color: rgb(255, 255, 255);
-    padding: 0rem 0.5rem;
   }
 
-
-  .CompanyProjectModal {
-    width: 100vw;
-    overflow: hidden;
-    overflow-x: scroll;
-    display: flex;
-    justify-content: start;
+  nav .navigationList {
+    flex-direction: column;
+  }
+  .table-row {
+    min-width: 400px;
+    margin: 10px 5px;
   }
 
   #table {
@@ -299,13 +151,6 @@ th {
 
   th {
     min-width: 8rem;
-
     margin: 0px 5px;
   }
 }
-
-/* @media screen and (max-width: 320px){ 
-    .modal{
-    font-size: 10px;
-    }
-  } */

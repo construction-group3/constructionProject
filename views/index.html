@@ -1,62 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <script src="./scripts.js" defer></script>
     <title>Project Details</title>
-</head>
-<body>
+  </head>
 
+  <body>
     <header>
-        <nav class="navigation">
-            <h1 id="logo">logo</h1>
-            <ul class="navigationList">
-                <li id="captureNewProject" class="navItem"><a href="">Capture New Client</a></li>
-                <li id="projects" class="navItem"><a href="">View Company Projects</a></li>
-                <li id="Progress" class="navItem"><a href="">View Project Progress</a></li>
-                <li id="invoice" class="navItem"><a href="">View Invoices</a></li>
-                <li id="teams" class="navItem"><a href="">View Available Teams</a></li>
-            </ul>
-        </nav>
+      <h1 id="logo"><img src="./MicrosoftTeams-image.png" alt="logo" width="80px" height="80px"></h1>
+      <nav class="navigation">
+        <ul class="navigationList">
+          <li id="captureNewProject" class="navItem">
+            <a href="">Capture New Client</a>
+          </li>
+
+          <li id="projects" class="navItem">
+            <a href="">View Company Projects</a>
+          </li>
+
+          <li id="Progress" class="navItem">
+            <a href="">View Project Progress</a>
+          </li>
+
+          <li id="invoice" class="navItem">
+            <a href="">View Invoices</a>
+          </li>
+
+          <li id="teams" class="navItem">
+            <a href="">View Available Teams</a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
-    <section id="CompanyProjectSection" class="section" >
-        <h1>Company projects</h1>
-        <article id="CompanyProjectModal" >
-
-            <table id="table">              
-                <tr class="table-row" id="table-header">
-                    <th>ProjectID</th>
-                    <th>FirstName</th>
-                    <th>LastName</th>
-                    <th>HouseType</th>
-                    <th>time(Months)</th>
-                    <th>teamName</th>
-                    <th>ProjectLocation</th>
-                    <th>AmountPaidInZAR</th>
-                    <th>BalanceInZAR</th>
-                    <th>StatusType</th>
-                </tr>
-            </table>
-    
-        </article>
-    </section>
-
+    <main id="mainContent">
+      <section id="projectsSection" class="section">
+        <h1 id="projectsHeader">Company projects</h1>
+        <table id="table">
+          <tr class="table-row" id="table-header">
+            <th>ProjectID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>HouseType</th>
+            <th>time(Months)</th>
+            <th>teamName</th>
+            <th>ProjectLocation</th>
+            <th>AmountPaidInZAR</th>
+            <th>BalanceInZAR</th>
+            <th>StatusType</th>
+          </tr>
+        </table>
+      </section>
+    </main>
 
     <!-- <section id="CaptureNewProject" class="capture-modal-overlay modal-overlay hide">
         <div id="captureModal" class="modal">
             <span id="close-modal-btn" class="material-icons capture-modal-btn">close</span>
             <form id="addNewProjectForm"  class="form-container"> -->
-        
-                <!-- client Details Form -->
-                <!-- <div id="clientDetailsForm" class="forms hide">
+
+    <!-- client Details Form -->
+    <!-- <div id="clientDetailsForm" class="forms hide">
                     <label for="ClentTitle">Title:</label>
                     <select class="formItem" name="TitleID" id="ClientTitle">
                         <option value="1">MR</option>
@@ -84,9 +101,9 @@
             
                     <button id="projectDetailsBtn" class="formItem formBtn" type="submit">Next</button>
                     </div> -->
-        
-                <!--project Details Form  -->
-                <!-- <div id="projectDetailsForm" class="forms">
+
+    <!--project Details Form  -->
+    <!-- <div id="projectDetailsForm" class="forms">
                     <label for="TeamID">Select team:</label>
                     <select class="formItem" name="TeamID" id="TeamID">
                     <option value="avengers">avengers</option>
@@ -136,8 +153,8 @@
     </div>
     </section> -->
 
-     <!-- view progress form -->
-     <!-- <section id="ProjectProgressSection" class="ProjectProgress modal-overlay hide" >
+    <!-- view progress form -->
+    <!-- <section id="ProjectProgressSection" class="ProjectProgress modal-overlay hide" >
         <div id="ProjectProgressModal" class="modal" class="forms hide">
     
             <span id="close-modal-btn" class="material-icons modal-btn ProjectProgress-modal-btn">close</span>
@@ -153,13 +170,10 @@
         </div>
         </section> -->
 
+    <!-- view Company projects form -->
 
-        
-     <!-- view Company projects form -->
-     
-       
-        <!-- view Available teams form -->
-     <!-- <section id="AvailableTeamSection" class="AvailableTeam modal-overlay hide" >
+    <!-- view Available teams form -->
+    <!-- <section id="AvailableTeamSection" class="AvailableTeam modal-overlay hide" >
         <div id="AvailableTeamModal" class="modal" class="forms hide">
     
             <span id="close-modal-btn" class="material-icons modal-btn AvailableTeam-modal-btn">close</span>
@@ -171,7 +185,5 @@
     
         </div>
         </section> -->
-
-   
-</body>
+  </body>
 </html>

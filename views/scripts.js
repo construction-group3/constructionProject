@@ -31,72 +31,67 @@ const toggleAvailableTeamModal = document.getElementsByClassName(
 const AvailableTeamSection = document.getElementById("AvailableTeamSection");
 
 const toggleLoginModal = document.getElementsByClassName("Login-modal-btn");
-console.log(toggleLoginModal);
+
 const LoginSection = document.getElementById("LoginSection");
 
-for (const btn of toggleModal) {
-  btn.addEventListener("click", () => {
-    if (!Array.from(projectDetailsForm.classList).includes("hide")) {
-      projectDetailsForm.classList.toggle("hide");
-    }
+// for (const btn of toggleModal) {
+//   btn.addEventListener("click", () => {
+//     if (!Array.from(projectDetailsForm.classList).includes("hide")) {
+//       projectDetailsForm.classList.toggle("hide");
+//     }
 
-    clientDetailsForm.classList.remove("hide");
-    captureModalOverlay.classList.toggle("hide");
-  });
-}
+//     clientDetailsForm.classList.remove("hide");
+//     captureModalOverlay.classList.toggle("hide");
+//   });
+// }
 
-const addPopupModal = (toggleModal, section) => {
-  for (const btn of toggleModal) {
-    btn.addEventListener("click", () => {
-      section.classList.toggle("hide");
-      console.log(LoginSection);
-    });
-  }
-};
+// const addPopupModal = (toggleModal, section) => {
+//   for (const btn of toggleModal) {
+//     btn.addEventListener("click", () => {
+//       section.classList.toggle("hide");
+//       console.log(LoginSection);
+//     });
+//   }
+// };
 
-addPopupModal(toggleInvoiceModal, invoiceSection);
-addPopupModal(toggleProjectProgressModal, ProjectProgressSection);
-addPopupModal(toggleCompanyProjectModal, CompanyProjectSection);
-addPopupModal(toggleAvailableTeamModal, AvailableTeamSection);
-addPopupModal(toggleLoginModal, LoginSection);
+// addPopupModal(toggleInvoiceModal, invoiceSection);
+// addPopupModal(toggleProjectProgressModal, ProjectProgressSection);
+// addPopupModal(toggleCompanyProjectModal, CompanyProjectSection);
+// addPopupModal(toggleAvailableTeamModal, AvailableTeamSection);
+// addPopupModal(toggleLoginModal, LoginSection);
 
 // get the next form on modal
-const projectDetailsBtn = document.getElementById("projectDetailsBtn");
-const clientDetailsForm = document.getElementById("clientDetailsForm");
-const projectDetailsForm = document.getElementById("projectDetailsForm");
-projectDetailsBtn.addEventListener("click", (e) => {
-  e.preventDefault();
+// const projectDetailsBtn = document.getElementById("projectDetailsBtn");
+// const clientDetailsForm = document.getElementById("clientDetailsForm");
+// const projectDetailsForm = document.getElementById("projectDetailsForm");
+// projectDetailsBtn.addEventListener("click", (e) => {
+//   e.preventDefault();
 
   // validate client input
-  const clientFormInput = Array.from(
-    document.getElementsByClassName("clientFormInput")
-  );
-  const isValid = clientFormInput.every((input) => {
-    if (!input.checkValidity()) {
-      input.reportValidity();
-    }
-    return input.checkValidity();
-  });
+//   const clientFormInput = Array.from(
+//     document.getElementsByClassName("clientFormInput")
+//   );
+//   const isValid = clientFormInput.every((input) => {
+//     if (!input.checkValidity()) {
+//       input.reportValidity();
+//     }
+//     return input.checkValidity();
+//   });
 
-  if (isValid) {
-    clientDetailsForm.classList.toggle("hide");
-    projectDetailsForm.classList.toggle("hide");
-  }
-});
+//   if (isValid) {
+//     clientDetailsForm.classList.toggle("hide");
+//     projectDetailsForm.classList.toggle("hide");
+//   }
+// });
 
-// get the previous form on modal
-const backToClientFormBtn = document.getElementById("backToClientFormBtn");
 
-backToClientFormBtn.addEventListener("click", () => {
-  clientDetailsForm.classList.toggle("hide");
-  projectDetailsForm.classList.toggle("hide");
-});
 
 // call view projects api and populate table
 fetch("http://localhost:3000/view-projects")
   .then((res) => res.json())
   .then((data) => {
     console.log(data);
+    console.log("data");
     fillTable(data)});
 
 function addTableRow(user) {
