@@ -1,60 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="Navigation.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="Navigation.css" />
     <title>View Progress</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <header>
-        <h1 id="logo">
-          <a href="./Landing.html">
-            <img src="logo.png" alt="logo" width="60px" height="60px" />
-          </a>
-        </h1>
-        <nav class="navigation">
-          <ul class="navigationList">
-            <li id="captureNewProject" class="navItem">
-              <a href="newClientForm.html">Capture New Client</a>
-            </li>
-  
-            <li id="projects" class="navItem">
-              <a href="./index.html">View Company Projects</a>
-            </li>
-  
-            <li id="Progress" class="navItem">
-              <a href="./viewProgress.html">View Project Progress</a>
-            </li>
-  
-            <li id="invoice" class="navItem">
-              <a href="./invoices.html">View Invoices</a>
-            </li>
-  
-            <li id="teams" class="navItem">
-              <a href="./availableTeams.html">View Available Teams</a>
-            </li>
-          </ul>
-        </nav>
-        <button id="signout-btn"><a href="./Landing.html">Sign out</a></button>
-      </header>
+      <h1 id="logo">
+        <a>
+          <img src="logo.png" alt="logo" width="60px" height="60px" />
+        </a>
+      </h1>
+      <nav class="topnav">
+        <ul class="navigationList">
+          <li id="captureNewProject" class="navItem">
+            <a href="newClientForm.html">Capture New Client</a>
+          </li>
+
+          <li id="projects" class="navItem">
+            <a href="./index.html">View Company Projects</a>
+          </li>
+
+          <li id="Progress" class="navItem">
+            <a class = "active" href="./viewProgress.html">View Project Progress</a>
+          </li>
+
+          <li id="invoice" class="navItem">
+            <a href="./invoices.html">View Invoices</a>
+          </li>
+
+          <li id="teams" class="navItem">
+            <a href="./availableTeams.html">View Available Teams</a>
+          </li>
+        </ul>
+      </nav>
+      <button id="signout-btn"><a href="./Login.html">Sign out</a></button>
+    </header>
 
     <!-- view progress form -->
-    <section id="ProjectProgressSection" class="ProjectProgress modal-overlay hide" >
-            <form id="GetProjectProgress" action="/add_new_project" method="POST" class="form-container">
-    
-                <label for="ProjectProgressName">Enter Project ID:</label><br>
-    
-                <input class="formItem" type="text" id="ProjectProgressID" name="ProjectProgressID"><br>
-    
-                <input class="formItem" type="submit" value="Check Progress">
-            </form>
-        </section>
+    <section
+      id="ProjectProgressSection"
+      class="ProjectProgress modal-overlay hide"
+    >
+      <form
+        id="GetProjectProgress"
+        action="/add_new_project"
+        method="POST"
+        class="form-container"
+      >
+        <label for="ProjectProgressName">Enter Project ID:</label><br />
 
-        <main id="mainContent">
+        <input
+          class="formItem"
+          type="text"
+          id="ProjectProgressID"
+          name="ProjectProgressID"
+        /><br />
+
+        <input class="formItem" type="submit" value="Check Progress" />
+      </form>
+    </section>
+
+    <main id="mainContent">
       <section id="projectsSection" class="section">
         <h1 id="projectsHeader">Company projects</h1>
         <table id="table">
@@ -71,5 +82,5 @@
         </table>
       </section>
     </main>
-</body>
+  </body>
 </html>
