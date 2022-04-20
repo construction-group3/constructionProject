@@ -121,35 +121,52 @@ const addNewProject = async (
   ProjectLocation,
   Deposit
 ) => {
-  const para = [
-    { name: "TitleID", type: sql.Int, value: TitleID },
-    { name: "FirstName", type: sql.NVarChar(250), value: FirstName },
-    { name: "LastName", type: sql.NVarChar(250), value: LastName },
-    { name: "PhyicalAddress", type: sql.NVarChar(500), value: PhyicalAddress },
+  console.log(
+    TitleID,
+    FirstName,
+    LastName,
+    PhoneNumber,
+    EmailAddress,
+    PhyicalAddress,
+    TeamID,
+    HouseID,
+    ProjectLocation,
+    Deposit
+  );
+
+  const params = [
+    { name: "TitleID", type: sql.Int, value: 1 },
+    { name: "FirstName", type: sql.NVarChar(250), value: "FirstName" },
+    { name: "LastName", type: sql.NVarChar(250), value: "LastName" },
+    {
+      name: "PhyicalAddress",
+      type: sql.NVarChar(500),
+      value: "PhyicalAddress",
+    },
     {
       name: "EmailAddress",
       type: sql.NVarChar(250),
-      value: EmailAddress,
+      value: "EmailAddress",
     },
-    { name: "PhoneNumber", type: sql.VarChar(10), value: PhoneNumber },
-    { name: "TeamID", type: sql.Int, value: TeamID },
-    { name: "HouseID", type: sql.Int, value: HouseID },
+    { name: "PhoneNumber", type: sql.VarChar(10), value: "012345689" },
+    { name: "TeamID", type: sql.Int, value: 22 },
+    { name: "HouseID", type: sql.Int, value: 22 },
     {
       name: "ProjectLocation",
       type: sql.NVarChar(500),
-      value: ProjectLocation,
+      value: "ProjectLocation",
     },
-    { name: "Deposit", type: sql.Money, value: Deposit },
+    { name: "Deposit", type: sql.Money, value: 22 },
   ];
 
   let pool = await sql.connect(sqlConfig);
 
-  const result1 = await pool.request();
+  const result1 = await pool.request(),
   params.forEach(function (param) {
-    result1.input(param.name, param.type, param.value);
-    console.log(result1);
-  });
-  return await result1.execute();
+    result1.input(param.name, param.type, param.value)
+    // console.log(result1);
+  }).result1.execute("sp_InsertProject");
+  return "done";
 };
 
 module.exports = {
@@ -159,6 +176,5 @@ module.exports = {
   getAvailableTeams,
   // getProject,
   checkProgress,
-  getProjectsByStatus
-
+  getProjectsByStatus,
 };

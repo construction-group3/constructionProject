@@ -44,7 +44,7 @@
       </header>
 
         <!-- client Details Form -->
-        <form id="addNewProjectForm" class="form-container" id="clientDetailsForm">
+        <form id="addNewProjectForm" class="form-container" >
             <label for="ClentTitle">Title:</label>
             <select class="formItem" name="TitleID" id="ClientTitle">
                 <option value="1">MR</option>
@@ -55,11 +55,11 @@
                 <option value="6">REV</option>
             </select>
             <br>
-            <label class="formItem" for="firstName">First Name:</label>
-            <input class="formItem clientFormInput" type="text" id="firstName" name="firstName" required><br>
+            <label class="formItem" for="LirstName">First Name:</label>
+            <input class="formItem clientFormInput" type="text" id="FirstName" name="FirstName" required><br>
 
-            <label class="formItem" for="lastName">Last Name:</label>
-            <input class="formItem clientFormInput" type="text" id="lastName" name="lastName" required><br>
+            <label class="formItem" for="LastName">Last Name:</label>
+            <input class="formItem clientFormInput" type="text" id="LastName" name="LastName" required><br>
 
             <label for="PhoneNumber">Phone Number:</label>
             <input class="formItem clientFormInput" type="text" id="PhoneNumber" name="PhoneNumber" required><br>
@@ -74,14 +74,14 @@
             <!-- Project Details -->
             <label for="TeamID">Select eam:</label>
             <select class="formItem" name="TeamID" id="TeamID">
-                <option value="avengers">avengers</option>
-                <option value="titans">titans</option>
-                <option value="Justice league">Justice league</option>
+                <option value="2">avengers</option>
+                <option value="1">titans</option>
+                <option value="3">Justice league</option>
             </select>
             <br>
 
-            <label for="houses">Select House:</label>
-            <select class="formItem" name="houses" id="houses">
+            <label for="Houses">Select House:</label>
+            <select class="formItem" name="HouseID" id="houses">
                 <option value="1">1room</option>
                 <option value="2">2room</option>
                 <option value="3">3room</option>
@@ -94,12 +94,13 @@
             <br />
 
             <label for="AmountPaidInZAR">Amount Paid (ZAR):</label>
-            <input class="formItem" type="number" required name="AmountPaidInZAR" placeholder="AmountPaidInZAR">
+            <input class="formItem" type="number" required name="Deposit" placeholder="AmountPaidInZAR">
             <br />
 
             <button id="backToClientFormBtn" class="formItem formBtn" type="button"><a href="./index.html">back</a></button>
             <button id="submitForm" class="formItem formBtn" type="submit">submit</button>
         </form>
+        <script src="./scripts.js"></script>
 </body>
 
 </html>

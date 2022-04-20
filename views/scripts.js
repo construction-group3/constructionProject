@@ -90,9 +90,8 @@ fetch("http://localhost:3000/view-projects")
     fillTable(data);
   });
 
-
 // remember to change
-let clientID = 1
+let clientID = 1;
 
 // get invoice by client id
 fetch(`http://localhost:3000/view-invoices/${clientID}`)
@@ -104,7 +103,7 @@ fetch(`http://localhost:3000/view-invoices/${clientID}`)
   });
 
 // check progress by id
-let projectID = 2
+let projectID = 2;
 fetch(`http://localhost:3000/check-progress/${projectID}`)
   .then((res) => res.json())
   .then((data) => {
@@ -114,7 +113,7 @@ fetch(`http://localhost:3000/check-progress/${projectID}`)
   });
 
 // get-project-by-status
-let statusID = 2
+let statusID = 2;
 fetch(`http://localhost:3000/get-project-by-status/${statusID}`)
   .then((res) => res.json())
   .then((data) => {
@@ -128,7 +127,7 @@ fetch(`http://localhost:3000/view-available-teams`)
   .then((res) => res.json())
   .then((data) => {
     // console.log("invoice data");
-    console.log("teams",data);
+    console.log("teams", data);
     // fillTable(data);
   });
 
@@ -162,12 +161,14 @@ function getFormData(form) {
 }
 //
 const addNewProjectForm = document.getElementById("addNewProjectForm");
+console.log(addNewProjectForm);
 
-addNewProjectForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+addNewProjectForm.addEventListener("submit", () => {
+  // e.preventDefault();
+  console.log("server");
 
   const formData = getFormData(addNewProjectForm);
-
+  console.log("server");
   fetch("http://localhost:3000/add-new-project-form", {
     method: "post",
     headers: {

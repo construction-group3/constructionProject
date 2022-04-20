@@ -44,7 +44,6 @@ app.get("/get-project-by-status/:id", (req, res) => {
   });
 });
 
-
 app.get("/view-available-teams", (req, res) => {
   getAvailableTeams().then((data) => {
     res.send(data);
@@ -60,6 +59,7 @@ app.get("/check-progress/:id", (req, res) => {
 });
 
 app.post("/add-new-project-form", (req, res) => {
+  console.log("hi");
   const {
     TitleID,
     FirstName,
@@ -85,7 +85,7 @@ app.post("/add-new-project-form", (req, res) => {
     ProjectLocation,
     Deposit
   );
-  // console.log(formData);
+
 });
 
 app.listen(port, () => {
