@@ -81,6 +81,7 @@ const getAllProjects = async () => {
       `SELECT ProjectID,FirstName,LastName,HouseType,EstimatedDurationInMonths,teamName, ProjectLocation,AmountPaidInZAR,BalanceInZAR,StatusType FROM vw_AllProjects
         `
     );
+    console.log(result1.recordset);
     return result1.recordset;
   } catch (err) {
     throw err;
@@ -110,29 +111,18 @@ const getInvoice = async (clientID) => {
 // ADD NEW PROJECT
 
 const addNewProject = async (
-  TitleID,
-  FirstName,
-  LastName,
-  PhoneNumber,
-  EmailAddress,
-  PhyicalAddress,
-  TeamID,
-  HouseID,
-  ProjectLocation,
-  Deposit
+  // TitleID,
+  // FirstName,
+  // LastName,
+  // PhoneNumber,
+  // EmailAddress,
+  // PhyicalAddress,
+  // TeamID,
+  // HouseID,
+  // ProjectLocation,
+  // Deposit
 ) => {
-  console.log(
-    TitleID,
-    FirstName,
-    LastName,
-    PhoneNumber,
-    EmailAddress,
-    PhyicalAddress,
-    TeamID,
-    HouseID,
-    ProjectLocation,
-    Deposit
-  );
+
 
   const params = [
     { name: "TitleID", type: sql.Int, value: 1 },
@@ -159,16 +149,44 @@ const addNewProject = async (
     { name: "Deposit", type: sql.Money, value: 22 },
   ];
 
-  let pool = await sql.connect(sqlConfig);
+  let pool2 = await sql.connect(sqlConfig);
 
-  const result1 = await pool.request(),
-  params.forEach(function (param) {
-    result1.input(param.name, param.type, param.value)
-    // console.log(result1);
-  }).result1.execute("sp_InsertProject");
-  return "done";
+  // const result1 = await pool.request(),
+  // params.forEach(function (param) {
+  //   result1.input(param.name, param.type, param.value)
+  //   // console.log(result1);
+  // }).result1.execute("sp_InsertProject");
+  // return "done";
+  // let pool = await sql.connect(sqlConfig);
+
+  // const result1 = await pool.request();
+  // params.forEach(function (param) {
+  //   result1.input(param.name, param.type, param.value);
+  //   // console.log(result1);
+  // });
+  // return await result1.execute("sp_InsertProject");
+
+
+  // const result1 = await pool.request();
+  // params.forEach(function (param) {
+  //   result1.input(param.name, param.type, param.value);
+  // });
+  // return await result1.execute("sp_InsertProject");
+
+  return await pool2.then((pool) => {
+    const req = pool.request();
+    params.forEach(function(param) {
+        req.input(param.name, param.type, param.value);
+    });
+    req.execute("sp_InsertProject", (err, recordset) => {
+        // ... error checks
+        res.json(recordset[0]);
+    });
+});
 };
 
+addNewProject()
+getAllProjects()
 module.exports = {
   getAllProjects,
   addNewProject,
