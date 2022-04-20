@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="Navigation.css">
-    <title>AvailableTeams</title>
+    <title>View Progress</title>
 </head>
-
 <body>
 
     <header>
@@ -21,7 +19,7 @@
         <nav class="navigation">
           <ul class="navigationList">
             <li id="captureNewProject" class="navItem">
-              <a href="./newClientForm.html">Capture New Client</a>
+              <a href="newClientForm.html">Capture New Client</a>
             </li>
   
             <li id="projects" class="navItem">
@@ -44,27 +42,34 @@
         <button id="signout-btn"><a href="./Landing.html">Sign out</a></button>
       </header>
 
-    <main id="mainContent">
-
-        <section id="projectsSection" class="section">
-
-            <h1 id="projectsHeader">AvailableTeams</h1>
-
-            <table id="table">
-
-                <tr class="table-row" id="table-header">
-
-                    <th>TeamID</th>
-
-                    <th>TeamName</th>
-
-                </tr>
-
-            </table>
-
+    <!-- view progress form -->
+    <section id="ProjectProgressSection" class="ProjectProgress modal-overlay hide" >
+            <form id="GetProjectProgress" action="/add_new_project" method="POST" class="form-container">
+    
+                <label for="ProjectProgressName">Enter Project ID:</label><br>
+    
+                <input class="formItem" type="text" id="ProjectProgressID" name="ProjectProgressID"><br>
+    
+                <input class="formItem" type="submit" value="Check Progress">
+            </form>
         </section>
 
+        <main id="mainContent">
+      <section id="projectsSection" class="section">
+        <h1 id="projectsHeader">Company projects</h1>
+        <table id="table">
+          <tr class="table-row" id="table-header">
+            <th>ProjectID</th>
+            <th>ClientID</th>
+            <th>TeamID</th>
+            <th>HouseID</th>
+            <th>ProjectLocation</th>
+            <th>AmountPaidInZAR</th>
+            <th>BalanceInZAR</th>
+            <th>StatusType</th>
+          </tr>
+        </table>
+      </section>
     </main>
 </body>
-
 </html>
