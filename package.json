@@ -1,0 +1,27 @@
+{
+  "name": "constructionproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "devStart":"nodemon app.js",
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/construction-group3/constructionProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/construction-group3/constructionProject/issues"
+  },
+  "homepage": "https://github.com/construction-group3/constructionProject#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "jasmine": "^4.1.0",
+    "mssql": "^8.1.0",
+    "nodemon": "^2.0.15"
+  }
+}

@@ -1,0 +1,156 @@
+:root {
+  --black: #111;
+  --yello: #f2cc0c;
+  --white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0rem;
+  margin: 0rem;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(img2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Navigation */
+header {
+  /* width: 100vw; */
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  /* margin: 1rem 0rem; */
+}
+
+li {
+  list-style: none;
+}
+
+.navItem {
+  margin: 0rem 0.5rem;
+  padding: 0.4rem;
+  font-size: 1.1rem;
+}
+
+.navItem:hover {
+  background-color: var(--yello);
+}
+
+a {
+  color: var(--black);
+  text-decoration: none;
+}
+
+nav .navigationList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+/* contant */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 3rem 0rem;
+  background-color: var(--white);
+  position: relative;
+}
+
+/* company projects */
+#projectsSection {
+  display: block;
+  text-align: center;
+  min-width: 50vw;
+  padding: 0rem 0.5rem;
+  background-image: url(img2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#projectsHeader{
+  align-self: center;
+}
+
+#table {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  margin: 1rem ;
+  overflow-x: scroll;
+}
+
+.table-row {
+  min-width: 400px;
+  /* margin: 10px 5px; */
+}
+
+.table-row:hover {
+  background-color: var(--yello);
+}
+
+th {
+  width: 40rem;
+  min-width: 8rem;
+  margin: 0px 5px;
+}
+
+/* Media queries */
+@media screen and (max-width: 1200px) {
+  .section {
+    width: 95vw;
+  }
+  th {
+    min-width: 8rem;
+    margin: 0px 5px;
+  }
+
+
+}
+
+@media screen and (max-width: 900px) {
+  .section {
+    width: 95vw;
+  }
+
+  header {
+    flex-direction: column;
+  }
+
+  nav .navigationList {
+    flex-direction: column;
+  }
+  .table-row {
+    min-width: 400px;
+    margin: 10px 5px;
+  }
+
+  #table {
+    overflow-x: scroll;
+  }
+
+  th {
+    min-width: 8rem;
+    margin: 0px 5px;
+  }
+}
