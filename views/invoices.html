@@ -1,92 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="Navigation.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="Navigation.css" />
     <link rel="icon" href="logo.png" type="image/x-icon" />
 
     <title>Invoices</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1 id="logo">
-          <a href="./Landing.html">
-            <img src="logo.png" alt="logo" width="60px" height="60px" />
-          </a>
-        </h1>
-        <nav class="navigation">
-          <ul class="navigationList">
-            <li id="captureNewProject" class="navItem">
-              <a href="newClientForm.html">Capture New Client</a>
-            </li>
-  
-            <li id="projects" class="navItem">
-              <a href="./index.html">View Company Projects</a>
-            </li>
-  
-            <li id="Progress" class="navItem">
-              <a href="./viewProgress.html">View Project Progress</a>
-            </li>
-  
-            <li id="invoice" class="navItem">
-              <a href="./invoices.html">View Invoices</a>
-            </li>
-  
-            <li id="teams" class="navItem">
-              <a href="./availableTeams.html">View Available Teams</a>
-            </li>
-          </ul>
-        </nav>
-        <button id="signout-btn"><a href="./Landing.html">Sign out</a></button>
-      </header>
+      <h1 id="logo">
+        <a href="./Landing.html">
+          <img src="logo.png" alt="logo" width="60px" height="60px" />
+        </a>
+      </h1>
+      <nav class="navigation">
+        <ul class="navigationList">
+          <li id="captureNewProject" class="navItem">
+            <a href="newClientForm.html">Capture New Client</a>
+          </li>
 
-      <section id="invoiceSection" class="invoice modal-overlay hide" >
-            <form id="GetInvoice" action="/add_new_project" method="POST" class="form-container">
-    
-                <label for="InvoiceName">Enter Project ID:</label><br>
-    
-                <input class="formItem" type="text" id="InvoiceProjectID" name="InvoiceProjectID"><br>
-    
-                <input class="formItem" type="submit" value="Get Invoice">
-            </form>
-        </section>
+          <li id="projects" class="navItem">
+            <a href="./index.html">View Company Projects</a>
+          </li>
+
+          <li id="Progress" class="navItem">
+            <a href="./viewProgress.html">View Project Progress</a>
+          </li>
+
+          <li id="invoice" class="navItem">
+            <a href="./invoices.html">View Invoices</a>
+          </li>
+
+          <li id="teams" class="navItem">
+            <a href="./availableTeams.html">View Available Teams</a>
+          </li>
+        </ul>
+      </nav>
+      <button id="signout-btn"><a href="./Landing.html">Sign out</a></button>
+    </header>
 
     <main id="mainContent">
+      <section id="invoiceSection" class="invoice section">
+        <h1 id="projectsHeader">Invoices</h1>
+        <form id="GetInvoice" class="form-container">
+          <label for="InvoiceName">Enter Project ID:</label><br />
 
-        <section id="projectsSection" class="section">
+          <input
+            class="formItem"
+            type="text"
+            id="InvoiceProjectID"
+            name="InvoiceProjectID"
+          /><br />
 
-            <h1 id="projectsHeader">Invoices</h1>
-
-            <table id="table">
-
-                <tr class="table-row" id="table-header">
-
-                    <th>TeamID</th>
-
-                    <th>FirstName</th>
-
-                    <th>LastName</th>
-
-                    <th>HouseType</th>
-
-                    <th>AmountPaidInZAR</th>
-
-                    <th>BalanceInZAR</th>
-
-                    <th>StatusDescr</th>
-
-                </tr>
-
-            </table>
-
-        </section>
-
+          <input  class="formItem" type="submit" value="Get Invoice" />
+        </form>
+      </section>
     </main>
-</body>
-
+  </body>
 </html>

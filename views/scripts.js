@@ -1,10 +1,10 @@
-const modal = document.getElementsByClassName("modal")[0];
-const captureModalOverlay = document.getElementsByClassName(
-  "capture-modal-overlay"
-)[0];
-const toggleModal = document.getElementsByClassName("capture-modal-btn");
-const toggleInvoiceModal = document.getElementsByClassName("invoice-modal-btn");
-const invoiceSection = document.getElementById("invoiceSection");
+// const modal = document.getElementsByClassName("modal")[0];
+// const captureModalOverlay = document.getElementsByClassName(
+//   "capture-modal-overlay"
+// )[0];
+// const toggleModal = document.getElementsByClassName("capture-modal-btn");
+// const toggleInvoiceModal = document.getElementsByClassName("invoice-modal-btn");
+// const invoiceSection = document.getElementById("invoiceSection");
 
 const viewCompanyProjectsBtn = document.getElementById(
   "viewCompanyProjectsBtn"
@@ -112,6 +112,37 @@ fetch(`http://localhost:3000/check-progress/${projectID}`)
     // fillTable(data);
   });
 
+  const getProjectBtn = document.getElementById("getProjectBtn")
+  const getProjectInput = document.getElementById("ProjectProgressID")
+
+  getProjectBtn.addEventListener("click",()=>{
+    projectID = getProjectInput.value
+  })
+
+
+  const fill2Dtable = (data)=>{
+
+  }
+  function addTableRow(user,table) {
+    let values = Object.values(user);
+    let row = document.createElement("tr");
+    row.classList.add("table-row");
+  
+    for (let value of values) {
+      let head = document.createElement("th");
+      const newContent = document.createTextNode(`${value}`);
+  
+      head.appendChild(newContent);
+      row.appendChild(head);
+    }
+    table.insertAdjacentElement("beforeend", row);
+  }
+  
+  function fillTable(data) {
+    for (let user of data) {
+      addTableRow(user);
+    }
+  }
 // get-project-by-status
 let statusID = 2;
 fetch(`http://localhost:3000/get-project-by-status/${statusID}`)
