@@ -44,32 +44,33 @@
     <!-- view progress form -->
 
 
-    <main id="mainContent">
-      <section
-        id="ProjectProgressSection"
-        class="ProjectProgress modal-overlay hide"
+    <!-- view progress form -->
+    <section
+      id="ProjectProgressSection"
+      class="ProjectProgress modal-overlay hide"
+    >
+      <form
+        id="GetProjectProgress"
+        class="form-container"
       >
+        <label for="ProjectProgressName">Enter Project ID:</label><br />
+
+        <input
+          class="formItem"
+          type="text"
+          id="ProjectProgressID"
+          name="ProjectProgressID"
+          required
+        /><br />
+
+        <input id="getProjectBtn" class="formItem" type="submit" value="Check Progress" />
+      </form>
+    </section>
+
+    <main id="mainContent">
+      <section id="projectsSection" class="section">
         <h1 id="projectsHeader">Company projects</h1>
-
-        <form
-          id="GetProjectProgress"
-          action="/add_new_project"
-          method="POST"
-          class="form-container"
-        >
-          <label for="ProjectProgressName">Enter Project ID:</label><br />
-
-          <input
-            class="formItem"
-            type="text"
-            id="ProjectProgressID"
-            name="ProjectProgressID"
-          /><br />
-
-          <input class="formItem" type="submit" value="Check Progress" />
-        </form>
-
-        <table id="progresstable"  class="table">
+        <table id="progressTable" class="table">
           <tr class="table-row" id="table-header">
             <th>ProjectID</th>
             <th>ClientID</th>
@@ -83,5 +84,6 @@
         </table>
       </section>
     </main>
+    <script src="./scripts.js"></script>
   </body>
 </html>

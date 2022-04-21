@@ -80,6 +80,7 @@ const LoginSection = document.getElementById("LoginSection");
 //     projectDetailsForm.classList.toggle("hide");
 //   }
 // });
+const table = document.getElementById("table")
 
 // call view projects api and populate table
 fetch("http://localhost:3000/view-projects")
@@ -87,7 +88,7 @@ fetch("http://localhost:3000/view-projects")
   .then((data) => {
     // console.log(data);
     // console.log("data");
-    fillTable(data);
+    fillTable(data,table);
   });
 
 // remember to change
@@ -103,53 +104,52 @@ fetch(`http://localhost:3000/view-invoices/${clientID}`)
   });
 
 // check progress by id
-let projectID = 2;
-fetch(`http://localhost:3000/check-progress/${projectID}`)
-  .then((res) => res.json())
-  .then((data) => {
-    console.log("project data");
-    console.log(data);
-    // fillTable(data);
-  });
+// let projectID = 1;
+const getProjectBtn = document.getElementById("getProjectBtn");
+console.log(getProjectBtn);
+const getProjectInput = document.getElementById("ProjectProgressID");
+const progressTable = document.getElementById("progressTable");
 
-  const getProjectBtn = document.getElementById("getProjectBtn")
-  const getProjectInput = document.getElementById("ProjectProgressID")
+getProjectBtn.addEventListener("click", () => {
+  projectID = getProjectInput.value;
 
-  getProjectBtn.addEventListener("click",()=>{
-    projectID = getProjectInput.value
-  })
+  fetch(`http://localhost:3000/check-progress/${projectID}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("project data");
+      // console.log(data);
+      fillTable(data,progressTable);
+    });
+});
 
+// const fill2Dtable = (data) => {};
+// function addTableRow(user, table) {
+//   let values = Object.values(user);
+//   let row = document.createElement("tr");
+//   row.classList.add("table-row");
 
-  const fill2Dtable = (data)=>{
+//   for (let value of values) {
+//     let head = document.createElement("th");
+//     const newContent = document.createTextNode(`${value}`);
 
-  }
-  function addTableRow(user,table) {
-    let values = Object.values(user);
-    let row = document.createElement("tr");
-    row.classList.add("table-row");
-  
-    for (let value of values) {
-      let head = document.createElement("th");
-      const newContent = document.createTextNode(`${value}`);
-  
-      head.appendChild(newContent);
-      row.appendChild(head);
-    }
-    table.insertAdjacentElement("beforeend", row);
-  }
-  
-  function fillTable(data) {
-    for (let user of data) {
-      addTableRow(user);
-    }
-  }
+//     head.appendChild(newContent);
+//     row.appendChild(head);
+//   }
+//   table.insertAdjacentElement("beforeend", row);
+// }
+
+// function fillTable(data) {
+//   for (let user of data) {
+//     addTableRow(user);
+//   }
+// }
 // get-project-by-status
 let statusID = 2;
 fetch(`http://localhost:3000/get-project-by-status/${statusID}`)
   .then((res) => res.json())
   .then((data) => {
-    console.log("status data");
-    console.log(data);
+    // console.log("status data");
+    // console.log(data);
     // fillTable(data);
   });
 
@@ -158,11 +158,11 @@ fetch(`http://localhost:3000/view-available-teams`)
   .then((res) => res.json())
   .then((data) => {
     // console.log("invoice data");
-    console.log("teams", data);
-    // fillTable(data);
+    // console.log("teams", data);
+    // fillTable(data,);
   });
 
-function addTableRow(user) {
+function addTableRow(user,table) {
   let values = Object.values(user);
   let row = document.createElement("tr");
   row.classList.add("table-row");
@@ -177,11 +177,35 @@ function addTableRow(user) {
   table.insertAdjacentElement("beforeend", row);
 }
 
-function fillTable(data) {
+function fillTable(data,table) {
   for (let user of data) {
-    addTableRow(user);
+    addTableRow(user,table);
   }
 }
+
+
+// function addTableRow2(user,table) {
+//   let values = Object.values(user);
+//   let row = document.createElement("tr");
+//   row.classList.add("table-row");
+
+//   for (let value of values) {
+//     let head = document.createElement("th");
+//     const newContent = document.createTextNode(`${value}`);
+
+//     head.appendChild(newContent);
+//     row.appendChild(head);
+//   }
+//   table.insertAdjacentElement("beforeend", row);
+// }
+
+// function fillTable2(data,table) {
+//   for (let user of data) {
+//     addTableRow2(user);
+//   }
+// }
+
+
 function getFormData(form) {
   const FD = new FormData(form);
   const newFD = {};
@@ -191,8 +215,8 @@ function getFormData(form) {
   return newFD;
 }
 //
-const addNewProjectForm = document.getElementById("addNewProjectForm");
-
+const addNewProjectForm = document.getElementById(submitForm);
+// console.log(addNewProjectForm);
 addNewProjectForm.addEventListener("submit", () => {
   // e.preventDefault();
   console.log("server");

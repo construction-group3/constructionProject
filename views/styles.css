@@ -96,7 +96,7 @@ img.avatar {
   align-self: center;
 }
 
-#table {
+.table {
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -147,7 +147,7 @@ th {
     margin: 10px 5px;
   }
 
-  #table {
+  .table {
     overflow-x: scroll;
   }
 
