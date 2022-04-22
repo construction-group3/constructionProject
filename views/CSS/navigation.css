@@ -1,0 +1,22 @@
+header {
+  position: sticky;
+  background-color: var(--grey);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+}
+
+.navigationList {
+  display: flex;
+}
+
+.navigationList li {
+  padding: 0.5rem;
+  margin: 0rem 0.5rem;
+}
+
+.navigationList a {
+  text-decoration: none;
+  color: var(--white);
+}
