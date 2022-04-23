@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:lightblue;
+    color: #ff9f00;
+  }
+
+  h1{
+    text-align: center;
+  }
+  
+  .formItem {
+    display: flex;
+    height: 2rem;
+    padding: 0.5rem;
+    margin: 0rem 0.5rem;
+    padding: auto;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    min-width: 2rem;
+    padding: 2rem;
+    background-color: #333;
+    font-weight: 500;
+  }
+  
+  .formBtn {
+    margin: 0.5rem;
+  }
+
+  main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+@media only screen and (max-width: 600px) {
+  main {
+    max-width: 100%;
+    margin-top: 1rem;
+    background-color: lightblue;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .form-container {
+    max-width: 100%;
+    /* margin-top: 5rem; */
+    padding: 0rem 5rem;
+  }
+
+  .formItem{
+    margin: 0.4rem 0rem;
+    font-size: 0.9rem;
+  }
+}
