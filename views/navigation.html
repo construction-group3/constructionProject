@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+
+    <link rel="stylesheet" href="./CSS/navigation.css" />
+    <link rel="stylesheet" href="./CSS/globalStyles.css" />
+    <script src="./Javascript/navigation.js" defer></script>
+    <title>Navbar</title>
+  </head>
+  <body>
+    <header>
+      <a class="logo" href="Landing.html">
+        <img src="logo.png" alt="logo" width="70px" height="70px" />
+      </a>
+
+      <nav>
+        <ul class="navigationList toggle">
+          <li id="captureNewProject">
+            <a href="./newClientForm.html">Capture Project</a>
+          </li>
+
+          <li id="projects">
+            <a href="./index.html">Projects</a>
+          </li>
+
+          <li id="invoice">
+            <a href="./invoices.html">Invoices</a>
+          </li>
+
+          <li id="teams">
+            <a href="./availableTeams.html">Teams</a>
+          </li>
+          <i class="material-symbols-outlined close"> close </i>
+        </ul>
+      </nav>
+      <button id="signout-btn" class="button secondaryButton">
+        <a href="./Login.html">Sign out</a>
+      </button>
+      <i class="material-symbols-outlined">menu</i>
+    </header>
+  </body>
+</html>
