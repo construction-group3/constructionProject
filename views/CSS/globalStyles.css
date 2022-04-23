@@ -1,0 +1,55 @@
+:root {
+  --grey: #333;
+  --black: #111;
+  --yello: #ff9f00;
+  --white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0rem;
+  margin: 0rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.button {
+  background-color: var(--yello);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  margin: 1rem 0.5rem;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.secondaryButton {
+  background-color: var(--yello);
+  color: black;
+  border: 0.2rem solid var(--yello);
+  font-weight: bolder;
+}
+
+.secondaryButton:hover {
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+a {
+  text-decoration: none;
+}
+
+.secondaryButton a {
+  color: var(--grey);
+  text-decoration: none;
+}
+
+.secondaryButton :hover {
+  color: var(--white);
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
