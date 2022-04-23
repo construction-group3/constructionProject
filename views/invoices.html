@@ -1,65 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="Navigation.css" />
-    <link rel="icon" href="logo.png" type="image/x-icon" />
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Indlu Construction</title>
+    <link rel="stylesheet" href="./css/invoices.css">
+    <link rel="stylesheet" href="./css/globalStyles.css">
+    <link rel="stylesheet" href="./css/navigation.css" />
+	</head>
 
-    <title>Invoices</title>
-  </head>
-
-  <body>
+	<body>
     <header>
-      <h1 id="logo">
-        <a href="./Landing.html">
-          <img src="logo.png" alt="logo" width="60px" height="60px" />
-        </a>
-      </h1>
-      <nav class="navigation">
-        <ul class="navigationList">
-          <li id="captureNewProject" class="navItem">
-            <a href="newClientForm.html">Capture New Client</a>
+      <a class="logo" href="Landing.html">
+        <img src="logo.png" alt="logo" width="70px" height="70px" />
+      </a>
+
+      <nav>
+        <ul class="navigationList toggle">
+          <li id="captureNewProject">
+            <a href="./newClientForm.html">Capture Project</a>
           </li>
 
-          <li id="projects" class="navItem">
-            <a href="./index.html">View Company Projects</a>
+          <li id="projects">
+            <a href="./index.html">Projects</a>
           </li>
 
-          <li id="Progress" class="navItem">
-            <a href="./viewProgress.html">View Project Progress</a>
+          <li id="invoice">
+            <a href="./invoices.html">Invoices</a>
           </li>
 
-          <li id="invoice" class="navItem">
-            <a class="active" href="./invoices.html">View Invoices</a>
+          <li id="teams">
+            <a href="./availableTeams.html">Teams</a>
           </li>
-
-          <li id="teams" class="navItem">
-            <a href="./availableTeams.html">View Available Teams</a>
-          </li>
+          <i class="material-symbols-outlined close"> close </i>
         </ul>
       </nav>
-      <button id="signout-btn"><a href="./Login.html">Sign out</a></button>
+      <button id="signout-btn" class="button secondaryButton">
+        <a href="./Login.html">Sign out</a>
+      </button>
+      <i class="material-symbols-outlined">menu</i>
     </header>
 
-    <main id="mainContent">
-      <section id="invoiceSection" class="invoice section">
-        <h1 id="projectsHeader">Invoices</h1>
-        <form id="GetInvoice" class="form-container">
-          <label for="InvoiceName">Enter Project ID:</label><br />
+		<main class="invoice-box">
+			<table cellpadding="0" cellspacing="0">
+				<tr class="top">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td class="title">
+									<img src="./logo.png" width: 10%; max-width: 30px alt="logo" />
+								</td>
 
-          <input
-            class="formItem"
-            type="text"
-            id="InvoiceProjectID"
-            name="InvoiceProjectID"
-          /><br />
+								<td>
+                  <p>Best Company of value</p>
+									<p>Building strong houses</p>
+                  <p>Better than anyone</p>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
 
-          <input class="formItem" type="submit" value="Get Invoice" />
-        </form>
-      </section>
-    </main>
-  </body>
+				<tr class="information">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td>
+									Indlu Construction<br />
+									Killarney<br />
+									Johannesburg, GP
+								</td>
+
+								<td>
+									Batcave co.<br />
+									Minenhle Mncube<br />
+									john@example.com
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="heading">
+					<td>Status Description</td>
+
+					<td>Status ID #</td>
+				</tr>
+
+				<tr class="details">
+					<td>The Project is in progress</td>
+
+					<td>1</td>
+				</tr>
+
+				<tr class="heading">
+					<td>HouseType</td>
+
+					<td>AmountPaidInZAR</td>
+				</tr>
+
+				<tr class="item">
+					<td>1 bedroom</td>
+
+					<td>R5000.00</td>
+          
+				</tr>
+
+
+				<tr class="total">
+					<td></td>
+
+					<td>BalanceInZAR: R5000.00</td>
+				</tr>
+			</table>
+		</main>
+	</body>
 </html>
