@@ -11,8 +11,10 @@
 
     <link rel="stylesheet" href="./CSS/navigation.css" />
     <link rel="stylesheet" href="./CSS/globalStyles.css" />
+    <link rel="stylesheet" href="./CSS/projects.css" />
+    <script src="./Javascript/projects.js" defer></script>
     <script src="./Javascript/navigation.js" defer></script>
-    <title>Navbar</title>
+    <title>projects</title>
   </head>
   <body>
     <header>
@@ -45,5 +47,40 @@
       </button>
       <i class="material-symbols-outlined">menu</i>
     </header>
+
+    <main>
+      <section id="filterProjects">
+        <article>
+          <form id="projectIDForm">
+            <label for="projectID">Enter Project ID:</label>
+
+            <input
+              class="formItem"
+              type="number"
+              id="projectID"
+              name="projectID"
+            />
+
+            <input class="formItem" type="submit" />
+          </form>
+        </article>
+
+        <article>
+          <label for="filterProjects">Filter by project status:</label>
+          <select class="formItem" name="projectStatus" id="projectStatus">
+            <option value="1">In progress</option>
+            <option value="2">Complete</option>
+            <option value="3">Overdue</option>
+            <option value="4">Abandoned</option>
+          </select>
+        </article>
+      </section>
+
+      <section id="displayProjects">
+          <ul id="projectsList">
+              
+          </ul>
+      </section>
+    </main>
   </body>
 </html>
