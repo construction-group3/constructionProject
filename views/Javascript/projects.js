@@ -19,18 +19,48 @@
 //     addTableRow(user);
 //   }
 // }
+const projectID = document.getElementById("projectID")
+const projectIDForm = document.getElementById("projectIDForm")
+projectIDForm.addEventListener("click",(e)=>{
+    e.preventDefault();
+    getProjectById(projectID.value)
+})
 
+const projectStatus = document.getElementById("projectStatus")
+projectStatus.addEventListener("change",()=>{
+    filterByStatus(projectStatus.value)
+})
+
+const urls = {
+  allProjects: "http://localhost:3000/view-projects",
+};
+
+const getProjectById = (ID) => {
+  const url = `http://localhost:3000/check-progress/${ID}`;
+  getProjectList(url);
+};
+
+const filterByStatus = (statusID) => {
+  const url =
+    statusID == 0
+      ? urls.allProjects
+      : `http://localhost:3000/check-progress/${statusID}`;
+  getProjectList(url);
+};
 
 // use object for urls
-fetch("http://localhost:3000/view-projects")
-  .then((res) => res.json())
-  .then((data) => {
-    data.reverse().forEach((project) => {
-      displayProject(projectsList, project);
-    });
-  });
-
 const projectsList = document.getElementById("projectsList");
+const getProjectList = (url) => {
+  projectsList.innerHTML = ""
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      data.reverse().forEach((project) => {
+        displayProject(projectsList, project);
+      });
+    });
+};
 
 // use destructuring
 const displayProject = (projectsList, projectObj) => {
@@ -38,7 +68,7 @@ const displayProject = (projectsList, projectObj) => {
   const table = document.createElement("table");
   table.setAttribute("id", `project${projectObj.projectID}`);
 
-// table scope
+  // table scope
   for (const property in projectObj) {
     fillTableRow(property, table, projectObj);
   }
@@ -47,7 +77,7 @@ const displayProject = (projectsList, projectObj) => {
   projectsList.insertAdjacentElement("beforeend", project);
 };
 
-// 
+//
 const fillTableRow = (property, table, projectObj) => {
   const row = document.createElement("tr");
 
@@ -65,12 +95,4 @@ const fillTableRow = (property, table, projectObj) => {
   table.insertAdjacentElement("beforeend", row);
 };
 
-// const testData = {
-//   name: "lindo",
-//   age: 200,
-//   height: 1.72,
-//   weight: "65kg",
-//   projectID: 69,
-// };
-
-// displayProject(projectsList, testData);
+window.onload = getProjectList(urls.allProjects);
