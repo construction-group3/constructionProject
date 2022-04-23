@@ -49,10 +49,10 @@
     </header>
 
     <main>
-      <section id="filterProjects">
-        <article>
+      <aside id="filterProjects">
+        <section>
           <form id="projectIDForm">
-            <label for="projectID">Enter Project ID:</label>
+            <label for="projectID">Filter by project ID:</label>
 
             <input
               class="formItem"
@@ -63,9 +63,9 @@
 
             <input class="formItem" type="submit" />
           </form>
-        </article>
+        </section>
 
-        <article>
+        <section>
           <label for="filterProjects">Filter by project status:</label>
           <select class="formItem" name="projectStatus" id="projectStatus">
             <option value="1">In progress</option>
@@ -73,13 +73,11 @@
             <option value="3">Overdue</option>
             <option value="4">Abandoned</option>
           </select>
-        </article>
-      </section>
+        </section>
+      </aside>
 
       <section id="displayProjects">
-          <ul id="projectsList">
-              
-          </ul>
+        <ul id="projectsList"></ul>
       </section>
     </main>
   </body>
