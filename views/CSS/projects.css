@@ -55,14 +55,19 @@ li {
 
 th {
   min-width: 20rem;
-  font-weight: lighter;
+  /* font-weight: lighter; */
+
+}
+
+tr:hover{
+  background-color: var(--lightBlue);
 }
 
 table {
   /* background-color: var(--grey); */
-  background-color:var(--grey) ;
+  background-color:var(--white) ;
 
-  color:lightblue ;
+  color:var(--grey) ;
 }
 
 @media screen and (max-width: 900px) {
@@ -83,6 +88,7 @@ table {
 
   th {
     min-width: 9rem;
+    padding: 0.3rem;
     /* font-size: small; */
   }
 
