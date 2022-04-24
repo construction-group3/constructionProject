@@ -14,11 +14,6 @@ const navContent = [
     link: "./Invoices.html",
     text: "Invoice",
   },
-  {
-    id: "teams",
-    link: "./teams.html",
-    text: "Teams",
-  },
 ];
 
 const header = document.getElementsByTagName("header")[0];
