@@ -53,3 +53,12 @@ a {
 li {
   list-style: none;
 }
+
+.formItem {
+  display: flex;
+  height: 2rem;
+  padding: 0.5rem;
+  margin: 1rem 0.5rem;
+  width: 100%;
+  outline: none;
+}

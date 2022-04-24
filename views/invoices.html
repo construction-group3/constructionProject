@@ -21,6 +21,14 @@
     <header></header>
 
     <main class="invoice-box">
+      <form id="invoiceForm">
+        <label for="clientID">Client ID:</label>
+
+        <input class="formItem" type="number" id="clientID" name="clientID" />
+        <button class="formItem" type="submit" class="button secondaryButton">
+          search
+        </button>
+      </form>
       <table cellpadding="0" cellspacing="0">
         <tr class="top">
           <td colspan="2">
@@ -30,12 +38,12 @@
                   <img src="./logo.png" width: 10%; max-width: 30px alt="logo"
                   />
                 </td>
-
+                <!-- 
                 <td>
                   <p>Best Company of value</p>
                   <p>Building strong houses</p>
                   <p>Better than anyone</p>
-                </td>
+                </td> -->
               </tr>
             </table>
           </td>
@@ -51,11 +59,7 @@
                   Johannesburg, GP
                 </td>
 
-                <td>
-                  Batcave co.<br />
-                  Minenhle Mncube<br />
-                  john@example.com
-                </td>
+                <td id="fullName"></td>
               </tr>
             </table>
           </td>
@@ -68,9 +72,9 @@
         </tr>
 
         <tr class="details">
-          <td>The Project is in progress</td>
+          <td id="statusDescription"></td>
 
-          <td>1</td>
+          <!-- <td id="">1</td> -->
         </tr>
 
         <tr class="heading">
@@ -80,15 +84,15 @@
         </tr>
 
         <tr class="item">
-          <td>1 bedroom</td>
+          <td id="rooms"></td>
 
-          <td>R5000.00</td>
+          <td id="paid"></td>
         </tr>
 
         <tr class="total">
           <td></td>
 
-          <td>BalanceInZAR: R5000.00</td>
+          <td id="balance"></td>
         </tr>
       </table>
     </main>
