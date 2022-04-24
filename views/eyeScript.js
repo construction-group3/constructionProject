@@ -1,10 +1,17 @@
-const togglePassword = document.querySelector('#togglePassword');
-  const password = document.querySelector('#id_password');
+const visibilityBtn = document.getElementById("visibilityBtn");
  
-  togglePassword.addEventListener('click', function (e) {
-    // toggle the type attribute
-    const type = password.getAttribute('type');
-    password.setAttribute('type', type === 'password' ? 'text' : 'password');
-    // toggle the eye slash icon
-    this.classList.toggle('fa-eye-slash');
-});
+  visibilityBtn.addEventListener('click', toogleVisibility) 
+  
+  function toogleVisibility(){
+    const password = document.getElementById("password");
+
+    const icon = document.getElementById("icon")
+    if(password.type === "password"){
+        password.type = "text"
+        icon.innerText = "visibility_off"
+    }
+    else{
+        password.type = "password"
+        icon.innerText = "visibility"
+    }
+} 
