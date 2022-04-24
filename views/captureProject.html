@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/x-icon" />
+    <title>Capture Project</title>
+    <link rel="stylesheet" href="./CSS/globalStyles.css">
+    <link rel="stylesheet" href="./CSS/navigation.css">
+    <link rel="stylesheet" href="./css/captureProject.css">
+    <script src="./Javascript/captureProject.js" defer></script>
+    <script src="./Javascript/navigation.js" defer></script>
+</head>
+<body>
+    <header></header>
+    <main>
+    <form id="addNewProjectForm" class="form-container" >
+        <h1>Add A New Project</h1>
+        <label for="ClentTitle">Title:</label>
+        <select class="formItem" name="TitleID" id="ClientTitle">
+            <option value="1">MR</option>
+            <option value="2">MRS</option>
+            <option value="3">MS</option>
+            <option value="4">DR</option>
+            <option value="5">PROF</option>
+            <option value="6">REV</option>
+        </select>
+        <label  for="LirstName">First Name:</label>
+        <input class="formItem clientFormInput" type="text" id="FirstName" name="FirstName" required>
+
+        <label  for="LastName">Last Name:</label>
+        <input class="formItem clientFormInput" type="text" id="LastName" name="LastName" required>
+
+        <label for="PhoneNumber">Phone Number:</label>
+        <input class="formItem clientFormInput" type="text" id="PhoneNumber" name="PhoneNumber" required>
+
+        <label for="Email">Email Addres:</label>
+        <input class="formItem clientFormInput" type="text" id="EmailAddress" name="EmailAddress" required>
+
+        <label for="address">Physical Address:</label>
+        <textarea class="formItem clientFormInput" rows="4" cols="30" name="PhyicalAddress" id="PhyicalAddress"
+            required></textarea>
+
+        <label for="TeamID">Select team:</label>
+        <select class="formItem" name="TeamID" id="TeamID">
+            <option value="2">avengers</option>
+            <option value="1">titans</option>
+            <option value="3">Justice league</option>
+        </select>
+
+        <label for="Houses">Select House:</label>
+        <select class="formItem" name="HouseID" id="houses">
+            <option value="1">1room</option>
+            <option value="2">2room</option>
+            <option value="3">3room</option>
+            <option value="4">4room</option>
+        </select>
+
+        <label for="ProjectLocation">Project Location:</label>
+        <input class="formItem" type="text" required name="ProjectLocation" placeholder="ProjectLocation">
+
+        <label for="AmountPaidInZAR">Amount Paid (ZAR):</label>
+        <input class="formItem" type="number" required name="Deposit" placeholder="AmountPaidInZAR">
+
+        <button id="submitForm" class="formItem formBtn" type="submit">submit</button>
+    </form>
+</main>
+    
+</body>
+</html>
