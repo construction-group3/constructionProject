@@ -7,7 +7,7 @@
 const navContent = [
   {
     id: "captureNewProject",
-    link: "./newClientForm.html",
+    link: "./captureProject.html",
     text: "Capture",
   },
   {
@@ -17,7 +17,7 @@ const navContent = [
   },
   {
     id: "Invoice",
-    link: "./Invoices.html",
+    link: "./invoices.html",
     text: "Invoice",
   },
   {
