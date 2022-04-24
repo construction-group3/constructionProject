@@ -1,14 +1,30 @@
 main {
   display: flex;
   flex-direction: row;
+  color: var(--black);
+  /* background-color: var(--black); */
+
   /* align-items: center;
   justify-content: center; */
+}
+.formItem {
+  display: flex;
+  height: 2rem;
+  padding: 0.5rem;
+  margin: 1rem 0.5rem;
+  width: 100%;
+  outline: none;
 }
 
 #filterProjects {
   display: flex;
   flex-direction: column;
-  margin: 2rem 0rem;
+  /* align-items: center; */
+  justify-content: center;
+  margin: 2rem 2rem;
+  background-color: var(--grey);
+  color: var(--yello);
+  max-height: 30vh;
 }
 
 aside {
@@ -17,6 +33,12 @@ aside {
 }
 
 #displayProjects {
+  /* background-image: linear-gradient(
+    90deg,
+    var(--grey) 50% 50%,
+    var(--yello) 50%
+  ); */
+  /* background-color: var(--grey); */
   flex: 3;
 }
 
@@ -25,7 +47,7 @@ aside {
   height: 2rem;
   padding: 0.5rem;
   margin: 0.5rem 0.5rem;
-  width: 100%;
+  width: 95%;
 }
 
 #projectsList {
@@ -41,12 +63,32 @@ li {
   margin: 1rem 0rem;
   /* border: 0.1rem solid var(--grey); */
   /* width: 100%; */
-  box-shadow: 0rem 1rem 5.1rem -1.9rem rgba(51, 51, 51, 0.87);
+  box-shadow: 0rem 1rem 5.1rem -1.9rem var(--greyOpacity);
 }
 
-/* th{
-    min-width: 20rem;
-} */
+th {
+  min-width: 20rem;
+  margin: 1rem 0rem;
+  padding: 1rem 1rem;
+  /* font-weight: lighter; */
+}
+
+tr {
+  margin: 20rem 0rem;
+  padding: 3rem 1rem;
+}
+
+tr:hover {
+  background-color: var(--lightBlue);
+  color: var(--black);
+}
+
+table {
+  /* background-color: var(--grey); */
+  background-color: var(--grey);
+
+  color: var(--yello);
+}
 
 @media screen and (max-width: 900px) {
   main {
@@ -55,15 +97,34 @@ li {
     align-items: center;
     justify-content: center;
   }
-  /* tr {
-    min-width: 40rem;
-    margin: 1rem 0.5rem;
-  } */
-  /* li {
-    margin-top: 5rem;
-  } */
+  #projectList ul {
+    height: 80vh;
+    overflow-x: scroll;
+  }
   table {
     overflow-x: scroll;
+  }
+
+  th {
+    min-width: 9rem;
+    padding: 0.3rem;
+    /* font-size: small; */
+  }
+
+  #filterProjects {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;
+    justify-content: center; */
+    width: 70vw;
+    margin: 2rem 2rem;
+    background-color: var(--grey);
+    color: var(--yello);
+    max-height: 30vh;
+  }
+
+  .formItem {
+    width: 90%;
   }
 
   /* th {

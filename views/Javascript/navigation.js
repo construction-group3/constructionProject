@@ -1,13 +1,7 @@
-// const headerContent = [
-//   {
-//     tag: "a",
-//   },
-// ];
-
 const navContent = [
   {
     id: "captureNewProject",
-    link: "./newClientForm.html",
+    link: "./captureProject.html",
     text: "Capture",
   },
   {
@@ -19,11 +13,6 @@ const navContent = [
     id: "Invoice",
     link: "./Invoices.html",
     text: "Invoice",
-  },
-  {
-    id: "teams",
-    link: "./teams.html",
-    text: "teams",
   },
 ];
 
@@ -108,15 +97,10 @@ const generateMenuIcon = () => {
   header.insertAdjacentElement("beforeend", closeMenu);
 };
 
-// const navButtons = Array.from(
-//   document.getElementsByClassName("material-symbols-outlined")
-// );
-
 const toggleNav = () => {
   const navButtons = Array.from(
     document.getElementsByClassName("material-symbols-outlined")
   );
-  console.log(navButtons);
   const navList = document.getElementsByClassName("navigationList")[0];
 
   navButtons.forEach((button) => {
