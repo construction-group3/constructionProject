@@ -23,7 +23,7 @@ const filterByStatus = (statusID) => {
   const url =
     statusID == 0
       ? urls.allProjects
-      : `http://localhost:3000/check-progress/${statusID}`;
+      : `http://localhost:3000/get-project-by-status/${statusID}`;
   getProjectList(url);
 };
 

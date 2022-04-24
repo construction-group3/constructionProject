@@ -4,6 +4,7 @@
   --yello: #ff9f00;
   --white: #fff;
   --lightBlue:lightblue;
+  --greyOpacity:rgba(51, 51, 51, 0.87),
 }
 
 * {
