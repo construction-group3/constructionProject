@@ -7,7 +7,7 @@
 const navContent = [
   {
     id: "captureNewProject",
-    link: "./newClientForm.html",
+    link: "./captureProject.html",
     text: "Capture",
   },
   {
@@ -23,7 +23,7 @@ const navContent = [
   {
     id: "teams",
     link: "./teams.html",
-    text: "teams",
+    text: "Teams",
   },
 ];
 
