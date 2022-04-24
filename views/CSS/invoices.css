@@ -69,17 +69,3 @@ main{
         text-align: center;
     }
 }
-
-/** Write from right to left **/
-.invoice-box.rtl {
-    direction: rtl;
-    font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-}
-
-.invoice-box.rtl{
-    text-align: right;
-}
-
-.invoice-box.rtl{
-    text-align: left;
-}
