@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="LoginStyle.css" />
 
     <script src="./scripts.js" defer></script>
+    <script src="./eyeScript.js" defer></script>
     <link rel="icon" href="logo.png" type="image/x-icon" />
 
     <title>Indlu construction</title>
@@ -35,9 +36,11 @@
           class="formItem"
           type="password"
           placeholder="Enter Password"
-          name="psw"
+          name="password"
           required
+          id="id_password"
         />
+        <i class="far fa-eye" id="togglePassword"></i>
 
         <button class = "button secondaryButton" class="formItem" type="submit">
           <a href="./index.html" Login>Login</a>
