@@ -1,96 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/invoices.css" />
+    <link rel="stylesheet" href="./css/globalStyles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link rel="stylesheet" href="./css/navigation.css" />
+    <script src="./Javascript/invoice.js" defer></script>
+    <script src="./Javascript/navigation.js" defer></script>
+    <title>Invoices</title>
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Indlu Construction</title>
-	<link rel="stylesheet" href="./css/invoices.css">
-	<link rel="stylesheet" href="./css/globalStyles.css">
-	<link rel="stylesheet" href="./css/navigation.css" />
-	<script src="./Javascript/invoice.js" defer></script>
-	<script src="./Javascript/navigation.js" defer></script>
-</head>
+  <body>
+    <header></header>
 
-<body>
-	<header>
+    <main class="invoice-box">
+      <form id="invoiceForm">
+        <label for="clientID">Client ID:</label>
 
-	</header>
+        <input class="formItem" type="number" id="clientID" name="clientID" />
+        <button class="formItem" type="submit" class="button secondaryButton">
+          search
+        </button>
+      </form>
+      <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+          <td colspan="2">
+            <table>
+              <tr>
+                <td class="title">
+                  <img src="./logo.png" width: 10%; max-width: 30px alt="logo"
+                  />
+                </td>
+                <!-- 
+                <td>
+                  <p>Best Company of value</p>
+                  <p>Building strong houses</p>
+                  <p>Better than anyone</p>
+                </td> -->
+              </tr>
+            </table>
+          </td>
+        </tr>
 
-	<main class="invoice-box">
-		<table cellpadding="0" cellspacing="0">
-			<tr class="top">
-				<td colspan="2">
-					<table>
-						<tr>
-							<td class="title">
-								<img src="./logo.png" width: 10%; max-width: 30px alt="logo" />
-							</td>
+        <tr class="information">
+          <td colspan="2">
+            <table>
+              <tr>
+                <td>
+                  Indlu Construction<br />
+                  Killarney<br />
+                  Johannesburg, GP
+                </td>
 
-							<td>
-								<p>Best Company of value</p>
-								<p>Building strong houses</p>
-								<p>Better than anyone</p>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
+                <td id="fullName"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
 
-			<tr class="information">
-				<td colspan="2">
-					<table>
-						<tr>
-							<td>
-								Indlu Construction<br />
-								Killarney<br />
-								Johannesburg, GP
-							</td>
+        <tr class="heading">
+          <td>Status Description</td>
 
-							<td>
-								Batcave co.<br />
-								Minenhle Mncube<br />
-								john@example.com
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
+          <td>Status ID #</td>
+        </tr>
 
-			<tr class="heading">
-				<td>Status Description</td>
+        <tr class="details">
+          <td id="statusDescription"></td>
 
-				<td>Status ID #</td>
-			</tr>
+          <!-- <td id="">1</td> -->
+        </tr>
 
-			<tr class="details">
-				<td>The Project is in progress</td>
+        <tr class="heading">
+          <td>HouseType</td>
 
-				<td>1</td>
-			</tr>
+          <td>AmountPaidInZAR</td>
+        </tr>
 
-			<tr class="heading">
-				<td>HouseType</td>
+        <tr class="item">
+          <td id="rooms"></td>
 
-				<td>AmountPaidInZAR</td>
-			</tr>
+          <td id="paid"></td>
+        </tr>
 
-			<tr class="item">
-				<td>1 bedroom</td>
+        <tr class="total">
+          <td></td>
 
-				<td>R5000.00</td>
-
-			</tr>
-
-
-			<tr class="total">
-				<td></td>
-
-				<td>BalanceInZAR: R5000.00</td>
-			</tr>
-		</table>
-	</main>
-</body>
-
+          <td id="balance"></td>
+        </tr>
+      </table>
+    </main>
+  </body>
 </html>

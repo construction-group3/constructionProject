@@ -3,6 +3,7 @@
   --black: #111;
   --yello: #ff9f00;
   --white: #fff;
+  --lightBlue:lightblue;
 }
 
 * {
@@ -52,4 +53,18 @@ a {
 
 li {
   list-style: none;
+}
+
+.formItem {
+  display: flex;
+  height: 2rem;
+  padding: 0.5rem;
+  margin: 1rem 0.5rem;
+  width: 100%;
+  outline: none;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--lightBlue);
 }

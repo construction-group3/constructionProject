@@ -57,7 +57,7 @@ const getAllProjects = async () => {
     const pool = await sql.connect(sqlConfig);
 
     let result1 = await pool.request().query(
-      `SELECT ProjectID,FirstName,LastName,HouseType,EstimatedDurationInMonths,teamName, ProjectLocation,AmountPaidInZAR,BalanceInZAR,StatusType FROM vw_AllProjects
+      `SELECT ProjectID,FirstName,LastName,HouseType,EstimatedDurationInMonths AS durationInMonths,teamName, ProjectLocation,AmountPaidInZAR,BalanceInZAR,StatusType FROM vw_AllProjects
         `
     );
     return result1.recordset;
