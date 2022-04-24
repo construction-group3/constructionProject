@@ -1,117 +1,96 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title>Indlu Construction</title>
-    <link rel="stylesheet" href="./css/invoices.css">
-    <link rel="stylesheet" href="./css/globalStyles.css">
-    <link rel="stylesheet" href="./css/navigation.css" />
-	</head>
+<html lang="en">
 
-	<body>
-    <header>
-      <a class="logo" href="Landing.html">
-        <img src="logo.png" alt="logo" width="70px" height="70px" />
-      </a>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Indlu Construction</title>
+	<link rel="stylesheet" href="./css/invoices.css">
+	<link rel="stylesheet" href="./css/globalStyles.css">
+	<link rel="stylesheet" href="./css/navigation.css" />
+	<script src="./Javascript/invoice.js" defer></script>
+	<script src="./Javascript/navigation.js" defer></script>
+</head>
 
-      <nav>
-        <ul class="navigationList toggle">
-          <li id="captureNewProject">
-            <a href="./newClientForm.html">Capture Project</a>
-          </li>
+<body>
+	<header>
 
-          <li id="projects">
-            <a href="./index.html">Projects</a>
-          </li>
+	</header>
 
-          <li id="invoice">
-            <a href="./invoices.html">Invoices</a>
-          </li>
+	<main class="invoice-box">
+		<table cellpadding="0" cellspacing="0">
+			<tr class="top">
+				<td colspan="2">
+					<table>
+						<tr>
+							<td class="title">
+								<img src="./logo.png" width: 10%; max-width: 30px alt="logo" />
+							</td>
 
-          <li id="teams">
-            <a href="./availableTeams.html">Teams</a>
-          </li>
-          <i class="material-symbols-outlined close"> close </i>
-        </ul>
-      </nav>
-      <button id="signout-btn" class="button secondaryButton">
-        <a href="./Login.html">Sign out</a>
-      </button>
-      <i class="material-symbols-outlined">menu</i>
-    </header>
+							<td>
+								<p>Best Company of value</p>
+								<p>Building strong houses</p>
+								<p>Better than anyone</p>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
 
-		<main class="invoice-box">
-			<table cellpadding="0" cellspacing="0">
-				<tr class="top">
-					<td colspan="2">
-						<table>
-							<tr>
-								<td class="title">
-									<img src="./logo.png" width: 10%; max-width: 30px alt="logo" />
-								</td>
+			<tr class="information">
+				<td colspan="2">
+					<table>
+						<tr>
+							<td>
+								Indlu Construction<br />
+								Killarney<br />
+								Johannesburg, GP
+							</td>
 
-								<td>
-                  <p>Best Company of value</p>
-									<p>Building strong houses</p>
-                  <p>Better than anyone</p>
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
+							<td>
+								Batcave co.<br />
+								Minenhle Mncube<br />
+								john@example.com
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
 
-				<tr class="information">
-					<td colspan="2">
-						<table>
-							<tr>
-								<td>
-									Indlu Construction<br />
-									Killarney<br />
-									Johannesburg, GP
-								</td>
+			<tr class="heading">
+				<td>Status Description</td>
 
-								<td>
-									Batcave co.<br />
-									Minenhle Mncube<br />
-									john@example.com
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
+				<td>Status ID #</td>
+			</tr>
 
-				<tr class="heading">
-					<td>Status Description</td>
+			<tr class="details">
+				<td>The Project is in progress</td>
 
-					<td>Status ID #</td>
-				</tr>
+				<td>1</td>
+			</tr>
 
-				<tr class="details">
-					<td>The Project is in progress</td>
+			<tr class="heading">
+				<td>HouseType</td>
 
-					<td>1</td>
-				</tr>
+				<td>AmountPaidInZAR</td>
+			</tr>
 
-				<tr class="heading">
-					<td>HouseType</td>
+			<tr class="item">
+				<td>1 bedroom</td>
 
-					<td>AmountPaidInZAR</td>
-				</tr>
+				<td>R5000.00</td>
 
-				<tr class="item">
-					<td>1 bedroom</td>
-
-					<td>R5000.00</td>
-          
-				</tr>
+			</tr>
 
 
-				<tr class="total">
-					<td></td>
+			<tr class="total">
+				<td></td>
 
-					<td>BalanceInZAR: R5000.00</td>
-				</tr>
-			</table>
-		</main>
-	</body>
+				<td>BalanceInZAR: R5000.00</td>
+			</tr>
+		</table>
+	</main>
+</body>
+
 </html>
