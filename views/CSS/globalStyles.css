@@ -67,5 +67,13 @@ li {
 
 body {
   overflow-x: hidden;
-  background-color: var(--lightBlue);
+  /* background-color: var(--lightBlue); */
+  width: 100vw;
+  height: 100vh;
+  /* background: linear-gradient(110deg, #ff9f00 60%, #333 60%); */
+  /* background: linear-gradient(#708090 , #ff8c00 ); */
+  background-image: url('../backpic.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }

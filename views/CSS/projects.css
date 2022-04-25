@@ -25,6 +25,8 @@ main {
   background-color: var(--grey);
   color: var(--yello);
   max-height: 30vh;
+  box-shadow: -2px 6px 49px 15px rgba(0,0,0,0.87);
+
 }
 
 aside {
