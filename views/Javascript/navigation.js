@@ -3,22 +3,36 @@ const navContent = [
     id: "captureNewProject",
     link: "./captureProject.html",
     text: "Capture",
+    active: "",
   },
   {
     id: "projects",
     link: "./projects.html",
     text: "Projects",
+    active: "",
   },
   {
     id: "Invoice",
     link: "./Invoices.html",
     text: "Invoice",
+    active: "",
   },
 ];
+
+const activePage = () => {
+  navContent.forEach((page) => {
+    if (`http://localhost:3000${page.link.slice(1)}` == window.location.href) {
+      page.active = "active";
+    } else {
+      page.active = "";
+    }
+  });
+};
 
 const header = document.getElementsByTagName("header")[0];
 
 const displayHeader = () => {
+  activePage();
   generateLogo();
   generateNav(navContent);
   generateSignOutBtn();
@@ -26,11 +40,16 @@ const displayHeader = () => {
   toggleNav();
 };
 
-const generateAnchorTag = (link, text) => {
+const generateAnchorTag = (link, text, activePage) => {
   const anchor = document.createElement("a");
   anchor.setAttribute("href", link);
   const linkText = document.createTextNode(text);
   anchor.appendChild(linkText);
+
+  if (activePage === "active") {
+    anchor.classList.add("current");
+  }
+
   return anchor;
 };
 
@@ -58,7 +77,14 @@ const generateNav = (navContent) => {
     const li = document.createElement("li");
     li.setAttribute("id", liContent.id);
 
-    const a = generateAnchorTag(liContent.link, liContent.text);
+    const a = generateAnchorTag(
+      liContent.link,
+      liContent.text,
+      liContent.active
+    );
+
+    if (Array.from(a.classList).includes("current"))
+      li.classList.add("currentPage");
     li.insertAdjacentElement("beforeend", a);
     ul.insertAdjacentElement("beforeend", li);
   });

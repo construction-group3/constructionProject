@@ -21,15 +21,16 @@ nav ul li {
   margin: 0rem 0.5rem;
 }
 
-/* nav ul li:hover {
-  border-bottom: 0.2rem solid var(--white);
-  padding: 0.5rem;
-  margin: 0rem 0.5rem;
-} */
-
 nav ul li a {
   text-decoration: none;
   color: var(--white);
+}
+li:hover {
+  border-bottom: 00.3rem solid var(--yello);
+}
+
+.currentPage {
+  border-bottom: 00.3rem solid var(--yello);
 }
 
 @media screen and (max-width: 900px) {
