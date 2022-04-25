@@ -55,9 +55,9 @@ const generateAnchorTag = (link, text, activePage) => {
 
 const generateLogo = () => {
   const anchor = document.createElement("a");
-  anchor.setAttribute("href", "./landing.html");
+  anchor.setAttribute("href", "./Login.html");
   const logo = document.createElement("img");
-  logo.setAttribute("src", "logo.png");
+  logo.setAttribute("src", "../images/logo.png");
   logo.setAttribute("alt", "logo");
   logo.setAttribute("width", "70px");
   logo.setAttribute("height", "70px");
