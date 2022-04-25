@@ -66,8 +66,6 @@ const getAllProjects = async () => {
   }
 };
 
-// getAllProjects()
-
 // SHOWS INVOICES USING THE CLIENT ID
 const getInvoice = async (clientID) => {
   try {
