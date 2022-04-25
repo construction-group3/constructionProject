@@ -41,13 +41,11 @@ const getProjectList = (url) => {
     });
 };
 
-// use destructuring
 const displayProject = (projectsList, projectObj) => {
   const project = document.createElement("li");
   const table = document.createElement("table");
   table.setAttribute("id", `project${projectObj.projectID}`);
 
-  // table scope
   for (const property in projectObj) {
     fillTableRow(property, table, projectObj);
   }
@@ -56,7 +54,6 @@ const displayProject = (projectsList, projectObj) => {
   projectsList.insertAdjacentElement("beforeend", project);
 };
 
-//
 const fillTableRow = (property, table, projectObj) => {
   const row = document.createElement("tr");
 

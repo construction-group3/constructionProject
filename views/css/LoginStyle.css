@@ -24,6 +24,8 @@ body {
     var(--yello) 39%,
     var(--grey) 39% 61%
   );
+  /* }  background-repeat: no-repeat;
+  background-position: center left; */
 }
 
 .form-container {
@@ -40,7 +42,7 @@ body {
     var(--yello) 22.5%,
     var(--grey) 22.5% 77%
   );
-  /* float: right; */
+  float: right;
   box-shadow: -2px 2px 31px 24px rgba(0, 0, 0, 0.38);
   width: 40vw;
 }
@@ -53,12 +55,13 @@ body {
   color: var(--black);
   width: 15vw;
 }
-.fa-eye {
-    position: relative;
-
-  margin-left: -40px;
+#detailsContainer .material-icons {
+    float: right;
+  margin-left: -25px;
+  margin-top: -35px;
+   color: var(--grey);
   cursor: pointer;
-  color: black;
+  
 }
 
 fieldset {
@@ -165,6 +168,8 @@ a {
     margin: 0.1rem 0rem;
     width: 35vw;
   }
+
+  
 }
 
 @media screen and (max-width: 600px) {
@@ -195,6 +200,9 @@ a {
     margin: 0.1rem 0rem;
     width: 35vw;
   }
+  #detailsContainer .material-icons {
+  margin-top: -30px;  
+}
 }
 
 @media (max-width: 320px) {
