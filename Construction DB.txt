@@ -1,0 +1,506 @@
+[4/20 5:36 PM] Andile Dimba
+USE master
+
+--Drop database if it already exists
+DROP DATABASE IF EXISTS ConstructionDB;
+CREATE DATABASE ConstructionDB;
+
+GO
+
+--select ConstructionDB database and perform SQL operations into that database
+USE ConstructionDB;
+
+GO
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+--CREATE TABLES
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+--Drop tables that already exists
+DROP TABLE IF EXISTS Titles,ProjectStatus,Houses,ProjectManagers,Contractor,Architectures,Clients,Teams,Projects
+GO
+
+
+CREATE TABLE Titles
+(
+TitleID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+Title VARCHAR(10) NOT NULL,
+) ;
+
+GO
+
+CREATE TABLE ProjectStatus
+(
+StatusID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+StatusType NVARCHAR(250) NOT NULL,
+StatusDescr NVARCHAR(500) NOT NULL,
+) ;
+GO
+
+CREATE TABLE Houses
+(
+HouseID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+HouseType NVARCHAR(50) NOT NULL,
+Cost MONEY NOT NULL,
+EstimatedDurationInMonths TINYINT NOT NULL,
+) ;
+GO
+
+CREATE TABLE ProjectManagers
+(
+ProjectManagerID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+TitleID INT NOT NULL,
+FirstName NVARCHAR(250) NOT NULL,
+LastName NVARCHAR(250) NOT NULL,
+PhysicalAddress NVARCHAR(500) NOT NULL,
+EmailAddress NVARCHAR(250) Null,
+PhoneNumber VARCHAR(10) NOT Null,
+
+ CONSTRAINT Fk_Titles_ProjectManagers FOREIGN KEY (TitleID) REFERENCES Titles (TitleID),
+
+) ;
+
+GO
+
+CREATE TABLE Contractors
+(
+ContractorID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+TitleID INT NOT NULL,
+FirstName NVARCHAR(250) NOT NULL,
+LastName NVARCHAR(250) NOT NULL,
+PhysicalAddress NVARCHAR(500) NOT NULL,
+EmailAddress NVARCHAR(250) Null,
+PhoneNumber VARCHAR(10) NOT Null,
+CONSTRAINT Fk_Titles_Contractor FOREIGN KEY (TitleID) REFERENCES Titles (TitleID),
+) ;
+
+GO
+
+CREATE TABLE Architectures
+(
+ArchitectID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+TitleID INT NOT NULL,
+FirstName NVARCHAR(250) NOT NULL,
+LastName NVARCHAR(250) NOT NULL,
+PhysicalAddress NVARCHAR(500) NOT NULL,
+EmailAddress NVARCHAR(250) NOT Null,
+PhoneNumber VARCHAR(10) NOT Null,
+CONSTRAINT Fk_Titles_Architectures FOREIGN KEY (TitleID) REFERENCES Titles (TitleID),
+
+) ;
+
+GO
+
+CREATE TABLE Clients
+(
+ClientID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+TitleID INT NOT NULL,
+FirstName NVARCHAR(250) NOT NULL,
+LastName NVARCHAR(250) NOT NULL,
+PhysicalAddress NVARCHAR(500) NOT NULL,
+EmailAddress NVARCHAR(250) NOT Null,
+PhoneNumber VARCHAR(10) NOT Null,
+CONSTRAINT Fk_Titles_Clients FOREIGN KEY (TitleID) REFERENCES Titles (TitleID),
+
+) ;
+
+GO
+
+CREATE TABLE Teams
+(
+TeamID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+TeamName NVARCHAR(250) NOT NULL,
+ProjectManagerID INT NOT NULL,
+ContractorID INT NOT NULL,
+ArchitectID INT NOT NULL,
+
+ CONSTRAINT Fk_TeamsProjectManagers FOREIGN KEY (ProjectManagerID) REFERENCES ProjectManagers (ProjectManagerID),
+CONSTRAINT Fk_TeamsContractors FOREIGN KEY (ContractorID) REFERENCES Contractors (ContractorID),
+CONSTRAINT Fk_TeamsArchitectures FOREIGN KEY (ArchitectID) REFERENCES Architectures (ArchitectID),
+
+) ;
+GO
+
+ CREATE TABLE Projects
+(
+ProjectID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+ClientID INT NOT NULL,
+TeamID INT NOT NULL,
+HouseID INT NOT NULL,
+ProjectLocation NVARCHAR(500) NOT NULL,
+AmountPaidInZAR MONEY NOT NULL,
+BalanceInZAR MONEY NOT NULL,
+StatusID INT NOT NULL
+
+
+CONSTRAINT Fk_Projects_Clients FOREIGN KEY (ClientID) REFERENCES Clients (ClientID),
+CONSTRAINT Fk_Projects_ProjectStatus FOREIGN KEY (StatusID) REFERENCES ProjectStatus (StatusID),
+CONSTRAINT Fk_Projects_Teams FOREIGN KEY (TeamID) REFERENCES Teams (TeamID),
+CONSTRAINT Fk_Projects_Houses FOREIGN KEY (HouseID) REFERENCES Houses (HouseID)
+
+
+) ;
+GO
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+--USER DEFINED FUNCTIONS
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE FUNCTION udf_GetCost
+(@HouseID INT,@Deposit MONEY)
+
+RETURNS MONEY
+AS
+BEGIN
+-- Return the result of the function
+RETURN ((SELECT Cost FROM Houses WHERE Houses.HouseID = @HouseID) - @Deposit )
+
+END
+GO
+
+--ID FILTER
+CREATE FUNCTION IDFilter (@ProjectID INT)
+RETURNS TABLE
+AS
+RETURN
+(
+
+SELECT ProjectID,ClientID,TeamID,HouseID, ProjectLocation,AmountPaidInZAR,BalanceInZAR,ProjectStatus.StatusType
+FROM Projects INNER JOIN ProjectStatus ON (Projects.StatusID = ProjectStatus.StatusID)
+WHERE ProjectID = @ProjectID
+)
+GO
+
+
+-------------------------
+CREATE FUNCTION StatusFilter (@statusID INT)
+RETURNS TABLE
+AS
+RETURN
+(
+
+SELECT teams.teamName,Houses.HouseType,EstimatedDurationInMonths,ProjectID,Clients.FirstName,Clients.LastName, ProjectLocation,AmountPaidInZAR,BalanceInZAR,StatusType
+FROM Projects
+INNER JOIN ProjectStatus
+ON (Projects.StatusID = ProjectStatus.StatusID)
+INNER JOIN Teams
+ON Projects.TeamID = Teams.TeamID
+INNER JOIN Clients
+ON Projects.ClientID = Clients.ClientID
+INNER JOIN Houses
+ON Projects.HouseID = Houses.HouseID
+WHERE Projects.StatusID = @StatusID
+)
+GO
+
+CREATE FUNCTION udf_Invoices (@ClientID INT)
+RETURNS TABLE
+AS
+RETURN
+(
+
+SELECT Titles.Title,FirstName,Clients.LastName,Houses.HouseType,AmountPaidInZAR,BalanceInZAR,ProjectStatus.StatusDescr
+FROM Projects INNER JOIN Clients ON (Projects.ClientID = Clients.ClientID)
+INNER JOIN Titles ON (Clients.TitleID = Titles.TitleID)
+INNER JOIN Houses ON (Projects.HouseID = Houses.HouseID)
+INNER JOIN ProjectStatus ON (Projects.StatusID = ProjectStatus.StatusID)
+WHERE Projects.ClientID = @ClientID
+)
+GO
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+--USER STORED PROCEDURES
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE PROCEDURE usp_InsertProjectManager(
+@TitleID INT,
+@FirstName NVARCHAR(250),
+@LastName NVARCHAR(250),
+@PhyicalAddress NVARCHAR(500),
+@EmailAddress NVARCHAR(250),
+@PhoneNumber VARCHAR(10))
+
+AS
+BEGIN
+BEGIN TRY
+IF @TitleID IS NOT NULL OR @FirstName IS NOT NULL OR @LastName IS NOT NULL OR @PhyicalAddress IS NOT NULL OR @EmailAddress IS NOT NULL OR @PhoneNumber IS NOT NULL
+INSERT INTO ProjectManagers (TitleID,FirstName,LastName,PhysicalAddress,EmailAddress,PhoneNumber)
+VALUES(@TitleID,@FirstName,@LastName,@PhyicalAddress,@EmailAddress,@PhoneNumber);
+END TRY
+BEGIN CATCH
+PRINT('Null Value(s) passed. Cannot Insert the PROJECT MANAGER Record')
+END CATCH
+END
+
+GO
+
+CREATE PROCEDURE usp_InsertContractor(
+@TitleID INT,
+@FirstName NVARCHAR(250),
+@LastName NVARCHAR(250),
+@PhyicalAddress NVARCHAR(500),
+@EmailAddress NVARCHAR(250),
+@PhoneNumber VARCHAR(10))
+AS
+BEGIN
+BEGIN TRY
+IF @TitleID IS NOT NULL OR @FirstName IS NOT NULL OR @LastName IS NOT NULL OR @PhyicalAddress IS NOT NULL OR @EmailAddress IS NOT NULL OR @PhoneNumber IS NOT NULL
+INSERT INTO Contractors(TitleID,FirstName,LastName,PhysicalAddress,EmailAddress,PhoneNumber)
+VALUES(@TitleID,@FirstName,@LastName,@PhyicalAddress,@EmailAddress,@PhoneNumber);
+END TRY
+BEGIN CATCH
+PRINT( 'Null Value(s) passed. Cannot Insert the CONTRACTOR Record')
+END CATCH
+END
+
+
+GO
+
+CREATE PROCEDURE usp_InsertArchitect(
+@TitleID INT,
+@FirstName NVARCHAR(250),
+@LastName NVARCHAR(250),
+@PhyicalAddress NVARCHAR(500),
+@EmailAddress NVARCHAR(250),
+@PhoneNumber VARCHAR(10))
+AS
+BEGIN
+BEGIN TRY
+IF @TitleID IS NOT NULL OR @FirstName IS NOT NULL OR @LastName IS NOT NULL OR @PhyicalAddress IS NOT NULL OR @EmailAddress IS NOT NULL OR @PhoneNumber IS NOT NULL
+INSERT INTO Architectures(TitleID,FirstName,LastName,PhysicalAddress,EmailAddress,PhoneNumber)
+VALUES(@TitleID,@FirstName,@LastName,@PhyicalAddress,@EmailAddress,@PhoneNumber);
+END TRY
+BEGIN CATCH
+PRINT('Null Value(s) passed. Cannot Insert Architect Record')
+END CATCH
+END
+
+GO
+
+CREATE PROCEDURE usp_InsertTeam(
+@TeamName NVARCHAR(250),
+@ProjectManagerID INT ,
+@ContractorID INT ,
+@ArchitectID INT)
+AS
+BEGIN
+
+BEGIN TRY
+IF @TeamName IS NOT NULL OR @ProjectManagerID IS NOT NULL OR @ContractorID IS NOT NULL OR @ArchitectID IS NOT NULL
+INSERT INTO Teams(TeamName,ProjectManagerID,ContractorID,ArchitectID)
+VALUES(@TeamName,@ProjectManagerID,@ContractorID,@ArchitectID);
+END TRY
+BEGIN CATCH
+PRINT('Null Value(s) passed. Cannot Insert TEAM Record')
+END CATCH
+END
+
+GO
+
+CREATE PROCEDURE sp_InsertProject(
+@TitleID INT,
+@FirstName NVARCHAR(250),
+@LastName NVARCHAR(250),
+@PhyicalAddress NVARCHAR(500),
+@EmailAddress NVARCHAR(250),
+@PhoneNumber VARCHAR(10),
+@TeamID INT,
+@HouseID INT,
+@ProjectLocation NVARCHAR(500),
+@Deposit MONEY)
+AS
+BEGIN
+BEGIN TRY
+
+
+DECLARE @StatusID INT
+SET @StatusID = 1
+
+ DECLARE @Balance MONEY
+SET @Balance = ConstructionDB.dbo.udf_GetCost(@HouseID,@Deposit)
+
+ BEGIN TRANSACTION
+IF NOT EXISTS (SELECT EmailAddress FROM Clients WHERE (EmailAddress = @EmailAddress) OR (PhoneNumber = @PhoneNumber) )
+INSERT INTO Clients (TitleID,FirstName,LastName,PhysicalAddress,EmailAddress,PhoneNumber)
+VALUES(@TitleID,@FirstName,@LastName,@PhyicalAddress,@EmailAddress,@PhoneNumber);
+
+ INSERT INTO Projects(ClientID,TeamID, HouseID ,ProjectLocation ,AmountPaidInZAR ,BalanceInZAR,StatusID)
+VALUES((SELECT SCOPE_IDENTITY() AS ClientId) ,@TeamID,@HouseID ,@ProjectLocation ,@Deposit ,@Balance,@StatusID);
+
+
+COMMIT TRANSACTION
+
+ END TRY
+BEGIN CATCH
+PRINT('CLIENT ALREADY EXISTS')
+ROLLBACK TRANSACTION
+END CATCH
+END
+
+GO
+
+CREATE PROCEDURE usp_UpdateStatus
+(@StatusID INT, @ProjectID INT)
+AS
+BEGIN
+BEGIN TRY
+IF(@StatusID IS NOT NULL OR @ProjectID IS NOT NULL)
+UPDATE Projects
+SET StatusID = @StatusID
+WHERE Projects.ProjectID = @ProjectID
+END TRY
+BEGIN CATCH
+PRINT('Null Value(s) passed. Cannot Update the Project Status Record')
+END CATCH
+END
+GO
+
+CREATE PROCEDURE usp_UpdateBalance
+(@Cash MONEY, @ProjectID INT)
+AS
+BEGIN
+BEGIN TRY
+IF(@Cash IS NOT NULL OR @ProjectID IS NOT NULL)
+UPDATE Projects
+SET AmountPaidInZAR = (AmountPaidInZAR + @Cash),
+BalanceInZAR = (BalanceInZAR - @Cash)
+
+WHERE Projects.ProjectID = @ProjectID
+END TRY
+BEGIN CATCH
+PRINT('Null Value(s) passed. Cannot Update the Project Status Record')
+END CATCH
+END
+GO
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+--VIEWS
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE VIEW AvalableTeams
+AS
+SELECT Teams.TeamID,TeamName
+FROM Teams
+INNER JOIN Projects
+ON
+Teams.TeamID = Projects.TeamID
+
+WHERE Projects.StatusID <> 1
+GO
+
+CREATE VIEW vw_AllProjects
+AS
+SELECT teams.teamName,Houses.HouseType,EstimatedDurationInMonths,ProjectID,Clients.FirstName,Clients.LastName, ProjectLocation,AmountPaidInZAR,BalanceInZAR,StatusType
+FROM Projects
+INNER JOIN ProjectStatus
+ON (Projects.StatusID = ProjectStatus.StatusID)
+INNER JOIN Teams
+ON Projects.TeamID = Teams.TeamID
+INNER JOIN Clients
+ON Projects.ClientID = Clients.ClientID
+INNER JOIN Houses
+ON Projects.HouseID = Houses.HouseID
+GO
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+--INSERT DATA INTO TABLES
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO Titles
+VALUES ('MR'),
+('Mrs'),
+('MISS'),
+('DR'),
+('REV')
+GO
+
+INSERT INTO ProjectStatus
+VALUES ('IN PROGRESS','The project is in progress'),
+('COMPLETE','The project is done'),
+('OVERDUE','The project took more than estimated days'),
+('ABANDONED','The project was cancelled');
+
+GO
+
+INSERT INTO Houses
+(HouseType,Cost,EstimatedDurationInMonths)
+VALUES
+('5 BEDROOOM',1000000,6),
+('4 BEDROOOM',850000,5),
+('3 BEDROOOM',800000,4),
+('2 BEDROOOM',750000,3),
+('1 BEDROOOM',650000,2)
+
+[4/20 5:36 PM] Andile Dimba
+GO
+-- INSERT PROJECT MANAGERS
+EXEC usp_InsertProjectManager @TitleID= 1,@FirstName = 'Anicky',@LastName = 'Dimba',@PhyicalAddress = 'new orleans',@EmailAddress = 'anickymak@gmail.com',@PhoneNumber = '0789456123'
+EXEC usp_InsertProjectManager @TitleID= 1,@FirstName = 'Lindokuhle',@LastName = 'Makhubele',@PhyicalAddress = 'new orleans',@EmailAddress = 'anickymak@gmail.com',@PhoneNumber = '0789456123'
+EXEC usp_InsertProjectManager @TitleID= 1,@FirstName = 'Anicky',@LastName = 'Shabalala',@PhyicalAddress = 'new orleans',@EmailAddress = 'anickymak@gmail.com',@PhoneNumber = '0789456123'
+
+-- INSERT ARCHITECTS
+EXEC usp_InsertArchitect @TitleID = 3,@FirstName = 'Anicky',@LastName = 'Makhubele',@PhyicalAddress = 'Aukland park',@EmailAddress = 'andiledimba@gmail.com',@PhoneNumber = '0456321789'
+EXEC usp_InsertArchitect @TitleID = 3,@FirstName = 'Andile',@LastName = 'Dimba',@PhyicalAddress = 'Aukland park',@EmailAddress = 'andiledimba@gmail.com',@PhoneNumber = '0456321789'
+EXEC usp_InsertArchitect @TitleID = 3,@FirstName = 'Lindokuhle',@LastName = 'Shabalala',@PhyicalAddress = 'Aukland park',@EmailAddress = 'andiledimba@gmail.com',@PhoneNumber = '0456321789'
+
+-- INSERT CONTRACTORS
+EXEC usp_InsertContractor @TitleID = 2,@FirstName = 'Anicky',@LastName = 'Makhubele',@PhyicalAddress = 'sandton',@EmailAddress = 'lindoshabalala@gmail.com',@PhoneNumber = '0789321456'
+EXEC usp_InsertContractor @TitleID = 2,@FirstName = 'Andile',@LastName = 'Dimba',@PhyicalAddress = 'sandton',@EmailAddress = 'lindoshabalala@gmail.com',@PhoneNumber = '0789321456'
+EXEC usp_InsertContractor @TitleID = 2,@FirstName = 'Lindokuhle',@LastName = 'Mshengu',@PhyicalAddress = 'sandton',@EmailAddress = 'lindoshabalala@gmail.com',@PhoneNumber = '0789321456'
+
+
+-- INSERT TEAMS
+EXEC usp_InsertTeam @TeamName ='Titans',@ProjectManagerID =1 ,@ContractorID = 2 ,@ArchitectID =1
+EXEC usp_InsertTeam @TeamName ='Avengers',@ProjectManagerID =2 ,@ContractorID = 3 ,@ArchitectID =3
+EXEC usp_InsertTeam @TeamName ='Justice League',@ProjectManagerID =3 ,@ContractorID = 1 ,@ArchitectID =2
+
+-- INSERT PROJECTS
+EXEC sp_InsertProject @TitleID = 4,@FirstName = 'Minnie',@LastName = 'Ncube',@PhyicalAddress = 'maboneng',@EmailAddress = 'minnieube@gmail.com',@PhoneNumber = 013456987,@TeamID = 1,@HouseID =3,@ProjectLocation = 'Msunduzi',@Deposit =50000
+EXEC sp_InsertProject @TitleID = 2,@FirstName = 'Minenhle',@LastName = 'Mncube',@PhyicalAddress = 'Hillbrow',@EmailAddress = 'minn@gmail.com',@PhoneNumber = 0698725645,@TeamID = 2,@HouseID =2,@ProjectLocation = 'Mhlabuyalingana',@Deposit =10000
+EXEC sp_InsertProject @TitleID = 2,@FirstName = 'Mlamuli',@LastName = 'Ndlovu',@PhyicalAddress = 'Killarney',@EmailAddress = 'mlaNdlovu@gmail.com',@PhoneNumber = 0698725333,@TeamID = 3,@HouseID =5,@ProjectLocation = 'Dubane',@Deposit =100000
+-- UPDATE AMOUNT PAID
+EXEC usp_UpdateBalance @Cash = 123,@ProjectID = 1
+
+-- UPDATE PROJECT STATUS
+EXEC usp_UpdateStatus @StatusID = 2, @ProjectID = 1
+
+GO
+
+
+-- CHECKING A PARTICULAR PROJECT USING A PROJECT ID
+SELECT ProjectID,ClientID,TeamID,HouseID, ProjectLocation,AmountPaidInZAR,BalanceInZAR,StatusType FROM IDFilter(1)
+GO
+
+-- CHECK PROGRESS USING PROJECT ID
+SELECT ProjectID,FirstName,LastName,HouseType,EstimatedDurationInMonths,teamName, ProjectLocation,AmountPaidInZAR,BalanceInZAR,StatusType FROM StatusFilter(1)
+
+GO
+
+-- CHECKING THE COMPLETED TEAMS
+SELECT ProjectID,FirstName,LastName,HouseType,EstimatedDurationInMonths,teamName, ProjectLocation,AmountPaidInZAR,BalanceInZAR,StatusType FROM StatusFilter(2)
+
+GO
+
+--SHOW AVAILABLE TEAMS
+SELECT TeamID,TeamName FROM AvalableTeams
+GO
+
+--CONFIRMS UPDATED STATUS
+SELECT ProjectID,FirstName,LastName,HouseType,EstimatedDurationInMonths,teamName, ProjectLocation,AmountPaidInZAR,BalanceInZAR,StatusType FROM StatusFilter(2)
+
+GO
+
+-- SHOWS ALL THE PROJECTS
+SELECT ProjectID,FirstName,LastName,HouseType,EstimatedDurationInMonths,teamName, ProjectLocation,AmountPaidInZAR,BalanceInZAR,StatusType FROM vw_AllProjects
+GO
+
+--SHOWS INVOICES USING THE CLIENT ID
+SELECT Title,FirstName,LastName,HouseType,AmountPaidInZAR,BalanceInZAR,StatusDescr FROM udf_Invoices(2)
+GO
+
